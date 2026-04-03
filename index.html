@@ -1,239 +1,194 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experiential Living</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experiential Living | Riverside Wellness Cottages</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin:0;
-    font-family: 'Poppins', sans-serif;
-    color:#333;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-/* HERO */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
-    background-size: cover;
-    color:#fff;
-    text-align:center;
-    padding:120px 20px;
-}
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
 
-.hero h1 {
-    font-size:40px;
-    margin-bottom:15px;
-}
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-.hero p {
-    font-size:18px;
-    margin-bottom:25px;
-}
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
 
-.btn {
-    padding:12px 25px;
-    margin:5px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
 
-.btn-primary {
-    background:#0b7d5c;
-    color:#fff;
-}
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
 
-.btn-outline {
-    background:transparent;
-    border:1px solid #fff;
-    color:#fff;
-}
+    .btn:hover {
+      background: #1b5e20;
+    }
 
-/* SECTION */
-.section {
-    padding:60px 20px;
-    max-width:1100px;
-    margin:auto;
-}
+    section {
+      padding: 60px 10%;
+      text-align: center;
+    }
 
-.section h2 {
-    text-align:center;
-    margin-bottom:30px;
-}
+    .section-light {
+      background: #f9f9f9;
+    }
 
-/* CARDS */
-.grid {
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-}
+    h2 {
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
 
-.card {
-    flex:1;
-    min-width:250px;
-    background:#f5f5f5;
-    padding:20px;
-    border-radius:10px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-/* DARK SECTION */
-.dark {
-    background:#0b3d3b;
-    color:#fff;
-}
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
 
-/* STATS */
-.stats {
-    display:flex;
-    justify-content:space-around;
-    text-align:center;
-}
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
 
-.stat h3 {
-    font-size:35px;
-    color:#0b7d5c;
-}
+    .highlight {
+      font-weight: 600;
+      color: #1b5e20;
+    }
 
-/* CTA */
-.cta {
-    background:#0b7d5c;
-    color:#fff;
-    text-align:center;
-    padding:50px 20px;
-}
-
-footer {
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:#fff;
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>प्रकृति के साथ जीना — यही है असली लक्ज़री</h1>
-    <p>स्वास्थ्य, शांति और प्राकृतिक जीवन का अनुभव</p>
-    <button class="btn btn-primary">प्रोजेक्ट जानें</button>
-    <button class="btn btn-outline">और पढ़ें</button>
-</section>
-
-<!-- PROBLEM -->
-<section class="section">
-    <h2>कंक्रीट के जंगल में हम क्या खो रहे हैं?</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>शारीरिक थकान</h3>
-            <p>स्क्रीन और कंक्रीट के बीच शरीर की ऊर्जा खत्म होती है</p>
-        </div>
-        <div class="card">
-            <h3>मानसिक तनाव</h3>
-            <p>भीड़ और भागदौड़ चिंता बढ़ाती है</p>
-        </div>
-        <div class="card">
-            <h3>भावनात्मक दूरी</h3>
-            <p>प्रकृति से दूर होकर संतुलन खो जाता है</p>
-        </div>
-    </div>
-</section>
-
-<!-- SOLUTION -->
-<section class="section dark">
-    <h2>नंगे पांव मिट्टी पर — एक गहरा उपचार</h2>
-    <p style="text-align:center;">
-        प्रकृति के संपर्क में आना तनाव कम करता है, नींद सुधारता है और ऊर्जा बढ़ाता है।
+<header>
+  <div>
+    <h1>Experiential Living</h1>
+    <p>
+      Rediscover life with nature — riverside cottages, open gardens, and holistic wellness
     </p>
+    <a href="#project" class="btn">Explore Project</a>
+  </div>
+</header>
+
+<section>
+  <h2>Back to Nature Living</h2>
+  <p>
+    आज का इंसान नंगे पांव मिट्टी पर चलने का सुकून भूल चुका है।
+    हम महंगे अपार्टमेंट्स में रहते हुए भी प्रकृति से दूर होते जा रहे हैं।
+    जबकि असली स्वास्थ्य — मानसिक, शारीरिक और भावनात्मक — प्रकृति के साथ जुड़ाव में ही है।
+  </p>
 </section>
 
-<!-- BENEFITS -->
-<section class="section">
-    <h2>प्रकृति के बीच रहना — एक ज़रूरी निवेश</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>तनाव में कमी</h3>
-        </div>
-        <div class="card">
-            <h3>फोकस बढ़ता है</h3>
-        </div>
-        <div class="card">
-            <h3>सकारात्मकता</h3>
-        </div>
+<section class="section-light">
+  <h2>Why Nature Matters</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Emotional Wellness</h3>
+      <p>हरियाली और पानी के पास रहना तनाव कम करता है और मन को शांति देता है।</p>
     </div>
-</section>
 
-<!-- WATER -->
-<section class="section">
-    <h2>जल स्रोतों के पास — भावनात्मक संतुलन</h2>
-    <div class="grid">
-        <div class="card">ध्वनि से शांति</div>
-        <div class="card">भावनात्मक स्थिरता</div>
-        <div class="card">प्राकृतिक प्रवाह</div>
+    <div class="card">
+      <h3>Physical Health</h3>
+      <p>मिट्टी पर चलना शरीर को ग्राउंड करता है और ऊर्जा संतुलन बढ़ाता है।</p>
     </div>
-</section>
 
-<!-- ABOUT -->
-<section class="section dark">
-    <h2>Experiential Living — घर नहीं, एक अनुभव</h2>
-    <p style="text-align:center;">
-        आज का खरीदार सिर्फ घर नहीं, Quality of Life चाहता है।
-    </p>
-</section>
-
-<!-- PROJECT -->
-<section class="section">
-    <h2>30 प्रीमियम कॉटेज — 50,000 वर्ग मीटर</h2>
-    <div class="stats">
-        <div class="stat">
-            <h3>30</h3>
-            <p>प्रीमियम कॉटेज</p>
-        </div>
-        <div class="stat">
-            <h3>50K</h3>
-            <p>वर्ग मीटर</p>
-        </div>
-        <div class="stat">
-            <h3>1</h3>
-            <p>नदी किनारे</p>
-        </div>
+    <div class="card">
+      <h3>Stress Reduction</h3>
+      <p>प्रकृति में समय बिताने से मानसिक थकान और चिंता कम होती है।</p>
     </div>
+  </div>
 </section>
 
-<!-- LIFESTYLE -->
-<section class="section dark">
-    <h2>हर दिन एक सुकून भरा अनुभव</h2>
-    <div class="grid">
-        <div class="card">खुला गार्डन और मिट्टी</div>
-        <div class="card">नदी किनारा जीवन</div>
-        <div class="card">परिवार के लिए स्वस्थ जीवन</div>
+<section id="project">
+  <h2>The Project</h2>
+  <p class="highlight">
+    50,000 sq. meter river-side land parcel with only 30 premium cottages
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Riverside Living</h3>
+      <p>शांत वातावरण, पानी की ध्वनि और प्राकृतिक संतुलन।</p>
     </div>
-</section>
 
-<!-- WELLNESS -->
-<section class="section">
-    <h2>वेलनेस और नेचुरोपैथी सेंटर</h2>
-    <div class="grid">
-        <div class="card">योग और ध्यान</div>
-        <div class="card">प्राकृतिक चिकित्सा</div>
-        <div class="card">डिटॉक्स और रिलैक्सेशन</div>
+    <div class="card">
+      <h3>Open Garden Spaces</h3>
+      <p>हर कॉटेज के साथ हरियाली और खुला जीवन अनुभव।</p>
     </div>
+
+    <div class="card">
+      <h3>Wellness Center</h3>
+      <p>योग, नेचुरोपैथी और holistic healing सुविधाएं।</p>
+    </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-    <h2>लक्ज़री की नई परिभाषा</h2>
-    <p>स्वास्थ्य, शांति और प्रकृति में निवेश करें</p>
-    <button class="btn btn-outline">अभी संपर्क करें</button>
+<section class="section-light">
+  <h2>Future of Luxury</h2>
+  <p>
+    आने वाले समय में असली लक्ज़री चार दीवारों में नहीं,
+    बल्कि प्रकृति के बीच होगी — खुला आसमान, मिट्टी, पानी और शांति।
+    यह सिर्फ घर नहीं, बल्कि एक healing lifestyle है।
+  </p>
+</section>
+
+<section>
+  <h2>Invest in Life, Not Just Property</h2>
+  <p>
+    आज का खरीदार सिर्फ घर नहीं खरीदता,
+    वह एक बेहतर जीवन, स्वास्थ्य और emotional wellness में निवेश करता है।
+  </p>
+
+  <a href="#" class="btn">Enquire Now</a>
 </section>
 
 <footer>
-    © Experiential Living | All Rights Reserved
+  <p>© 2026 Experiential Living | Riverside Wellness Project</p>
 </footer>
 
 </body>
