@@ -1,224 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Living the Moment | Experiential Living</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiential Living | Riverside Wellness Cottages</title>
 
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+<meta name="description" content="30 premium cottages in a 50,000 sq meter riverside land with wellness & naturopathy living. Experience life beyond possessions.">
 
-    h1, h2 {
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .hero {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-    }
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:#333;
+  scroll-behavior:smooth;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-    }
+.hero {
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 
-    .hero p {
-      max-width: 600px;
-      margin-top: 10px;
-    }
+.hero h1 {
+  font-size:3rem;
+}
 
-    .card {
-      background: #f5f5f5;
-      padding: 20px;
-      margin: 10px 0;
-      border-radius: 10px;
-    }
+.hero p {
+  max-width:600px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.btn {
+  margin-top:20px;
+  padding:12px 25px;
+  background:#00a86b;
+  color:white;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  text-decoration:none;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #222;
-      color: white;
-    }
-  </style>
+section {
+  padding:70px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2 {
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.highlight {
+  background:#f0fdf4;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  margin-top:20px;
+}
+
+.project {
+  background:#222;
+  color:white;
+  border-radius:15px;
+  padding:40px;
+}
+
+form input, form textarea {
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+footer {
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+/* Sticky CTA */
+.sticky {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:12px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <div class="hero">
   <h1>Living the Moment</h1>
   <h2>The New Age of Experiential Living</h2>
-  <p>We are living in a time where life is no longer measured by what we own — but by what we experience.</p>
+  <p>Life is no longer measured by what we own — but by what we experience.</p>
+  <a href="#contact" class="btn">Book Your Experience</a>
 </div>
 
-<!-- NEW ERA -->
+<!-- ERA -->
 <section>
   <h2>A New Era</h2>
-  <p>A silent yet powerful shift is happening in society.</p>
-  <p>Today, people don't just want to live…</p>
-  <p><strong>They want to feel, enjoy, and capture the moment.</strong></p>
-  <p>Welcome to the Era of Experiential Moments.</p>
+  <p style="text-align:center;">A silent yet powerful shift is happening in society.</p>
+  <p style="text-align:center;"><b>People want to feel, enjoy, and capture moments.</b></p>
 </section>
 
-<!-- FROM POSSESSION -->
+<!-- EXPERIENCE SHIFT -->
 <section>
   <h2>From Possessions to Experiences</h2>
-  <p>There was a time when success meant:</p>
-  <ul>
-    <li>Bigger homes</li>
-    <li>Expensive cars</li>
-    <li>Material wealth</li>
-  </ul>
-
-  <p>But today, success looks different:</p>
-  <ul>
-    <li>A sunrise captured on your phone</li>
-    <li>A peaceful evening in nature</li>
-    <li>A weekend that feels like a retreat</li>
-  </ul>
-
-  <p><strong>People are moving from "What do I have?" to "What did I feel?"</strong></p>
-</section>
-
-<!-- POWER OF MOMENTS -->
-<section>
-  <h2>The Power of Capturing Moments</h2>
-  <p>Social media has played a huge role in this transformation. Platforms like Instagram have made moments:</p>
-
   <div class="grid">
-    <div class="card">Shareable</div>
-    <div class="card">Memorable</div>
-    <div class="card">Communicable</div>
-    <div class="card">Expressable</div>
+    <div class="card">Sunrise moments</div>
+    <div class="card">Peaceful nature living</div>
+    <div class="card">Weekend retreats</div>
   </div>
-
-  <p>But beyond social sharing, people are becoming storytellers of their own lives.</p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>A Memory</h3>
-      <p>Every experience becomes something to look back on</p>
-    </div>
-    <div class="card">
-      <h3>A Story</h3>
-      <p>Every experience becomes a narrative worth sharing</p>
-    </div>
-    <div class="card">
-      <h3>A Feeling</h3>
-      <p>Every experience becomes a feeling that lasts</p>
-    </div>
+  <div class="highlight">
+    People are moving from <b>"What do I have?"</b> to <b>"What did I feel?"</b>
   </div>
 </section>
 
-<!-- WHY GROWING -->
+<!-- WHY -->
 <section>
   <h2>Why Experiential Living is Growing</h2>
-
   <div class="grid">
-    <div class="card">
-      <h3>Life Feels Too Fast</h3>
-      <p>Modern life is rushed and stressful. People crave meaningful pauses.</p>
-    </div>
-
-    <div class="card">
-      <h3>Emotional Fulfillment Matters</h3>
-      <p>Material success no longer guarantees happiness.</p>
-    </div>
-
-    <div class="card">
-      <h3>Nature is the New Luxury</h3>
-      <p>Clean air, open land, and silence have become rare — and valuable.</p>
-    </div>
-
-    <div class="card">
-      <h3>Moments Are the New Currency</h3>
-      <p>Memories & emotional value stay forever.</p>
-    </div>
+    <div class="card"><b>Life is Fast</b><br>People crave slow, meaningful moments</div>
+    <div class="card"><b>Emotional Fulfillment</b><br>Experiences bring real joy</div>
+    <div class="card"><b>Nature = Luxury</b><br>Clean air & silence are rare</div>
+    <div class="card"><b>Moments = Wealth</b><br>Memories last forever</div>
   </div>
 </section>
 
-<!-- EXPERIENCES -->
+<!-- LIFESTYLE -->
 <section>
-  <h2>What Experiential Moments Look Like</h2>
-
+  <h2>Experiential Lifestyle</h2>
   <ul>
-    <li>Morning walks through a lush orchard</li>
-    <li>Kids playing freely in natural surroundings</li>
-    <li>Hosting a bonfire night with friends</li>
-    <li>Watching sunsets without city noise</li>
-    <li>Sitting in solace sipping coffee and expressing inner self</li>
-    <li>Celebrating simple moments that feel extraordinary</li>
+    <li>Morning walks in orchards</li>
+    <li>Bonfire nights with friends</li>
+    <li>Kids playing freely</li>
+    <li>Sunsets without noise</li>
+    <li>Peaceful coffee moments</li>
   </ul>
+  <div class="highlight">
+    This is not a vacation — This is a lifestyle
+  </div>
+</section>
 
-  <p><strong>These are not vacations — This is a lifestyle.</strong></p>
+<!-- PROJECT SECTION -->
+<section class="project">
+  <h2>Introducing Experiential Living Project</h2>
+  <p style="text-align:center;">
+    🌿 30 Premium Cottages<br>
+    🌿 50,000 Sq. Meter Riverside Land<br>
+    🌿 Wellness & Naturopathy Center<br>
+    🌿 Designed for Healthy, Peaceful Living
+  </p>
+
+  <p style="text-align:center;">
+    A place where nature, wellness, and experiences come together.
+  </p>
 </section>
 
 <!-- SPACES -->
 <section>
   <h2>Spaces That Create Experiences</h2>
-
-  <ul>
-    <li>Offer connection with nature</li>
-    <li>Encourage togetherness</li>
-    <li>Create memorable experiences daily</li>
-  </ul>
-
-  <p><strong>Homes are no longer just structures — People need experience hubs.</strong></p>
+  <div class="grid">
+    <div class="card">Nature Connection</div>
+    <div class="card">Togetherness</div>
+    <div class="card">Daily Experiences</div>
+  </div>
 </section>
 
 <!-- FUTURE -->
 <section>
-  <h2>The Future is About Living Fully</h2>
-
-  <p>People want:</p>
-  <ul>
-    <li>Less Stress, More Meaning</li>
-    <li>Fewer Distractions, Deeper Experiences</li>
-  </ul>
-
-  <p>Because at the end of the day…</p>
-  <p>No one remembers emails, meetings, or deadlines.</p>
-
-  <p><strong>We remember: Laughter, Nature, People, Moments.</strong></p>
+  <h2>The Future is Living Fully</h2>
+  <p style="text-align:center;">
+    Less Stress • More Meaning<br>
+    Fewer Distractions • Deeper Experiences
+  </p>
 </section>
 
-<!-- FINAL -->
-<section>
-  <h2>Final Thought</h2>
-  <p>Life is not a race to accumulate things.</p>
-  <p>It is a journey to collect moments.</p>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Enquire Now</h2>
 
-  <p><strong>The real wealth of the future will not be what you own…</strong></p>
-  <p><strong>It will be the life you experienced and the moments you captured.</strong></p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <textarea placeholder="Your Message"></textarea>
+    <button class="btn">Submit</button>
+  </form>
 </section>
 
 <footer>
-  <p>© Experiential Living</p>
+  <p>© Experiential Living Project</p>
 </footer>
+
+<!-- WhatsApp -->
+<a class="sticky" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp Us</a>
 
 </body>
 </html>
