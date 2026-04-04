@@ -8,19 +8,92 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body { margin:0; font-family:Poppins; line-height:1.6; color:#333;}
-section { padding:80px 20px; text-align:center;}
-h1,h2 {margin-bottom:20px;}
-.overlay {background:rgba(0,0,0,0.55); color:white; padding:60px;}
-.hero {height:100vh; background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover; display:flex; align-items:center; justify-content:center;}
-.bg1{background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;}
-.bg2{background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover;}
-.bg3{background:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98') center/cover;}
-.bg4{background:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e') center/cover;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1000px;margin:auto;}
-.card{background:white;padding:20px;border-radius:10px;}
-ul{text-align:left;max-width:800px;margin:auto;}
-footer{background:#111;color:white;padding:30px;}
+body {
+  margin:0;
+  font-family:Poppins;
+  line-height:1.6;
+  color:#333;
+  background:#ffffff;
+}
+
+section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+h1,h2 {
+  margin-bottom:20px;
+}
+
+h2 {
+  color:#1b5e20;
+}
+
+.highlight {
+  color:#2e7d32;
+  font-weight:600;
+}
+
+.hero {
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.hero .box {
+  background:rgba(0,0,0,0.6);
+  padding:40px;
+  border-radius:10px;
+}
+
+.light {
+  background:#ffffff;
+}
+
+.soft {
+  background:#f5f9f6;
+}
+
+.dark {
+  background:#1b5e20;
+  color:white;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dark .card {
+  background:rgba(255,255,255,0.1);
+  color:white;
+}
+
+ul {
+  text-align:left;
+  max-width:800px;
+  margin:auto;
+}
+
+footer {
+  background:#111;
+  color:white;
+  padding:30px;
+}
 </style>
 </head>
 
@@ -28,137 +101,53 @@ footer{background:#111;color:white;padding:30px;}
 
 <!-- HERO -->
 <div class="hero">
-<div class="overlay">
-<h1>Experiential Living</h1>
-<h2>Where Life Meets Wellness & Nature</h2>
-<p>Life is no longer measured by what we own — but by what we experience.</p>
-</div>
+  <div class="box">
+    <h1>Experiential Living</h1>
+    <h2 style="color:#fff;">Where Life Meets Wellness & Nature</h2>
+    <p>Life is no longer measured by what we own — but by what we experience.</p>
+  </div>
 </div>
 
 <!-- PROBLEM -->
-<section class="bg1">
-<div class="overlay">
-<h2>Modern Life is Disconnecting Us</h2>
-<p>Concrete cities, stress, and fast life have disconnected us from nature.</p>
-<div class="grid">
-<div class="card">Physical Fatigue</div>
-<div class="card">Mental Stress</div>
-<div class="card">Emotional Disconnection</div>
-</div>
-</div>
+<section class="soft">
+  <h2>Modern Life is Disconnecting Us</h2>
+  <p>Concrete cities, stress, and fast life have disconnected us from nature.</p>
+
+  <div class="grid">
+    <div class="card">Physical Fatigue</div>
+    <div class="card">Mental Stress</div>
+    <div class="card">Emotional Disconnection</div>
+  </div>
 </section>
 
 <!-- NEW ERA -->
-<section>
-<h2>A New Era of Living</h2>
-<p>People don’t just want to live… they want to feel, enjoy, and capture moments.</p>
-<p><strong>Welcome to Experiential Living.</strong></p>
+<section class="light">
+  <h2>A New Era of Living</h2>
+  <p>People don’t just want to live…</p>
+  <p class="highlight">They want to feel, enjoy, and capture moments.</p>
 </section>
 
 <!-- SHIFT -->
-<section class="bg2">
-<div class="overlay">
-<h2>From Possessions to Experiences</h2>
-<ul>
-<li>Bigger Homes → Meaningful Living</li>
-<li>Luxury → Inner Peace</li>
-<li>Wealth → Emotional Fulfillment</li>
-</ul>
-</div>
+<section class="soft">
+  <h2>From Possessions to Experiences</h2>
+  <ul>
+    <li>Bigger Homes → Meaningful Living</li>
+    <li>Luxury → Inner Peace</li>
+    <li>Wealth → Emotional Fulfillment</li>
+  </ul>
 </section>
 
 <!-- EXPERIENCE -->
-<section>
-<h2>What Experiential Living Feels Like</h2>
-<ul>
-<li>Morning walks in orchards</li>
-<li>Bonfire nights</li>
-<li>Sunsets without noise</li>
-<li>Living close to nature</li>
-</ul>
-<p><strong>This is not a vacation — this is lifestyle.</strong></p>
+<section class="light">
+  <h2>What Experiential Living Feels Like</h2>
+  <ul>
+    <li>Morning walks in orchards</li>
+    <li>Bonfire nights</li>
+    <li>Sunsets without noise</li>
+    <li>Living close to nature</li>
+  </ul>
+  <p class="highlight">This is not a vacation — this is lifestyle.</p>
 </section>
 
 <!-- WELLNESS -->
-<section class="bg3">
-<div class="overlay">
-<h2>Wellness & Naturopathy Living</h2>
-<p>True luxury today is health, peace, and balance.</p>
-
-<div class="grid">
-<div class="card">
-<h3>Yoga & Meditation</h3>
-<p>Daily practices for inner peace</p>
-</div>
-
-<div class="card">
-<h3>Natural Healing</h3>
-<p>Reconnect with body's natural energy</p>
-</div>
-
-<div class="card">
-<h3>Detox & Relaxation</h3>
-<p>Rejuvenate mind and body</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- NATURE BENEFITS -->
-<section>
-<h2>Nature is the New Luxury</h2>
-<div class="grid">
-<div class="card">Less Stress</div>
-<div class="card">Better Focus</div>
-<div class="card">Emotional Balance</div>
-</div>
-</section>
-
-<!-- PROJECT -->
-<section class="bg4">
-<div class="overlay">
-<h2>A Premium Living Concept</h2>
-<p>30 Premium Cottages spread across 50,000 sq. meter riverside land.</p>
-<p>Designed for experiential living with wellness center.</p>
-
-<div class="grid">
-<div class="card"><h3>30</h3><p>Premium Cottages</p></div>
-<div class="card"><h3>50,000</h3><p>Sq Meter Land</p></div>
-<div class="card"><h3>Riverside</h3><p>Nature Location</p></div>
-</div>
-</div>
-</section>
-
-<!-- SPACES -->
-<section>
-<h2>Spaces That Create Experiences</h2>
-<ul>
-<li>Connection with nature</li>
-<li>Community living</li>
-<li>Daily memorable experiences</li>
-</ul>
-<p><strong>Homes are now experience hubs.</strong></p>
-</section>
-
-<!-- FUTURE -->
-<section class="bg2">
-<div class="overlay">
-<h2>The Future of Living</h2>
-<p>Less stress. More meaning.</p>
-<p><strong>People will invest in experiences, not just property.</strong></p>
-</div>
-</section>
-
-<!-- FINAL CTA -->
-<section>
-<h2>Luxury Redefined</h2>
-<p>Health. Peace. Nature.</p>
-<p><strong>The real wealth is the life you experience.</strong></p>
-</section>
-
-<footer>
-<p>© Experiential Living Project</p>
-</footer>
-
-</body>
-</html>
+<section class="dark">
