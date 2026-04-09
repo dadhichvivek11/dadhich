@@ -1,186 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
+      <!DOCTYPE html>
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experiential Living | Riverside Ecosystem</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiential Living</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
-      color: #333;
-      line-height: 1.6;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-    }
+<style>
+body {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    color:#333;
+}
 
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+    background-size: cover;
+    color:#fff;
+    text-align:center;
+    padding:120px 20px;
+}
 
-    header p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: auto;
-    }
+.hero h1 {
+    font-size:40px;
+    margin-bottom:15px;
+}
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.hero p {
+    font-size:18px;
+    margin-bottom:25px;
+}
 
-    .section h2 {
-      font-size: 32px;
-      color: #2c7a7b;
-      margin-bottom: 20px;
-    }
+.btn {
+    padding:12px 25px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
 
-    .highlight {
-      color: #2c7a7b;
-      font-weight: bold;
-    }
+.btn-primary {
+    background:#0b7d5c;
+    color:#fff;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+.btn-outline {
+    background:transparent;
+    border:1px solid #fff;
+    color:#fff;
+}
 
-    .card {
-      background: #f7fafc;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+/* SECTION */
+.section {
+    padding:60px 20px;
+    max-width:1100px;
+    margin:auto;
+}
 
-    .cta {
-      text-align: center;
-      background: #2c7a7b;
-      color: white;
-      padding: 60px 20px;
-    }
+.section h2 {
+    text-align:center;
+    margin-bottom:30px;
+}
 
-    .cta h2 {
-      margin-bottom: 20px;
-    }
+/* CARDS */
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
 
-    .cta button {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      background: white;
-      color: #2c7a7b;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+.card {
+    flex:1;
+    min-width:250px;
+    background:#f5f5f5;
+    padding:20px;
+    border-radius:10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #edf2f7;
-      font-size: 14px;
-    }
-  </style>
+/* DARK SECTION */
+.dark {
+    background:#0b3d3b;
+    color:#fff;
+}
+
+/* STATS */
+.stats {
+    display:flex;
+    justify-content:space-around;
+    text-align:center;
+}
+
+.stat h3 {
+    font-size:35px;
+    color:#0b7d5c;
+}
+
+/* CTA */
+.cta {
+    background:#0b7d5c;
+    color:#fff;
+    text-align:center;
+    padding:50px 20px;
+}
+
+footer {
+    text-align:center;
+    padding:20px;
+    background:#222;
+    color:#fff;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>Stop Selling Access.<br>Sell the Ecosystem.</h1>
-  <p>
-    A riverside experiential living project designed not as real estate,
-    but as a complete ecosystem of wellness, nature, and conscious living.
-  </p>
-</header>
-
-<section class="section">
-  <h2>Beyond Real Estate</h2>
-  <p>
-    Most developments sell <span class="highlight">access</span> — to amenities, location, and space.
-    <br><br>
-    We offer something fundamentally different:
-    <br><br>
-    <span class="highlight">An ecosystem where life transforms.</span>
-  </p>
+<!-- HERO -->
+<section class="hero">
+    <h1>प्रकृति के साथ जीना — यही है असली लक्ज़री</h1>
+    <p>स्वास्थ्य, शांति और प्राकृतिक जीवन का अनुभव</p>
+    <button class="btn btn-primary">प्रोजेक्ट जानें</button>
+    <button class="btn btn-outline">और पढ़ें</button>
 </section>
 
+<!-- PROBLEM -->
 <section class="section">
-  <h2>The Ecosystem</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>🌿 Nature as Infrastructure</h3>
-      <p>
-        50,000 sq. meter riverfront land where nature is not decoration—
-        it is the foundation of daily living.
-      </p>
+    <h2>कंक्रीट के जंगल में हम क्या खो रहे हैं?</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>शारीरिक थकान</h3>
+            <p>स्क्रीन और कंक्रीट के बीच शरीर की ऊर्जा खत्म होती है</p>
+        </div>
+        <div class="card">
+            <h3>मानसिक तनाव</h3>
+            <p>भीड़ और भागदौड़ चिंता बढ़ाती है</p>
+        </div>
+        <div class="card">
+            <h3>भावनात्मक दूरी</h3>
+            <p>प्रकृति से दूर होकर संतुलन खो जाता है</p>
+        </div>
     </div>
-
-    <div class="card">
-      <h3>🧘 Wellness as Lifestyle</h3>
-      <p>
-        Integrated naturopathy center, yoga, meditation, and preventive health—
-        built into everyday life.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🏡 Conscious Community</h3>
-      <p>
-        30 premium cottages designed for like-minded individuals seeking
-        simplicity, clarity, and meaningful living.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>✨ Experiences, Not Amenities</h3>
-      <p>
-        Sunrise rituals, barefoot walks, river meditation, and farm-to-table living—
-        curated daily experiences.
-      </p>
-    </div>
-  </div>
 </section>
 
-<section class="section">
-  <h2>Why This Matters</h2>
-  <p>
-    You are not buying a cottage.
-    <br><br>
-    You are entering a system where:
-    <br><br>
-    ✔ Health improves naturally  
-    <br>
-    ✔ Stress reduces organically  
-    <br>
-    ✔ Life slows down meaningfully  
-    <br><br>
-    <span class="highlight">
-      This is not a weekend escape. This is a new way of living.
-    </span>
-  </p>
+<!-- SOLUTION -->
+<section class="section dark">
+    <h2>नंगे पांव मिट्टी पर — एक गहरा उपचार</h2>
+    <p style="text-align:center;">
+        प्रकृति के संपर्क में आना तनाव कम करता है, नींद सुधारता है और ऊर्जा बढ़ाता है।
+    </p>
 </section>
 
+<!-- BENEFITS -->
+<section class="section">
+    <h2>प्रकृति के बीच रहना — एक ज़रूरी निवेश</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>तनाव में कमी</h3>
+        </div>
+        <div class="card">
+            <h3>फोकस बढ़ता है</h3>
+        </div>
+        <div class="card">
+            <h3>सकारात्मकता</h3>
+        </div>
+    </div>
+</section>
+
+<!-- WATER -->
+<section class="section">
+    <h2>जल स्रोतों के पास — भावनात्मक संतुलन</h2>
+    <div class="grid">
+        <div class="card">ध्वनि से शांति</div>
+        <div class="card">भावनात्मक स्थिरता</div>
+        <div class="card">प्राकृतिक प्रवाह</div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section dark">
+    <h2>Experiential Living — घर नहीं, एक अनुभव</h2>
+    <p style="text-align:center;">
+        आज का खरीदार सिर्फ घर नहीं, Quality of Life चाहता है।
+    </p>
+</section>
+
+<!-- PROJECT -->
+<section class="section">
+    <h2>30 प्रीमियम कॉटेज — 50,000 वर्ग मीटर</h2>
+    <div class="stats">
+        <div class="stat">
+            <h3>30</h3>
+            <p>प्रीमियम कॉटेज</p>
+        </div>
+        <div class="stat">
+            <h3>50K</h3>
+            <p>वर्ग मीटर</p>
+        </div>
+        <div class="stat">
+            <h3>1</h3>
+            <p>नदी किनारे</p>
+        </div>
+    </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section class="section dark">
+    <h2>हर दिन एक सुकून भरा अनुभव</h2>
+    <div class="grid">
+        <div class="card">खुला गार्डन और मिट्टी</div>
+        <div class="card">नदी किनारा जीवन</div>
+        <div class="card">परिवार के लिए स्वस्थ जीवन</div>
+    </div>
+</section>
+
+<!-- WELLNESS -->
+<section class="section">
+    <h2>वेलनेस और नेचुरोपैथी सेंटर</h2>
+    <div class="grid">
+        <div class="card">योग और ध्यान</div>
+        <div class="card">प्राकृतिक चिकित्सा</div>
+        <div class="card">डिटॉक्स और रिलैक्सेशन</div>
+    </div>
+</section>
+
+<!-- CTA -->
 <section class="cta">
-  <h2>Belong to the Ecosystem</h2>
-  <p>Limited 30 residences. Designed for a lifetime of transformation.</p>
-  <button>Request Details</button>
+    <h2>लक्ज़री की नई परिभाषा</h2>
+    <p>स्वास्थ्य, शांति और प्रकृति में निवेश करें</p>
+    <button class="btn btn-outline">अभी संपर्क करें</button>
 </section>
 
 <footer>
-  © 2026 Experiential Living Project | Riverside Ecosystem
+    © Experiential Living | All Rights Reserved
 </footer>
 
 </body>
