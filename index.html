@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Living the Moment — The New Age of Experiential Living</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Experiential Living — प्रकृति के साथ जीना</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Mukta:wght@300;400;500;600&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FAF6EF;
-    --warm-white: #FDF9F4;
-    --forest: #2D5016;
-    --moss: #4A7C2F;
-    --sage: #8FAF6A;
-    --earth: #8B5E3C;
-    --sand: #C9A97A;
-    --charcoal: #1C1C1C;
-    --mist: #E8EDE2;
-    --gold: #C4933A;
-    --deep-teal: #1A4A4A;
-    --sunset: #D4622A;
+    --forest: #1a3a2a;
+    --moss: #2d5a3d;
+    --sage: #5a8a6a;
+    --leaf: #7ab890;
+    --mist: #c8ddd0;
+    --cream: #f5f0e8;
+    --earth: #8b6914;
+    --water: #2a6b8a;
+    --water-light: #4a9bb5;
+    --gold: #c9a227;
+    --white: #fefef8;
+    --dark: #0d1f16;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,627 +26,624 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--cream);
-    color: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Mukta', sans-serif;
+    background: var(--dark);
+    color: var(--white);
     overflow-x: hidden;
   }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(13,31,22,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; letter-spacing: 2px; color: var(--leaf);
+  }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--mist);
+    font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ===== HERO ===== */
+  #hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: center; justify-content: center;
     overflow: hidden;
-    background: linear-gradient(160deg, #0f2a1a 0%, #1a4a2a 40%, #2d5016 70%, #1C3810 100%);
   }
-
-  .hero-bg-circles {
-    position: absolute; inset: 0; pointer-events: none;
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(42,107,138,0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 30%, rgba(45,90,61,0.4) 0%, transparent 50%),
+      linear-gradient(160deg, #0d1f16 0%, #1a2e1e 40%, #0a1a22 100%);
   }
-  .hero-bg-circles span {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.07;
-    background: radial-gradient(circle, #8FAF6A, transparent);
-    animation: floatCircle 12s ease-in-out infinite;
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: radial-gradient(circle, #7ab890 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-  .hero-bg-circles span:nth-child(1) { width: 600px; height: 600px; top: -150px; left: -100px; animation-delay: 0s; }
-  .hero-bg-circles span:nth-child(2) { width: 400px; height: 400px; bottom: -80px; right: 10%; animation-delay: 4s; }
-  .hero-bg-circles span:nth-child(3) { width: 300px; height: 300px; top: 30%; right: -60px; animation-delay: 8s; }
-
-  @keyframes floatCircle {
+  /* Animated floating orbs */
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(60px); opacity: 0.2; animation: float 8s ease-in-out infinite;
+  }
+  .orb-1 { width: 400px; height: 400px; background: var(--moss); top: -100px; left: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: var(--water); bottom: -50px; right: 10%; animation-delay: -3s; }
+  .orb-3 { width: 200px; height: 200px; background: var(--gold); top: 40%; right: 20%; animation-delay: -5s; }
+  @keyframes float {
     0%, 100% { transform: translateY(0) scale(1); }
     50% { transform: translateY(-30px) scale(1.05); }
   }
 
-  .hero-grain {
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
+  /* Decorative leaves */
+  .leaf-decor {
+    position: absolute; font-size: 8rem; opacity: 0.04;
+    animation: sway 6s ease-in-out infinite;
+  }
+  .leaf-1 { top: 15%; left: 5%; animation-delay: 0s; }
+  .leaf-2 { bottom: 20%; right: 8%; animation-delay: -2s; font-size: 6rem; }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
   }
 
   .hero-content {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    padding: 2rem;
-    animation: fadeUp 1.2s ease both;
+    position: relative; z-index: 2;
+    text-align: center; max-width: 900px; padding: 0 40px;
   }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow {
+  .hero-tag {
     display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--sage);
-    border: 1px solid rgba(143,175,106,0.4);
-    padding: 0.45rem 1.2rem;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    animation: fadeUp 1.2s 0.2s ease both;
+    border: 1px solid var(--gold);
+    color: var(--gold); font-size: 0.75rem;
+    letter-spacing: 4px; text-transform: uppercase;
+    padding: 6px 20px; margin-bottom: 32px;
+    border-radius: 2px;
+    animation: fadeUp 1s ease both;
   }
-
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 9vw, 8rem);
-    font-weight: 300;
-    line-height: 1.0;
-    color: var(--warm-white);
-    margin-bottom: 1rem;
-    animation: fadeUp 1.2s 0.35s ease both;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900; line-height: 1.1;
+    margin-bottom: 12px;
+    animation: fadeUp 1s ease 0.2s both;
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--sage);
+  .hero-title .accent { color: var(--leaf); }
+  .hero-subtitle-en {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.4rem;
+    color: var(--mist); opacity: 0.7; margin-bottom: 24px;
+    animation: fadeUp 1s ease 0.35s both;
   }
-
-  .hero-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-    font-weight: 300;
-    color: rgba(250,246,239,0.65);
-    max-width: 560px;
-    margin: 0 auto 3rem;
-    line-height: 1.6;
-    animation: fadeUp 1.2s 0.5s ease both;
+  .hero-desc {
+    font-size: 1.1rem; color: var(--mist); line-height: 1.8;
+    max-width: 600px; margin: 0 auto 48px;
+    animation: fadeUp 1s ease 0.5s both;
   }
+  .hero-cta {
+    display: flex; gap: 16px; justify-content: center;
+    animation: fadeUp 1s ease 0.65s both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    padding: 14px 36px; border: none; border-radius: 2px;
+    font-family: 'Mukta', sans-serif; font-weight: 600;
+    font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--leaf); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--mist);
+    padding: 14px 36px; border: 1px solid rgba(200,221,208,0.4); border-radius: 2px;
+    font-family: 'Mukta', sans-serif; font-size: 0.9rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--leaf); color: var(--leaf); }
 
   .hero-scroll {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    animation: fadeUp 1.2s 0.8s ease both;
-    cursor: pointer;
-  }
-  .hero-scroll span {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(143,175,106,0.7);
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--sage); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
+    animation: fadeIn 2s ease 1.5s both;
   }
   .scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, var(--sage), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
+    width: 1px; height: 60px; background: linear-gradient(to bottom, var(--sage), transparent);
+    animation: scrollPulse 2s ease infinite;
   }
   @keyframes scrollPulse {
-    0%,100% { opacity: 0.4; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    backdrop-filter: blur(16px);
-    background: rgba(15, 42, 26, 0.7);
-    border-bottom: 1px solid rgba(143,175,106,0.15);
-    transition: all 0.3s;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--warm-white);
-    letter-spacing: 0.05em;
-  }
-  .nav-logo em { color: var(--sage); font-style: italic; }
-  .nav-links {
-    display: flex; gap: 2.5rem; list-style: none;
-  }
-  .nav-links a {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(250,246,239,0.6);
-    text-decoration: none;
-    transition: color 0.25s;
-  }
-  .nav-links a:hover { color: var(--sage); }
-
-  /* ── SECTION WRAPPER ── */
-  section { padding: 7rem 2rem; }
-
-  .container { max-width: 1180px; margin: 0 auto; }
-
-  .section-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--moss);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--sage);
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--charcoal);
-    margin-bottom: 1.5rem;
-  }
-  .section-title em { font-style: italic; color: var(--moss); }
-
-  .section-body {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: #444;
-    max-width: 680px;
-  }
-
-  /* ── SHIFT SECTION ── */
-  .shift-section { background: var(--warm-white); }
-
-  .shift-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    margin-top: 4rem;
-  }
-
-  .shift-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--forest);
-    border-left: 3px solid var(--sage);
-    padding-left: 2rem;
-  }
-
-  .shift-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  /* Hero stats bar */
+  .hero-stats {
+    position: absolute; bottom: 0; width: 100%;
+    display: flex; justify-content: center;
+    background: linear-gradient(to right, rgba(13,31,22,0.9), rgba(26,58,42,0.9), rgba(13,31,22,0.9));
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(122,184,144,0.2);
+    animation: fadeUp 1s ease 0.8s both;
   }
   .stat-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    padding: 24px 60px; text-align: center;
+    border-right: 1px solid rgba(122,184,144,0.15);
   }
+  .stat-item:last-child { border-right: none; }
   .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--sage);
-    min-width: 80px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; color: var(--gold); font-weight: 700;
   }
-  .stat-desc {
-    padding-top: 0.5rem;
+  .stat-label { font-size: 0.75rem; color: var(--sage); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  .stat-desc strong {
-    display: block;
-    font-size: 1rem;
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 120px 60px; }
+  .section-tag {
+    font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px; display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.2; margin-bottom: 20px;
+  }
+  .section-lead {
+    font-size: 1.1rem; color: var(--mist); line-height: 1.8; max-width: 620px;
+  }
+
+  /* ===== PROBLEM SECTION ===== */
+  #problem {
+    background: linear-gradient(135deg, #111c14 0%, #0d1820 100%);
+    position: relative; overflow: hidden;
+  }
+  #problem::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 80px,
+      rgba(42,107,138,0.03) 80px, rgba(42,107,138,0.03) 81px
+    );
+  }
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px; margin-top: 64px;
+  }
+  .problem-card {
+    background: rgba(255,255,255,0.03);
+    padding: 48px 40px;
+    border: 1px solid rgba(122,184,144,0.08);
+    position: relative; overflow: hidden;
+    transition: all 0.4s;
+  }
+  .problem-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(to right, transparent, var(--sage), transparent);
+    transform: scaleX(0); transition: transform 0.4s;
+  }
+  .problem-card:hover::before { transform: scaleX(1); }
+  .problem-card:hover { background: rgba(122,184,144,0.06); transform: translateY(-4px); }
+  .problem-icon {
+    font-size: 2.5rem; margin-bottom: 24px; display: block;
+  }
+  .problem-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; margin-bottom: 12px; color: var(--leaf);
+  }
+  .problem-card p { color: var(--mist); line-height: 1.7; font-size: 0.95rem; }
+  .problem-intro {
+    max-width: 700px;
+  }
+  .problem-intro .section-title { color: var(--white); }
+  .problem-intro .section-title em {
+    font-style: italic; color: var(--water-light);
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  /* ===== NATURE PILLARS ===== */
+  #nature {
+    background: var(--dark);
+    position: relative;
+  }
+  .nature-header { text-align: center; max-width: 700px; margin: 0 auto 80px; }
+  .nature-tabs {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; margin-bottom: 0;
+    border: 1px solid rgba(122,184,144,0.15);
+  }
+  .nature-tab {
+    padding: 20px; text-align: center; cursor: pointer;
+    border-right: 1px solid rgba(122,184,144,0.15);
+    transition: all 0.3s; color: var(--sage);
+    font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
     font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 0.3rem;
   }
-  .stat-desc p {
-    font-size: 0.88rem;
-    color: #666;
-    line-height: 1.6;
+  .nature-tab:last-child { border-right: none; }
+  .nature-tab.active, .nature-tab:hover {
+    background: rgba(122,184,144,0.1); color: var(--leaf);
+  }
+  .nature-tab-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+
+  .nature-panel { display: none; }
+  .nature-panel.active { display: grid; grid-template-columns: 1fr 1fr; }
+  .nature-content {
+    padding: 64px; background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(122,184,144,0.1); border-top: none;
+  }
+  .nature-visual {
+    background: linear-gradient(135deg, #1a3a2a, #0d1820);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; position: relative; overflow: hidden;
+    border: 1px solid rgba(122,184,144,0.1); border-top: none; border-left: none;
+  }
+  .nature-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(122,184,144,0.1), transparent 70%);
+  }
+  .nature-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; margin-bottom: 8px;
+  }
+  .nature-content .subtitle {
+    color: var(--gold); font-size: 0.8rem; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 24px; display: block;
+  }
+  .nature-content p { color: var(--mist); line-height: 1.8; margin-bottom: 32px; }
+  .benefit-list { list-style: none; }
+  .benefit-list li {
+    padding: 12px 0; border-bottom: 1px solid rgba(122,184,144,0.1);
+    color: var(--mist); font-size: 0.95rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .benefit-list li::before {
+    content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0;
+  }
+  .benefit-list li:last-child { border-bottom: none; }
+
+  /* ===== EXPERIENTIAL SECTION ===== */
+  #experiential {
+    background: linear-gradient(135deg, var(--moss) 0%, #1a3a4a 100%);
+    position: relative; overflow: hidden;
+  }
+  #experiential::after {
+    content: 'EXPERIENTIAL'; position: absolute;
+    font-family: 'Playfair Display', serif; font-size: 15vw; font-weight: 900;
+    color: rgba(255,255,255,0.03); top: 50%; left: 50%;
+    transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none;
+  }
+  .exp-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 80px; align-items: center; position: relative; z-index: 1;
+  }
+  .exp-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.15; margin-bottom: 24px;
+  }
+  .exp-left h2 em {
+    font-style: italic; color: var(--gold);
+  }
+  .exp-left p { color: rgba(255,255,255,0.8); line-height: 1.9; margin-bottom: 32px; font-size: 1.05rem; }
+  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table th {
+    padding: 12px 20px; text-align: left;
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); border-bottom: 2px solid rgba(201,162,39,0.3);
+  }
+  .compare-table td {
+    padding: 14px 20px; font-size: 0.9rem; color: rgba(255,255,255,0.8);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .compare-table tr:hover td { background: rgba(255,255,255,0.05); }
+  .compare-table .arrow { color: var(--leaf); font-weight: 700; }
+  .compare-table .exp-val { color: var(--white); font-weight: 600; }
+
+  /* ===== PROJECT SECTION ===== */
+  #project {
+    background: var(--dark);
+  }
+  .project-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start; margin-top: 64px;
+  }
+  .project-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    margin-bottom: 48px;
+  }
+  .pstat {
+    background: rgba(255,255,255,0.03); padding: 40px 32px;
+    border: 1px solid rgba(122,184,144,0.1);
+    transition: all 0.3s;
+  }
+  .pstat:hover { background: rgba(122,184,144,0.06); }
+  .pstat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pstat-unit { font-size: 1rem; color: var(--sage); }
+  .pstat-label { font-size: 0.8rem; color: var(--mist); letter-spacing: 1px; margin-top: 4px; }
+  .pstat-desc { font-size: 0.8rem; color: var(--sage); margin-top: 6px; }
+
+  .project-features { list-style: none; }
+  .feature-item {
+    display: flex; gap: 20px; padding: 24px 0;
+    border-bottom: 1px solid rgba(122,184,144,0.1);
+    transition: all 0.3s;
+  }
+  .feature-item:hover { padding-left: 8px; }
+  .feature-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(122,184,144,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+    border: 1px solid rgba(122,184,144,0.2);
+  }
+  .feature-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--white); margin-bottom: 4px;
+  }
+  .feature-text p { font-size: 0.88rem; color: var(--sage); line-height: 1.6; }
+
+  /* Project map visual */
+  .project-map {
+    position: relative; height: 500px;
+    background: linear-gradient(160deg, #0a1a10, #0d1820, #111c14);
+    border: 1px solid rgba(122,184,144,0.15);
+    overflow: hidden;
+  }
+  .map-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 70%, rgba(42,107,138,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 30%, rgba(45,90,61,0.2) 0%, transparent 50%);
+  }
+  /* River */
+  .river-svg { position: absolute; bottom: 0; width: 100%; opacity: 0.6; }
+  .cottage-dot {
+    position: absolute; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid rgba(201,162,39,0.5);
+    box-shadow: 0 0 12px var(--gold);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 8px var(--gold); transform: scale(1); }
+    50% { box-shadow: 0 0 20px var(--gold); transform: scale(1.3); }
+  }
+  .map-label {
+    position: absolute; color: var(--leaf);
+    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+  }
+  .map-overlay {
+    position: absolute; bottom: 24px; left: 24px;
+    background: rgba(13,31,22,0.85); backdrop-filter: blur(8px);
+    border: 1px solid rgba(122,184,144,0.2);
+    padding: 16px 20px; border-radius: 2px;
+  }
+  .map-overlay .mo-title {
+    font-size: 0.7rem; color: var(--gold); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .map-overlay .mo-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; color: var(--mist); margin: 4px 0;
+  }
+  .mo-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
+    box-shadow: 0 0 6px var(--gold); flex-shrink: 0;
+  }
+  .mo-dot.blue { background: var(--water-light); box-shadow: 0 0 6px var(--water-light); }
+  .mo-dot.green { background: var(--leaf); box-shadow: 0 0 6px var(--leaf); }
+
+  /* ===== WELLNESS ===== */
+  #wellness {
+    background: linear-gradient(135deg, #0a1a22 0%, #111c14 50%, #0d1820 100%);
+    position: relative; overflow: hidden;
+  }
+  .wellness-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; margin-top: 64px;
+  }
+  .wellness-card {
+    padding: 56px 48px; background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(122,184,144,0.08);
+    position: relative; overflow: hidden; transition: all 0.4s;
+  }
+  .wellness-card:hover { background: rgba(42,107,138,0.08); }
+  .wcard-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900;
+    color: rgba(122,184,144,0.08); position: absolute;
+    top: 16px; right: 24px; line-height: 1; pointer-events: none;
+  }
+  .wcard-icon { font-size: 2rem; margin-bottom: 24px; display: block; }
+  .wellness-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--white); margin-bottom: 12px;
+  }
+  .wellness-card p { color: var(--mist); line-height: 1.75; font-size: 0.95rem; }
+  .wellness-card .wcard-tag {
+    display: inline-block; margin-top: 16px;
+    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--sage); border: 1px solid rgba(90,138,106,0.3);
+    padding: 4px 12px; border-radius: 2px;
   }
 
-  /* ── POSSESSIONS VS EXPERIENCES ── */
-  .compare-section {
-    background: linear-gradient(135deg, #1a3a1a 0%, #2D5016 50%, #1C3810 100%);
-    color: var(--warm-white);
+  /* ===== LIFESTYLE ===== */
+  #lifestyle {
+    background: var(--dark); padding: 120px 0;
   }
-  .compare-section .section-title { color: var(--warm-white); }
-  .compare-section .section-label { color: var(--sage); }
-
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    gap: 0;
-    margin-top: 4rem;
-    align-items: start;
+  .lifestyle-header { text-align: center; padding: 0 60px; margin-bottom: 80px; }
+  .lifestyle-scroll {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; padding: 0 60px;
   }
-
-  .compare-divider {
-    background: rgba(143,175,106,0.25);
-    height: 100%;
-    min-height: 340px;
+  .ls-card {
+    position: relative; overflow: hidden; aspect-ratio: 4/5;
+    background: linear-gradient(160deg, #1a3a2a, #0d1820);
+    cursor: pointer;
   }
-
-  .compare-col { padding: 0 3rem; }
-  .compare-col:first-child { padding-left: 0; }
-  .compare-col:last-child { padding-right: 0; }
-
-  .compare-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(143,175,106,0.2);
-    color: rgba(250,246,239,0.7);
+  .ls-card-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10rem; opacity: 0.07; transition: all 0.6s;
   }
-  .compare-col.new .compare-heading { color: var(--sage); }
-
-  .compare-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 1rem;
-    color: rgba(250,246,239,0.75);
-    transition: color 0.2s;
+  .ls-card:hover .ls-card-bg { opacity: 0.12; transform: scale(1.1); }
+  .ls-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 36px;
+    background: linear-gradient(to top, rgba(13,31,22,0.95), transparent);
   }
-  .compare-col.new .compare-item { color: var(--warm-white); }
-  .compare-item-icon {
-    width: 36px; height: 36px;
-    border-radius: 50%;
+  .ls-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--white); margin-bottom: 10px;
+  }
+  .ls-card p { color: var(--mist); font-size: 0.9rem; line-height: 1.6; }
+  .ls-card .ls-tag {
+    font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px; display: block;
+  }
+  .ls-card-accent {
+    position: absolute; top: 24px; right: 24px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3);
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .compare-col.old .compare-item-icon { background: rgba(255,255,255,0.07); }
-  .compare-col.new .compare-item-icon { background: rgba(143,175,106,0.2); }
-
-  .shift-arrow {
-    text-align: center;
-    margin-top: 3.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-style: italic;
-    color: var(--sage);
-    opacity: 0.9;
   }
 
-  /* ── WHY SECTION ── */
-  .why-section { background: var(--cream); }
+  /* ===== VISION ===== */
+  #vision {
+    background: linear-gradient(135deg, #0d1f16 0%, #1a2e1e 50%, #0d1820 100%);
+    text-align: center; padding: 140px 60px;
+    position: relative; overflow: hidden;
+  }
+  .vision-ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(122,184,144,0.1);
+  }
+  .vision-ring-1 { width: 400px; height: 400px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .vision-ring-2 { width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.6; }
+  .vision-ring-3 { width: 1000px; height: 1000px; top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.3; }
+  .vision-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .vision-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.4;
+    color: var(--white); margin-bottom: 32px; font-style: italic;
+  }
+  .vision-quote em { color: var(--gold); font-style: normal; }
+  .vision-sub { color: var(--mist); font-size: 1rem; line-height: 1.8; margin-bottom: 56px; }
+  .ideal-for {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 16px; margin-top: 64px;
+  }
+  .ideal-item {
+    padding: 24px 16px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(122,184,144,0.1);
+    font-size: 0.82rem; color: var(--mist); line-height: 1.5;
+    text-align: center; transition: all 0.3s;
+  }
+  .ideal-item:hover { background: rgba(122,184,144,0.08); color: var(--white); }
+  .ideal-item span { display: block; font-size: 1.6rem; margin-bottom: 10px; }
 
-  .why-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 4rem;
-  }
-
-  .why-card {
-    background: var(--warm-white);
-    border: 1px solid #e8e0d4;
-    border-radius: 16px;
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .why-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 60px rgba(45,80,22,0.1);
-  }
-  .why-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--sage), var(--moss));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .why-card:hover::before { opacity: 1; }
-
-  .why-card-icon {
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
-    display: block;
-  }
-  .why-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--forest);
-    margin-bottom: 0.8rem;
-  }
-  .why-card-body {
-    font-size: 0.92rem;
-    line-height: 1.75;
-    color: #555;
-  }
-  .why-card-number {
-    position: absolute;
-    top: 2rem; right: 2rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem;
-    font-weight: 300;
-    color: var(--mist);
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  /* ── MOMENTS SECTION ── */
-  .moments-section {
-    background: var(--warm-white);
-  }
-
-  .moments-masonry {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    gap: 1.2rem;
-    margin-top: 4rem;
-  }
-
-  .moment-card {
-    border-radius: 14px;
-    padding: 2rem 1.8rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  .moment-card:hover { transform: scale(1.02); }
-
-  .moment-card:nth-child(1) { background: #2D5016; grid-row: span 2; color: white; }
-  .moment-card:nth-child(2) { background: #F0EAE0; }
-  .moment-card:nth-child(3) { background: #C9A97A; color: white; }
-  .moment-card:nth-child(4) { background: #1A4A4A; color: white; }
-  .moment-card:nth-child(5) { background: #8FAF6A; color: white; grid-column: span 2; }
-  .moment-card:nth-child(6) { background: #F5EDD9; }
-
-  .moment-card-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
-  .moment-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.6rem;
-    line-height: 1.2;
-  }
-  .moment-card-body { font-size: 0.85rem; line-height: 1.65; opacity: 0.85; }
-
-  /* ── SPACES SECTION ── */
-  .spaces-section { background: #F5F0E8; }
-
-  .spaces-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  .space-item {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: white;
-    border-radius: 16px;
-    border: 1px solid #e0d8cc;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .space-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(45,80,22,0.12);
-  }
-  .space-icon {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--mist), white);
-    border: 2px solid var(--sage);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 1.8rem;
-  }
-  .space-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--forest);
-    margin-bottom: 0.7rem;
-  }
-  .space-body { font-size: 0.88rem; line-height: 1.7; color: #666; }
-
-  /* ── FUTURE SECTION ── */
-  .future-section {
-    background: linear-gradient(160deg, #0f2a1a 0%, #1a4a2a 60%, #2d5016 100%);
-    color: white;
-    text-align: center;
-  }
-  .future-section .section-title { color: white; font-size: clamp(2.8rem, 6vw, 5rem); }
-  .future-section .section-label { justify-content: center; }
-  .future-section .section-label::before { background: rgba(143,175,106,0.5); }
-
-  .future-pillars {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 4rem 0;
-  }
-
-  .pillar {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(143,175,106,0.2);
-    border-radius: 12px;
-    padding: 2rem 1.5rem;
-    transition: background 0.3s, transform 0.3s;
-  }
-  .pillar:hover {
-    background: rgba(143,175,106,0.1);
-    transform: translateY(-4px);
-  }
-  .pillar-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
-  .pillar-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--warm-white);
-  }
-  .pillar-sub { font-size: 0.8rem; color: rgba(250,246,239,0.5); margin-top: 0.4rem; line-height: 1.5; }
-
-  .future-vs {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    margin: 4rem 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(143,175,106,0.15);
-    border-radius: 20px;
-    padding: 3rem;
-  }
-  .vs-col { text-align: center; }
-  .vs-col-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,246,239,0.4); margin-bottom: 1.5rem; }
-  .vs-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    justify-content: center;
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .vs-col.less .vs-item { background: rgba(255,255,255,0.04); color: rgba(250,246,239,0.55); text-decoration: line-through; text-decoration-color: rgba(255,80,80,0.4); }
-  .vs-col.more .vs-item { background: rgba(143,175,106,0.12); color: var(--warm-white); }
-  .vs-arrow {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    color: var(--sage);
-    opacity: 0.7;
-  }
-
-  /* ── FINAL CTA ── */
-  .cta-section {
-    background: var(--cream);
-    text-align: center;
-    padding: 8rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta-section::before {
-    content: '"';
-    position: absolute;
-    top: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20rem;
-    color: rgba(143,175,106,0.07);
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .cta-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--forest);
-    max-width: 820px;
-    margin: 0 auto 2rem;
-    line-height: 1.5;
-    position: relative;
-  }
-  .cta-sub {
-    font-size: 1rem;
-    color: #666;
-    max-width: 480px;
-    margin: 0 auto 3rem;
-    line-height: 1.7;
-  }
-  .cta-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
+  /* ===== CTA ===== */
+  #cta {
     background: var(--forest);
-    color: var(--warm-white);
-    padding: 1rem 2.5rem;
-    border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    transition: background 0.3s, transform 0.3s;
-    cursor: default;
+    padding: 120px 60px;
+    position: relative; overflow: hidden;
   }
-  .cta-badge:hover { background: var(--moss); transform: scale(1.03); }
+  #cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(45,90,61,0.5), rgba(26,58,42,0.8));
+  }
+  .cta-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .cta-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; margin-bottom: 16px;
+  }
+  .cta-left p { color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 32px; }
+  .urgency-bar {
+    background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3);
+    padding: 16px 24px; display: flex; align-items: center; gap: 12px;
+    font-size: 0.85rem; color: var(--gold);
+  }
+  .urgency-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 1.5s infinite; }
+  .cta-right {
+    background: rgba(13,31,22,0.6); backdrop-filter: blur(12px);
+    border: 1px solid rgba(122,184,144,0.2); padding: 48px;
+  }
+  .cta-right h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; margin-bottom: 24px; color: var(--white);
+  }
+  .cta-form-field {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(122,184,144,0.2);
+    color: var(--white); padding: 14px 18px; width: 100%; margin-bottom: 12px;
+    font-family: 'Mukta', sans-serif; font-size: 0.9rem;
+    outline: none; transition: border-color 0.3s;
+  }
+  .cta-form-field::placeholder { color: rgba(200,221,208,0.4); }
+  .cta-form-field:focus { border-color: var(--leaf); }
+  .cta-submit {
+    width: 100%; background: var(--gold); color: var(--dark);
+    border: none; padding: 16px;
+    font-family: 'Mukta', sans-serif; font-weight: 600;
+    font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; margin-top: 8px;
+  }
+  .cta-submit:hover { background: var(--leaf); }
+  .cta-note { font-size: 0.75rem; color: var(--sage); text-align: center; margin-top: 12px; }
 
-  /* ── FOOTER ── */
+  /* ===== FOOTER ===== */
   footer {
-    background: var(--charcoal);
-    color: rgba(250,246,239,0.5);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    background: #070f0a; padding: 48px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(122,184,144,0.1);
   }
-  footer em { color: var(--sage); font-style: normal; }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--leaf); letter-spacing: 2px;
+  }
+  .footer-logo span { color: var(--gold); font-style: italic; }
+  .footer-tagline { font-size: 0.75rem; color: var(--sage); margin-top: 4px; letter-spacing: 2px; }
+  .footer-copy { font-size: 0.75rem; color: rgba(200,221,208,0.3); text-align: right; }
 
-  /* ── REVEAL ANIMATION ── */
+  /* ===== SCROLL REVEAL ===== */
   .reveal {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 0; transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
     .nav-links { display: none; }
-    .shift-grid, .compare-grid, .why-cards, .spaces-grid, .future-pillars { grid-template-columns: 1fr; }
-    .compare-divider { display: none; }
-    .compare-col { padding: 0 !important; margin-bottom: 2rem; }
-    .moments-masonry { grid-template-columns: 1fr; }
-    .moment-card:nth-child(1), .moment-card:nth-child(5) { grid-row: span 1; grid-column: span 1; }
-    .future-vs { grid-template-columns: 1fr; }
-    .vs-arrow { transform: rotate(90deg); }
+    section { padding: 80px 24px; }
+    .hero-stats { display: none; }
+    .problem-grid, .wellness-grid, .exp-grid,
+    .project-layout, .lifestyle-scroll, .cta-inner { grid-template-columns: 1fr; }
+    .nature-panel.active { grid-template-columns: 1fr; }
+    .nature-visual { height: 200px; }
+    .nature-tabs { grid-template-columns: 1fr 1fr 1fr; }
+    .ideal-for { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
   }
 </style>
 </head>
@@ -654,286 +651,528 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Living <em>the</em> Moment</div>
+  <div class="nav-logo">Experiential <span>Living</span></div>
   <ul class="nav-links">
-    <li><a href="#shift">The Shift</a></li>
-    <li><a href="#why">Why Now</a></li>
-    <li><a href="#moments">Moments</a></li>
-    <li><a href="#future">Future</a></li>
+    <li><a href="#problem">समस्या</a></li>
+    <li><a href="#nature">प्रकृति</a></li>
+    <li><a href="#project">प्रोजेक्ट</a></li>
+    <li><a href="#wellness">वेलनेस</a></li>
+    <li><a href="#cta" style="color:var(--gold)">संपर्क करें</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-circles">
-    <span></span><span></span><span></span>
-  </div>
-  <div class="hero-grain"></div>
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="leaf-decor leaf-1">🌿</div>
+  <div class="leaf-decor leaf-2">🍃</div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow">The New Age of Experiential Living</div>
-    <h1 class="hero-title">Living the<br><em>Moment</em></h1>
-    <p class="hero-subtitle">We are living in a time where life is no longer measured by what we own — but by what we experience.</p>
-    <div class="hero-scroll" onclick="document.getElementById('shift').scrollIntoView({behavior:'smooth'})">
-      <span>Explore</span>
-      <div class="scroll-line"></div>
+    <div class="hero-tag">नई सोच · नया जीवन · असली लक्ज़री</div>
+    <h1 class="hero-title">
+      प्रकृति के साथ जीना —<br>
+      <span class="accent">यही है असली लक्ज़री</span>
+    </h1>
+    <p class="hero-subtitle-en">Where Home Becomes an Experience</p>
+    <p class="hero-desc">
+      आज के शहरी जीवन में सुविधा तो मिल गई, लेकिन संतुलन खोता जा रहा है।
+      मिट्टी, हरियाली और जल — यही हमारे वास्तविक स्वास्थ्य के स्तंभ हैं।
+    </p>
+    <div class="hero-cta">
+      <a href="#project" class="btn-primary">प्रोजेक्ट जानें</a>
+      <a href="#nature" class="btn-outline">और पढ़ें</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">30</div>
+      <div class="stat-label">प्रीमियम कॉटेज</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50K</div>
+      <div class="stat-label">वर्ग मीटर</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1</div>
+      <div class="stat-label">नदी किनारे</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">जीवन की गुणवत्ता</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>नीचे देखें</span>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="problem-intro reveal">
+    <span class="section-tag">समस्या</span>
+    <h2 class="section-title">कंक्रीट के जंगल में<br><em>हम क्या खो रहे हैं?</em></h2>
+    <p class="section-lead">
+      शहरों में रहते हुए हमने अनजाने में अपने शरीर, मन और भावनाओं को प्रकृति से
+      अलग कर लिया है। जबकि इंसान की मूल संरचना प्रकृति के साथ जुड़ी हुई है।
+    </p>
+  </div>
+
+  <div class="problem-grid">
+    <div class="problem-card reveal">
+      <span class="problem-icon">🏙️</span>
+      <h3>शारीरिक थकान</h3>
+      <p>लगातार स्क्रीन और कंक्रीट के बीच रहने से शरीर की प्राकृतिक ऊर्जा खत्म होती है। शरीर को मिट्टी, धूप और ताज़ी हवा की ज़रूरत है जो शहर नहीं दे सकता।</p>
+    </div>
+    <div class="problem-card reveal" style="transition-delay:0.15s">
+      <span class="problem-icon">🧠</span>
+      <h3>मानसिक तनाव</h3>
+      <p>शोर, भीड़ और दौड़-भाग से चिंता और अवसाद बढ़ता है। प्रकृति से दूरी सीधे मस्तिष्क में कोर्टिसोल स्तर बढ़ाती है और सोचने की क्षमता घटाती है।</p>
+    </div>
+    <div class="problem-card reveal" style="transition-delay:0.3s">
+      <span class="problem-icon">💔</span>
+      <h3>भावनात्मक दूरी</h3>
+      <p>प्रकृति से विछुड़ने से अंदर की बेचैनी और खालीपन बढ़ता है। परिवार के साथ गुणवत्तापूर्ण समय नहीं मिलता और जीवन की सुंदरता दिखनी बंद हो जाती है।</p>
     </div>
   </div>
 </section>
 
-<!-- THE SHIFT -->
-<section class="shift-section" id="shift">
-  <div class="container">
-    <div class="section-label">A New Era</div>
-    <h2 class="section-title">A silent yet powerful<br><em>shift is happening</em></h2>
-    <p class="section-body">Today, people don't just want to live — they want to feel, enjoy, and capture the moment. Welcome to the Era of Experiential Moments, where the currency of a life well-lived is measured in depth, not dollars.</p>
+<!-- NATURE PILLARS -->
+<section id="nature">
+  <div class="nature-header reveal">
+    <span class="section-tag">प्राकृतिक उपचार</span>
+    <h2 class="section-title">तीन स्तंभ —<br>मिट्टी, हरियाली, जल</h2>
+    <p class="section-lead">विज्ञान ने साबित किया है कि इन तीन तत्वों के साथ जीना हमारे स्वास्थ्य पर गहरा सकारात्मक प्रभाव डालता है।</p>
+  </div>
 
-    <div class="shift-grid">
-      <div class="shift-quote reveal">"Life is not measured by the number of breaths you take, but by the moments that take your breath away."</div>
-      <div class="shift-stats">
-        <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-num">78%</div>
-          <div class="stat-desc">
-            <strong>Prefer Experiences Over Things</strong>
-            <p>Millennials and Gen Z now allocate more of their spending toward memorable experiences than material possessions.</p>
-          </div>
+  <div class="nature-tabs">
+    <div class="nature-tab active" onclick="switchTab('mitti')">
+      <span class="nature-tab-icon">🌱</span> मिट्टी
+    </div>
+    <div class="nature-tab" onclick="switchTab('hariyali')">
+      <span class="nature-tab-icon">🌳</span> हरियाली
+    </div>
+    <div class="nature-tab" onclick="switchTab('jal')">
+      <span class="nature-tab-icon">💧</span> जल
+    </div>
+  </div>
+
+  <div id="tab-mitti" class="nature-panel active">
+    <div class="nature-content">
+      <span class="subtitle">ग्राउंडिंग का विज्ञान</span>
+      <h2>नंगे पांव मिट्टी पर —<br>एक गहरा उपचार</h2>
+      <p>मिट्टी के संपर्क में आने से शरीर "ग्राउंड" होता है — यह "Earthing" कहलाता है। तनाव कम होता है, नींद बेहतर होती है और ऊर्जा का संतुलन बनता है।</p>
+      <ul class="benefit-list">
+        <li>नर्वस सिस्टम को शांति मिलती है</li>
+        <li>मानसिक थकान और चिंता कम होती है</li>
+        <li>शरीर में प्राकृतिक ऊर्जा लौटती है</li>
+        <li>नींद की गुणवत्ता में सुधार होता है</li>
+        <li>सूजन और दर्द में राहत मिलती है</li>
+      </ul>
+    </div>
+    <div class="nature-visual">🌱</div>
+  </div>
+
+  <div id="tab-hariyali" class="nature-panel">
+    <div class="nature-content">
+      <span class="subtitle">हरियाली का प्रभाव</span>
+      <h2>प्रकृति के बीच रहना —<br>एक ज़रूरी स्वास्थ्य निवेश</h2>
+      <p>पेड़ों, खुले आसमान और ताज़ी हवा के साथ रहना हमारे मानसिक स्वास्थ्य के लिए अत्यंत महत्वपूर्ण है। यह सिर्फ एक "लाइफस्टाइल चॉइस" नहीं, बल्कि एक ज़रूरी स्वास्थ्य निवेश है।</p>
+      <ul class="benefit-list">
+        <li>हरियाली के बीच रहने से कोर्टिसोल लेवल कम होता है</li>
+        <li>मन शांत रहता है, मनोदशा बेहतर होती है</li>
+        <li>प्रकृति में समय बिताने से एकाग्रता में सुधार होता है</li>
+        <li>रचनात्मकता और उत्पादकता बढ़ती है</li>
+        <li>खुले आसमान और ताज़ी हवा से व्यक्ति अधिक सकारात्मक रहता है</li>
+      </ul>
+    </div>
+    <div class="nature-visual">🌳</div>
+  </div>
+
+  <div id="tab-jal" class="nature-panel">
+    <div class="nature-content">
+      <span class="subtitle">जल का प्रभाव</span>
+      <h2>जल स्रोतों के पास —<br>भावनात्मक संतुलन</h2>
+      <p>झील, नदी या तालाब के पास रहने का प्रभाव और भी गहरा होता है। पानी की ध्वनि, उसकी स्थिरता और प्राकृतिक प्रवाह हमारे मन को शांत करता है।</p>
+      <ul class="benefit-list">
+        <li>पानी की आवाज़ मन को गहरी शांति देती है</li>
+        <li>अंदर की बेचैनी कम होती है</li>
+        <li>जल के पास रहने से भावनात्मक संतुलन बनता है</li>
+        <li>नदी का बहना हमें जीवन के प्रवाह से जोड़ता है</li>
+        <li>भीतरी शांति और स्पष्टता मिलती है</li>
+      </ul>
+    </div>
+    <div class="nature-visual">💧</div>
+  </div>
+</section>
+
+<!-- EXPERIENTIAL CONCEPT -->
+<section id="experiential">
+  <div class="exp-grid">
+    <div class="exp-left reveal">
+      <span class="section-tag">नई सोच</span>
+      <h2>Experiential Living —<br><em>घर नहीं, एक अनुभव</em></h2>
+      <p>
+        इन प्राकृतिक सिद्धांतों को ध्यान में रखते हुए एक नई सोच उभर रही है —
+        <strong>Experiential Living</strong>, जहाँ घर सिर्फ रहने की जगह नहीं,
+        बल्कि एक अनुभव बन जाता है।
+      </p>
+      <p>
+        आज का खरीदार सिर्फ स्क्वेयर फीट नहीं देख रहा — वह <strong>"Quality of Life"</strong>
+        खोज रहा है। वह ऐसी जगह चाहता है जहाँ उसका परिवार स्वस्थ रहे, बच्चे
+        प्रकृति से जुड़ें और जीवन में सुकून बना रहे।
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:0.2s">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>पारंपरिक</th>
+            <th></th>
+            <th>Experiential</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>स्क्वेयर फीट</td>
+            <td class="arrow">→</td>
+            <td class="exp-val">जीवन की गुणवत्ता</td>
+          </tr>
+          <tr>
+            <td>सुविधा</td>
+            <td class="arrow">→</td>
+            <td class="exp-val">स्वास्थ्य और शांति</td>
+          </tr>
+          <tr>
+            <td>निवेश</td>
+            <td class="arrow">→</td>
+            <td class="exp-val">जीवनशैली में निवेश</td>
+          </tr>
+          <tr>
+            <td>इमारत</td>
+            <td class="arrow">→</td>
+            <td class="exp-val">प्राकृतिक अनुभव</td>
+          </tr>
+          <tr>
+            <td>घर</td>
+            <td class="arrow">→</td>
+            <td class="exp-val">एक संसार</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT DETAILS -->
+<section id="project">
+  <div class="reveal">
+    <span class="section-tag">द प्रोजेक्ट</span>
+    <h2 class="section-title">30 प्रीमियम कॉटेज —<br>50,000 वर्ग मीटर में फैला एक अनूठा संसार</h2>
+    <p class="section-lead">नदी किनारे स्थित इस एक्सक्लूसिव प्रोजेक्ट में हर कॉटेज को प्रकृति के साथ सामंजस्य में डिज़ाइन किया गया है।</p>
+  </div>
+
+  <div class="project-layout">
+    <div>
+      <div class="project-stats reveal">
+        <div class="pstat">
+          <div class="pstat-num">30<span class="pstat-unit"></span></div>
+          <div class="pstat-label">प्रीमियम कॉटेज</div>
+          <div class="pstat-desc">सीमित और एक्सक्लूसिव</div>
         </div>
-        <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-num">3×</div>
-          <div class="stat-desc">
-            <strong>Longer Lasting Happiness</strong>
-            <p>Research shows experiences provide happiness that lasts three times longer than material purchases of equivalent value.</p>
-          </div>
+        <div class="pstat">
+          <div class="pstat-num">50K</div>
+          <div class="pstat-label">वर्ग मीटर</div>
+          <div class="pstat-desc">विशाल प्राकृतिक परिसर</div>
         </div>
-        <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-num">↑92%</div>
-          <div class="stat-desc">
-            <strong>Rise in Nature-Based Living</strong>
-            <p>Searches for eco-resorts, farm stays, and nature retreats have surged dramatically in recent years.</p>
+        <div class="pstat">
+          <div class="pstat-num">1</div>
+          <div class="pstat-label">नदी किनारे</div>
+          <div class="pstat-desc">अनूठी लोकेशन</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-num">∞</div>
+          <div class="pstat-label">अनुभव</div>
+          <div class="pstat-desc">हर दिन नया</div>
+        </div>
+      </div>
+
+      <ul class="project-features reveal">
+        <li class="feature-item">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-text">
+            <h4>खुला गार्डन और मिट्टी</h4>
+            <p>हर कॉटेज के पास खुला गार्डन — रोज़ाना नंगे पांव मिट्टी पर चलने का अनुभव</p>
           </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">🌊</div>
+          <div class="feature-text">
+            <h4>नदी का किनारा</h4>
+            <p>हर सुबह नदी की आवाज़ और ठंडी हवा के साथ जागना — आपकी रोज़मर्री की ज़िंदगी</p>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">👨‍👩‍👧‍👦</div>
+          <div class="feature-text">
+            <h4>परिवार के लिए स्वस्थ जीवन</h4>
+            <p>बच्चे प्रकृति से जुड़ें, परिवार स्वस्थ रहे — यहाँ जीवन में सुकून स्वाभाविक है</p>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">🧘</div>
+          <div class="feature-text">
+            <h4>वेलनेस और नेचुरोपैथी</h4>
+            <p>परिसर में विकसित वेलनेस सेंटर — योग, प्राकृतिक चिकित्सा, डिटॉक्स</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Interactive Map Visual -->
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="project-map">
+        <div class="map-bg"></div>
+        <svg class="river-svg" viewBox="0 0 600 150" preserveAspectRatio="none">
+          <path d="M0,80 Q100,40 200,80 Q300,120 400,80 Q500,40 600,80 L600,150 L0,150 Z"
+                fill="rgba(42,107,138,0.3)" stroke="rgba(74,155,181,0.4)" stroke-width="1"/>
+          <path d="M0,90 Q150,55 300,90 Q450,125 600,90"
+                fill="none" stroke="rgba(122,184,144,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
+        </svg>
+
+        <!-- Cottage dots -->
+        <div class="cottage-dot" style="top:20%;left:15%;animation-delay:0s"></div>
+        <div class="cottage-dot" style="top:25%;left:28%;animation-delay:0.2s"></div>
+        <div class="cottage-dot" style="top:15%;left:42%;animation-delay:0.4s"></div>
+        <div class="cottage-dot" style="top:30%;left:55%;animation-delay:0.1s"></div>
+        <div class="cottage-dot" style="top:18%;left:68%;animation-delay:0.5s"></div>
+        <div class="cottage-dot" style="top:35%;left:75%;animation-delay:0.3s"></div>
+        <div class="cottage-dot" style="top:28%;left:85%;animation-delay:0.6s"></div>
+        <div class="cottage-dot" style="top:40%;left:20%;animation-delay:0.2s"></div>
+        <div class="cottage-dot" style="top:45%;left:38%;animation-delay:0.4s"></div>
+        <div class="cottage-dot" style="top:38%;left:60%;animation-delay:0.1s"></div>
+        <div class="cottage-dot" style="top:10%;left:50%;animation-delay:0.3s"></div>
+        <div class="cottage-dot" style="top:22%;left:8%;animation-delay:0.5s"></div>
+
+        <div class="map-label" style="top:55%;left:15%; color: var(--water-light); font-size:0.75rem;">~ नदी ~</div>
+        <div class="map-label" style="top:5%;left:40%;">50,000 वर्ग मीटर</div>
+        <div class="map-label" style="top:10%;right:12%; color:var(--sage);">वेलनेस सेंटर</div>
+
+        <div class="map-overlay">
+          <div class="mo-title">मानचित्र संकेत</div>
+          <div class="mo-row"><div class="mo-dot"></div> प्रीमियम कॉटेज (30)</div>
+          <div class="mo-row"><div class="mo-dot blue"></div> नदी तटरेखा</div>
+          <div class="mo-row"><div class="mo-dot green"></div> हरित परिसर</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- POSSESSIONS VS EXPERIENCES -->
-<section class="compare-section" id="compare">
-  <div class="container">
-    <div class="section-label">The Great Transition</div>
-    <h2 class="section-title" style="color:var(--warm-white)">From Possessions<br><em style="color:var(--sage)">to Experiences</em></h2>
-
-    <div class="compare-grid">
-      <div class="compare-col old reveal">
-        <div class="compare-heading">Then — Success meant owning</div>
-        <div class="compare-item"><span class="compare-item-icon">🏠</span> Bigger homes & real estate</div>
-        <div class="compare-item"><span class="compare-item-icon">🚗</span> Expensive cars & luxury goods</div>
-        <div class="compare-item"><span class="compare-item-icon">💼</span> Material wealth & status symbols</div>
-        <div class="compare-item"><span class="compare-item-icon">📊</span> Titles, ranks, and net worth</div>
-        <div class="compare-item"><span class="compare-item-icon">🏆</span> Awards and accumulations</div>
-      </div>
-      <div class="compare-divider"></div>
-      <div class="compare-col new reveal reveal-delay-2">
-        <div class="compare-heading">Now — Success means feeling</div>
-        <div class="compare-item"><span class="compare-item-icon">🌅</span> A sunrise captured on your phone</div>
-        <div class="compare-item"><span class="compare-item-icon">🌿</span> A peaceful evening in nature</div>
-        <div class="compare-item"><span class="compare-item-icon">🏕️</span> A weekend that feels like a retreat</div>
-        <div class="compare-item"><span class="compare-item-icon">👨‍👩‍👧</span> Deep time with people you love</div>
-        <div class="compare-item"><span class="compare-item-icon">✨</span> Moments that become memories forever</div>
-      </div>
-    </div>
-    <p class="shift-arrow reveal">"People are moving from <strong>What do I have?</strong> &rarr; to <strong>What did I feel?</strong>"</p>
+<!-- WELLNESS -->
+<section id="wellness">
+  <div class="reveal" style="text-align:center; max-width:700px; margin:0 auto 0;">
+    <span class="section-tag">वेलनेस</span>
+    <h2 class="section-title">वेलनेस और नेचुरोपैथी सेंटर —<br>शरीर और मन का पुनर्जीवन</h2>
+    <p class="section-lead" style="margin:0 auto;">परिसर में विकसित वेलनेस सेंटर इस अनुभव को और भी समृद्ध बनाता है। यहाँ योग, प्राकृतिक चिकित्सा, डिटॉक्स और रिलैक्सेशन के माध्यम से व्यक्ति अपने शरीर और मन को पुनर्जीवित कर सकता है।</p>
   </div>
-</section>
 
-<!-- WHY EXPERIENTIAL LIVING IS GROWING -->
-<section class="why-section" id="why">
-  <div class="container">
-    <div class="section-label">Why Now</div>
-    <h2 class="section-title">Why Experiential<br><em>Living is Growing</em></h2>
-    <p class="section-body">Four converging forces are reshaping how people define a meaningful life in the modern age.</p>
-
-    <div class="why-cards">
-      <div class="why-card reveal">
-        <span class="why-card-number">01</span>
-        <span class="why-card-icon">⚡</span>
-        <div class="why-card-title">Life Feels Too Fast</div>
-        <p class="why-card-body">Modern life is rushed, over-scheduled, and saturated with noise. People are craving genuine pauses — moments of stillness they can truly inhabit and savour. The antidote to speed isn't more productivity; it's depth of presence.</p>
-      </div>
-      <div class="why-card reveal reveal-delay-1">
-        <span class="why-card-number">02</span>
-        <span class="why-card-icon">💚</span>
-        <div class="why-card-title">Emotional Fulfillment Matters</div>
-        <p class="why-card-body">Material success no longer guarantees happiness. Study after study confirms that experiences — not objects — create sustained emotional wellbeing. Joy, laughter, and connection are the new prosperity metrics that truly matter.</p>
-      </div>
-      <div class="why-card reveal reveal-delay-2">
-        <span class="why-card-number">03</span>
-        <span class="why-card-icon">🌿</span>
-        <div class="why-card-title">Nature is the New Luxury</div>
-        <p class="why-card-body">Clean air, open land, birdsong, and genuine silence have become rare — and therefore precious. In a world of urbanisation and digital saturation, access to nature is the ultimate privilege and the most restorative experience available.</p>
-      </div>
-      <div class="why-card reveal reveal-delay-3">
-        <span class="why-card-number">04</span>
-        <span class="why-card-icon">💎</span>
-        <div class="why-card-title">Moments Are the New Currency</div>
-        <p class="why-card-body">Memory and emotional value have become the most durable investment. A breathtaking view doesn't depreciate. A shared meal never loses value. People invest in experiences precisely because, unlike possessions, they live in you forever.</p>
-      </div>
+  <div class="wellness-grid">
+    <div class="wellness-card reveal">
+      <div class="wcard-num">01</div>
+      <span class="wcard-icon">🧘‍♀️</span>
+      <h3>योग और ध्यान</h3>
+      <p>दैनिक योग सत्र और ध्यान के माध्यम से आंतरिक शांति। नदी किनारे सूर्योदय का ध्यान — एक अद्भुत अनुभव जो शहर में संभव नहीं।</p>
+      <span class="wcard-tag">Daily Sessions</span>
+    </div>
+    <div class="wellness-card reveal" style="transition-delay:0.15s">
+      <div class="wcard-num">02</div>
+      <span class="wcard-icon">🌿</span>
+      <h3>प्राकृतिक चिकित्सा</h3>
+      <p>नेचुरोपैथी उपचार से शरीर की प्राकृतिक क्षमता को जागृत करना। दवाओं के बिना, प्रकृति की शक्ति से उपचार — यही असली स्वास्थ्य है।</p>
+      <span class="wcard-tag">Naturopathy</span>
+    </div>
+    <div class="wellness-card reveal" style="transition-delay:0.3s">
+      <div class="wcard-num">03</div>
+      <span class="wcard-icon">💎</span>
+      <h3>डिटॉक्स और रिलैक्सेशन</h3>
+      <p>शरीर और मन की गहरी सफाई और विश्राम के लिए विशेष कार्यक्रम। शहर की थकान और तनाव को पूरी तरह छोड़ने का अवसर।</p>
+      <span class="wcard-tag">Detox Programs</span>
+    </div>
+    <div class="wellness-card reveal" style="transition-delay:0.45s">
+      <div class="wcard-num">04</div>
+      <span class="wcard-icon">👨‍👩‍👧</span>
+      <h3>परिवार के लिए कार्यक्रम</h3>
+      <p>बच्चों और परिवार के लिए विशेष प्रकृति-आधारित गतिविधियाँ। मिट्टी से खेलना, पेड़ लगाना, नदी में तैरना — ये यादें जीवनभर रहती हैं।</p>
+      <span class="wcard-tag">Family Wellness</span>
     </div>
   </div>
 </section>
 
-<!-- WHAT EXPERIENTIAL MOMENTS LOOK LIKE -->
-<section class="moments-section" id="moments">
-  <div class="container">
-    <div class="section-label">The Everyday Magic</div>
-    <h2 class="section-title">What Experiential<br><em>Moments Look Like</em></h2>
-    <p class="section-body">Imagine living a life where every day offers something worth capturing — not as a holiday, but as a way of being.</p>
-
-    <div class="moments-masonry">
-      <div class="moment-card reveal">
-        <span class="moment-card-emoji">🌄</span>
-        <div class="moment-card-title">Morning Walks Through a Lush Orchard</div>
-        <p class="moment-card-body">Beginning each day with dew on the grass, birdsong in the trees, and the scent of blossoms. Not a walk to reach a destination — a walk to feel alive in every step. This is how days should begin.</p>
-      </div>
-      <div class="moment-card reveal reveal-delay-1">
-        <span class="moment-card-emoji">🧒</span>
-        <div class="moment-card-title">Kids Playing Freely</div>
-        <p class="moment-card-body">Children discovering the world in open, natural space — the purest form of experiential living. No screens, just wonder.</p>
-      </div>
-      <div class="moment-card reveal reveal-delay-2">
-        <span class="moment-card-emoji">🔥</span>
-        <div class="moment-card-title">Bonfire Nights with Friends</div>
-        <p class="moment-card-body">Laughter under open stars, warmth against the night chill, stories that last a lifetime. Memories forged in firelight.</p>
-      </div>
-      <div class="moment-card reveal reveal-delay-1">
-        <span class="moment-card-emoji">🌇</span>
-        <div class="moment-card-title">Sunsets Without City Noise</div>
-        <p class="moment-card-body">The sky painting itself in gold and rose, undisturbed. Moments of pure visual poetry that replenish the soul.</p>
-      </div>
-      <div class="moment-card reveal reveal-delay-2">
-        <span class="moment-card-emoji">☕</span>
-        <div class="moment-card-title">Sitting in Solace — Sipping, Feeling, Being</div>
-        <p class="moment-card-body">A cup of coffee held with both hands, the aroma rising, the mind settling. The art of being fully present in a single sensory moment. This is meditation in its most accessible form — just you, the warmth, and the now.</p>
-      </div>
-      <div class="moment-card reveal reveal-delay-3">
-        <span class="moment-card-emoji">🎉</span>
-        <div class="moment-card-title">Simple Moments Made Extraordinary</div>
-        <p class="moment-card-body">Celebrating a Tuesday. A shared meal. A spontaneous dance. The ordinary, elevated by attention and intention.</p>
-      </div>
-    </div>
-
-    <p style="text-align:center; margin-top:3rem; font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--forest);" class="reveal">These are not vacations — <strong>This is a lifestyle.</strong></p>
+<!-- LIFESTYLE CARDS -->
+<section id="lifestyle">
+  <div class="lifestyle-header reveal">
+    <span class="section-tag">जीवनशैली</span>
+    <h2 class="section-title">हर दिन एक सुकून भरा अनुभव</h2>
+    <p class="section-lead" style="margin:0 auto; text-align:center;">यहाँ हर सुबह और हर शाम एक नई खुशी लेकर आती है।</p>
   </div>
-</section>
 
-<!-- SPACES THAT CREATE EXPERIENCES -->
-<section class="spaces-section">
-  <div class="container">
-    <div class="section-label">The Environment Matters</div>
-    <h2 class="section-title">Spaces That<br><em>Create Experiences</em></h2>
-    <p class="section-body">The spaces we inhabit shape the experiences we have. People are no longer choosing homes merely for shelter — they're choosing them as experience hubs.</p>
-
-    <div class="spaces-grid">
-      <div class="space-item reveal">
-        <div class="space-icon">🌿</div>
-        <div class="space-title">Connection with Nature</div>
-        <p class="space-body">Spaces that bring the outside in — with gardens, orchards, open skies, and living greenery. Where every window is a painting and every morning is an invitation to step outside.</p>
-      </div>
-      <div class="space-item reveal reveal-delay-1">
-        <div class="space-icon">🤝</div>
-        <div class="space-title">Encouraging Togetherness</div>
-        <p class="space-body">Designed for gathering — communal kitchens, fire pits, open lawns where families meet, children play, and friendships deepen over shared meals and conversations.</p>
-      </div>
-      <div class="space-item reveal reveal-delay-2">
-        <div class="space-icon">⭐</div>
-        <div class="space-title">Daily Memorable Moments</div>
-        <p class="space-body">Places where something worth remembering happens naturally — not engineered for Instagram, but grown organically from living in a beautiful, intentionally designed environment.</p>
+  <div class="lifestyle-scroll">
+    <div class="ls-card reveal">
+      <div class="ls-card-bg">🌱</div>
+      <div class="ls-card-accent">🌿</div>
+      <div class="ls-card-content">
+        <span class="ls-tag">सुबह की दिनचर्या</span>
+        <h3>खुला गार्डन और मिट्टी</h3>
+        <p>हर कॉटेज के पास खुला गार्डन जहाँ आप नंगे पांव मिट्टी पर चल सकते हैं — रोज़ाना का प्राकृतिक उपचार।</p>
       </div>
     </div>
-
-    <div style="text-align:center; margin-top:3.5rem;" class="reveal">
-      <div style="display:inline-block; background:var(--forest); color:var(--warm-white); padding:1.2rem 3rem; border-radius:100px; font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic;">
-        Homes are no longer just structures — People need <strong>experience hubs.</strong>
+    <div class="ls-card reveal" style="transition-delay:0.15s">
+      <div class="ls-card-bg">🌊</div>
+      <div class="ls-card-accent">💧</div>
+      <div class="ls-card-content">
+        <span class="ls-tag">नदी का अनुभव</span>
+        <h3>नदी का किनारा</h3>
+        <p>हर सुबह नदी की आवाज़ और ठंडी हवा के साथ जागना — यह कोई सपना नहीं, आपकी रोज़मर्री की ज़िंदगी है।</p>
+      </div>
+    </div>
+    <div class="ls-card reveal" style="transition-delay:0.3s">
+      <div class="ls-card-bg">👨‍👩‍👧‍👦</div>
+      <div class="ls-card-accent">❤️</div>
+      <div class="ls-card-content">
+        <span class="ls-tag">परिवार के साथ</span>
+        <h3>परिवार के लिए स्वस्थ जीवन</h3>
+        <p>बच्चे प्रकृति से जुड़ें, परिवार स्वस्थ रहे — यहाँ जीवन में सुकून और खुशियाँ स्वाभाविक हैं।</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE FUTURE -->
-<section class="future-section" id="future">
-  <div class="container">
-    <div class="section-label" style="color:var(--sage);">Looking Ahead</div>
-    <h2 class="section-title">The Future is About<br><em style="color:var(--sage)">Living Fully</em></h2>
-    <p style="color:rgba(250,246,239,0.65); max-width:560px; margin:0 auto 1rem; font-size:1.05rem; line-height:1.8;">Because at the end of the day — no one remembers emails, meetings, or deadlines. We remember the things that made us feel most alive.</p>
+<!-- VISION -->
+<section id="vision">
+  <div class="vision-ring vision-ring-1"></div>
+  <div class="vision-ring vision-ring-2"></div>
+  <div class="vision-ring vision-ring-3"></div>
 
-    <div class="future-pillars">
-      <div class="pillar reveal">
-        <div class="pillar-emoji">😂</div>
-        <div class="pillar-text">Laughter</div>
-        <div class="pillar-sub">The currency of connection between human beings</div>
-      </div>
-      <div class="pillar reveal reveal-delay-1">
-        <div class="pillar-emoji">🌳</div>
-        <div class="pillar-text">Nature</div>
-        <div class="pillar-sub">The only luxury that heals as it delights</div>
-      </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-emoji">👥</div>
-        <div class="pillar-text">People</div>
-        <div class="pillar-sub">Relationships remain the heart of a full life</div>
-      </div>
-      <div class="pillar reveal reveal-delay-3">
-        <div class="pillar-emoji">📸</div>
-        <div class="pillar-text">Moments</div>
-        <div class="pillar-sub">The only things we carry with us forever</div>
-      </div>
-    </div>
+  <div class="vision-content">
+    <span class="section-tag" style="display:block; text-align:center;">भविष्य</span>
+    <p class="vision-quote">
+      "अंतत: सबसे बड़ी लक्ज़री वही है, जो हमें
+      <em>स्वस्थ, शांत और भीतर से संतुलित</em> बनाए।"
+    </p>
+    <p class="vision-sub">
+      आने वाले समय में नेचर इंटीग्रेटेड, एक्सपीरिएंशियल लिविंग ही असली प्रीमियम होगा।
+      रियल एस्टेट का भविष्य सिर्फ इमारतों में नहीं, अनुभवों में है।
+    </p>
 
-    <div class="future-vs reveal">
-      <div class="vs-col less">
-        <div class="vs-col-title">Leaving Behind</div>
-        <div class="vs-item">💨 Constant Stress</div>
-        <div class="vs-item">📱 Hollow Distractions</div>
-        <div class="vs-item">🏃 The Race to Accumulate</div>
-        <div class="vs-item">😶 Numbness & Routine</div>
+    <p style="color:var(--gold); font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:24px;">यह प्रोजेक्ट आपके लिए है यदि...</p>
+    <div class="ideal-for reveal">
+      <div class="ideal-item">
+        <span>🌿</span>
+        आप प्रकृति के साथ जीवन चाहते हैं
       </div>
-      <div class="vs-arrow">→</div>
-      <div class="vs-col more">
-        <div class="vs-col-title">Embracing</div>
-        <div class="vs-item">🌱 Deep Meaning</div>
-        <div class="vs-item">✨ Richer Experiences</div>
-        <div class="vs-item">🧘 Stillness & Presence</div>
-        <div class="vs-item">💛 Emotional Wealth</div>
+      <div class="ideal-item">
+        <span>👨‍👩‍👧</span>
+        आपका परिवार स्वस्थ और खुश रहे
+      </div>
+      <div class="ideal-item">
+        <span>🧠</span>
+        आप मानसिक शांति में निवेश करना चाहें
+      </div>
+      <div class="ideal-item">
+        <span>💙</span>
+        आप भावनात्मक संतुलन खोज रहे हैं
+      </div>
+      <div class="ideal-item">
+        <span>⭐</span>
+        आप बेहतर जीवन गुणवत्ता चाहते हैं
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="cta-section">
-  <div class="container">
-    <p class="cta-quote reveal">"Life is not a race to accumulate things. It is a journey to collect moments."</p>
-    <p class="cta-sub reveal reveal-delay-1">The real wealth of the future will not be what you own. It will be the life you experienced — and the moments you had the presence of mind to truly capture.</p>
-    <div class="cta-badge reveal reveal-delay-2">🌿 Begin Living the Moment</div>
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-left reveal">
+      <span class="section-tag">अभी जुड़ें</span>
+      <h2>लक्ज़री की नई परिभाषा —<br>स्वास्थ्य, शांति और प्रकृति</h2>
+      <p>
+        केवल 30 प्रीमियम कॉटेज — सीमित और एक्सक्लूसिव।
+        अगर आप प्रकृति के साथ जीना चाहते हैं, तो यही सही समय है।
+      </p>
+      <div class="urgency-bar">
+        <div class="dot"></div>
+        सीमित इकाइयाँ उपलब्ध — पंजीकरण प्रारंभ हो गए हैं
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="cta-right">
+        <h3>आज ही जानकारी प्राप्त करें</h3>
+        <input class="cta-form-field" type="text" placeholder="आपका नाम">
+        <input class="cta-form-field" type="tel" placeholder="मोबाइल नंबर">
+        <input class="cta-form-field" type="email" placeholder="ईमेल (वैकल्पिक)">
+        <button class="cta-submit" onclick="handleSubmit()">संपर्क करें →</button>
+        <p class="cta-note">आपकी जानकारी सुरक्षित है। कोई स्पैम नहीं।</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>Living the Moment &nbsp;·&nbsp; The New Age of Experiential Living &nbsp;·&nbsp; <em>Feel More. Own Less. Live Fully.</em></p>
+  <div>
+    <div class="footer-logo">Experiential <span>Living</span></div>
+    <div class="footer-tagline">प्रकृति के साथ जीना — यही है असली लक्ज़री</div>
+  </div>
+  <div class="footer-copy">
+    © 2025 Experiential Living<br>
+    All Rights Reserved
+  </div>
 </footer>
 
 <script>
-  // Intersection Observer for reveal animations
+  // Tab switching
+  function switchTab(name) {
+    document.querySelectorAll('.nature-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nature-panel').forEach(p => p.classList.remove('active'));
+    const tabs = document.querySelectorAll('.nature-tab');
+    const map = {mitti:0, hariyali:1, jal:2};
+    tabs[map[name]].classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  }
+
+  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit() {
+    const btn = document.querySelector('.cta-submit');
+    btn.textContent = '✓ धन्यवाद! हम जल्द संपर्क करेंगे';
+    btn.style.background = 'var(--leaf)';
+  }
+
+  // Nav active scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(13,31,22,0.97)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(13,31,22,0.95), transparent)';
+    }
+  });
 </script>
 </body>
 </html>
