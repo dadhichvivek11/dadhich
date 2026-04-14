@@ -1,240 +1,939 @@
-      <!DOCTYPE html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experiential Living</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Living the Moment — The New Age of Experiential Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body {
-    margin:0;
-    font-family: 'Poppins', sans-serif;
-    color:#333;
-}
+  :root {
+    --cream: #FAF6EF;
+    --warm-white: #FDF9F4;
+    --forest: #2D5016;
+    --moss: #4A7C2F;
+    --sage: #8FAF6A;
+    --earth: #8B5E3C;
+    --sand: #C9A97A;
+    --charcoal: #1C1C1C;
+    --mist: #E8EDE2;
+    --gold: #C4933A;
+    --deep-teal: #1A4A4A;
+    --sunset: #D4622A;
+  }
 
-/* HERO */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
-    background-size: cover;
-    color:#fff;
-    text-align:center;
-    padding:120px 20px;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-.hero h1 {
-    font-size:40px;
-    margin-bottom:15px;
-}
+  html { scroll-behavior: smooth; }
 
-.hero p {
-    font-size:18px;
-    margin-bottom:25px;
-}
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
 
-.btn {
-    padding:12px 25px;
-    margin:5px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0f2a1a 0%, #1a4a2a 40%, #2d5016 70%, #1C3810 100%);
+  }
 
-.btn-primary {
-    background:#0b7d5c;
-    color:#fff;
-}
+  .hero-bg-circles {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .hero-bg-circles span {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+    background: radial-gradient(circle, #8FAF6A, transparent);
+    animation: floatCircle 12s ease-in-out infinite;
+  }
+  .hero-bg-circles span:nth-child(1) { width: 600px; height: 600px; top: -150px; left: -100px; animation-delay: 0s; }
+  .hero-bg-circles span:nth-child(2) { width: 400px; height: 400px; bottom: -80px; right: 10%; animation-delay: 4s; }
+  .hero-bg-circles span:nth-child(3) { width: 300px; height: 300px; top: 30%; right: -60px; animation-delay: 8s; }
 
-.btn-outline {
-    background:transparent;
-    border:1px solid #fff;
-    color:#fff;
-}
+  @keyframes floatCircle {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
 
-/* SECTION */
-.section {
-    padding:60px 20px;
-    max-width:1100px;
-    margin:auto;
-}
+  .hero-grain {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
 
-.section h2 {
-    text-align:center;
-    margin-bottom:30px;
-}
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    animation: fadeUp 1.2s ease both;
+  }
 
-/* CARDS */
-.grid {
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-}
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-.card {
-    flex:1;
-    min-width:250px;
-    background:#f5f5f5;
-    padding:20px;
-    border-radius:10px;
-}
+  .hero-eyebrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage);
+    border: 1px solid rgba(143,175,106,0.4);
+    padding: 0.45rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 1.2s 0.2s ease both;
+  }
 
-/* DARK SECTION */
-.dark {
-    background:#0b3d3b;
-    color:#fff;
-}
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    animation: fadeUp 1.2s 0.35s ease both;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--sage);
+  }
 
-/* STATS */
-.stats {
-    display:flex;
-    justify-content:space-around;
-    text-align:center;
-}
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    color: rgba(250,246,239,0.65);
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    animation: fadeUp 1.2s 0.5s ease both;
+  }
 
-.stat h3 {
-    font-size:35px;
-    color:#0b7d5c;
-}
+  .hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    animation: fadeUp 1.2s 0.8s ease both;
+    cursor: pointer;
+  }
+  .hero-scroll span {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(143,175,106,0.7);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--sage), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
 
-/* CTA */
-.cta {
-    background:#0b7d5c;
-    color:#fff;
-    text-align:center;
-    padding:50px 20px;
-}
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(16px);
+    background: rgba(15, 42, 26, 0.7);
+    border-bottom: 1px solid rgba(143,175,106,0.15);
+    transition: all 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo em { color: var(--sage); font-style: italic; }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,246,239,0.6);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--sage); }
 
-footer {
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:#fff;
-}
+  /* ── SECTION WRAPPER ── */
+  section { padding: 7rem 2rem; }
+
+  .container { max-width: 1180px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--moss); }
+
+  .section-body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #444;
+    max-width: 680px;
+  }
+
+  /* ── SHIFT SECTION ── */
+  .shift-section { background: var(--warm-white); }
+
+  .shift-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .shift-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--forest);
+    border-left: 3px solid var(--sage);
+    padding-left: 2rem;
+  }
+
+  .shift-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .stat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--sage);
+    min-width: 80px;
+  }
+  .stat-desc {
+    padding-top: 0.5rem;
+  }
+  .stat-desc strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 0.3rem;
+  }
+  .stat-desc p {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* ── POSSESSIONS VS EXPERIENCES ── */
+  .compare-section {
+    background: linear-gradient(135deg, #1a3a1a 0%, #2D5016 50%, #1C3810 100%);
+    color: var(--warm-white);
+  }
+  .compare-section .section-title { color: var(--warm-white); }
+  .compare-section .section-label { color: var(--sage); }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0;
+    margin-top: 4rem;
+    align-items: start;
+  }
+
+  .compare-divider {
+    background: rgba(143,175,106,0.25);
+    height: 100%;
+    min-height: 340px;
+  }
+
+  .compare-col { padding: 0 3rem; }
+  .compare-col:first-child { padding-left: 0; }
+  .compare-col:last-child { padding-right: 0; }
+
+  .compare-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(143,175,106,0.2);
+    color: rgba(250,246,239,0.7);
+  }
+  .compare-col.new .compare-heading { color: var(--sage); }
+
+  .compare-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 1rem;
+    color: rgba(250,246,239,0.75);
+    transition: color 0.2s;
+  }
+  .compare-col.new .compare-item { color: var(--warm-white); }
+  .compare-item-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .compare-col.old .compare-item-icon { background: rgba(255,255,255,0.07); }
+  .compare-col.new .compare-item-icon { background: rgba(143,175,106,0.2); }
+
+  .shift-arrow {
+    text-align: center;
+    margin-top: 3.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--sage);
+    opacity: 0.9;
+  }
+
+  /* ── WHY SECTION ── */
+  .why-section { background: var(--cream); }
+
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .why-card {
+    background: var(--warm-white);
+    border: 1px solid #e8e0d4;
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(45,80,22,0.1);
+  }
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage), var(--moss));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .why-card:hover::before { opacity: 1; }
+
+  .why-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+  .why-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 0.8rem;
+  }
+  .why-card-body {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #555;
+  }
+  .why-card-number {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--mist);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── MOMENTS SECTION ── */
+  .moments-section {
+    background: var(--warm-white);
+  }
+
+  .moments-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1.2rem;
+    margin-top: 4rem;
+  }
+
+  .moment-card {
+    border-radius: 14px;
+    padding: 2rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .moment-card:hover { transform: scale(1.02); }
+
+  .moment-card:nth-child(1) { background: #2D5016; grid-row: span 2; color: white; }
+  .moment-card:nth-child(2) { background: #F0EAE0; }
+  .moment-card:nth-child(3) { background: #C9A97A; color: white; }
+  .moment-card:nth-child(4) { background: #1A4A4A; color: white; }
+  .moment-card:nth-child(5) { background: #8FAF6A; color: white; grid-column: span 2; }
+  .moment-card:nth-child(6) { background: #F5EDD9; }
+
+  .moment-card-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .moment-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  .moment-card-body { font-size: 0.85rem; line-height: 1.65; opacity: 0.85; }
+
+  /* ── SPACES SECTION ── */
+  .spaces-section { background: #F5F0E8; }
+
+  .spaces-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .space-item {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e0d8cc;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .space-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(45,80,22,0.12);
+  }
+  .space-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--mist), white);
+    border: 2px solid var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+  }
+  .space-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 0.7rem;
+  }
+  .space-body { font-size: 0.88rem; line-height: 1.7; color: #666; }
+
+  /* ── FUTURE SECTION ── */
+  .future-section {
+    background: linear-gradient(160deg, #0f2a1a 0%, #1a4a2a 60%, #2d5016 100%);
+    color: white;
+    text-align: center;
+  }
+  .future-section .section-title { color: white; font-size: clamp(2.8rem, 6vw, 5rem); }
+  .future-section .section-label { justify-content: center; }
+  .future-section .section-label::before { background: rgba(143,175,106,0.5); }
+
+  .future-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 4rem 0;
+  }
+
+  .pillar {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(143,175,106,0.2);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .pillar:hover {
+    background: rgba(143,175,106,0.1);
+    transform: translateY(-4px);
+  }
+  .pillar-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
+  .pillar-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--warm-white);
+  }
+  .pillar-sub { font-size: 0.8rem; color: rgba(250,246,239,0.5); margin-top: 0.4rem; line-height: 1.5; }
+
+  .future-vs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin: 4rem 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(143,175,106,0.15);
+    border-radius: 20px;
+    padding: 3rem;
+  }
+  .vs-col { text-align: center; }
+  .vs-col-title { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,246,239,0.4); margin-bottom: 1.5rem; }
+  .vs-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .vs-col.less .vs-item { background: rgba(255,255,255,0.04); color: rgba(250,246,239,0.55); text-decoration: line-through; text-decoration-color: rgba(255,80,80,0.4); }
+  .vs-col.more .vs-item { background: rgba(143,175,106,0.12); color: var(--warm-white); }
+  .vs-arrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--sage);
+    opacity: 0.7;
+  }
+
+  /* ── FINAL CTA ── */
+  .cta-section {
+    background: var(--cream);
+    text-align: center;
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '"';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20rem;
+    color: rgba(143,175,106,0.07);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .cta-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--forest);
+    max-width: 820px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+    position: relative;
+  }
+  .cta-sub {
+    font-size: 1rem;
+    color: #666;
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--forest);
+    color: var(--warm-white);
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .cta-badge:hover { background: var(--moss); transform: scale(1.03); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(250,246,239,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+  footer em { color: var(--sage); font-style: normal; }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .shift-grid, .compare-grid, .why-cards, .spaces-grid, .future-pillars { grid-template-columns: 1fr; }
+    .compare-divider { display: none; }
+    .compare-col { padding: 0 !important; margin-bottom: 2rem; }
+    .moments-masonry { grid-template-columns: 1fr; }
+    .moment-card:nth-child(1), .moment-card:nth-child(5) { grid-row: span 1; grid-column: span 1; }
+    .future-vs { grid-template-columns: 1fr; }
+    .vs-arrow { transform: rotate(90deg); }
+  }
 </style>
 </head>
-
 <body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Living <em>the</em> Moment</div>
+  <ul class="nav-links">
+    <li><a href="#shift">The Shift</a></li>
+    <li><a href="#why">Why Now</a></li>
+    <li><a href="#moments">Moments</a></li>
+    <li><a href="#future">Future</a></li>
+  </ul>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>प्रकृति के साथ जीना — यही है असली लक्ज़री</h1>
-    <p>स्वास्थ्य, शांति और प्राकृतिक जीवन का अनुभव</p>
-    <button class="btn btn-primary">प्रोजेक्ट जानें</button>
-    <button class="btn btn-outline">और पढ़ें</button>
-</section>
-
-<!-- PROBLEM -->
-<section class="section">
-    <h2>कंक्रीट के जंगल में हम क्या खो रहे हैं?</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>शारीरिक थकान</h3>
-            <p>स्क्रीन और कंक्रीट के बीच शरीर की ऊर्जा खत्म होती है</p>
-        </div>
-        <div class="card">
-            <h3>मानसिक तनाव</h3>
-            <p>भीड़ और भागदौड़ चिंता बढ़ाती है</p>
-        </div>
-        <div class="card">
-            <h3>भावनात्मक दूरी</h3>
-            <p>प्रकृति से दूर होकर संतुलन खो जाता है</p>
-        </div>
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The New Age of Experiential Living</div>
+    <h1 class="hero-title">Living the<br><em>Moment</em></h1>
+    <p class="hero-subtitle">We are living in a time where life is no longer measured by what we own — but by what we experience.</p>
+    <div class="hero-scroll" onclick="document.getElementById('shift').scrollIntoView({behavior:'smooth'})">
+      <span>Explore</span>
+      <div class="scroll-line"></div>
     </div>
+  </div>
 </section>
 
-<!-- SOLUTION -->
-<section class="section dark">
-    <h2>नंगे पांव मिट्टी पर — एक गहरा उपचार</h2>
-    <p style="text-align:center;">
-        प्रकृति के संपर्क में आना तनाव कम करता है, नींद सुधारता है और ऊर्जा बढ़ाता है।
-    </p>
-</section>
+<!-- THE SHIFT -->
+<section class="shift-section" id="shift">
+  <div class="container">
+    <div class="section-label">A New Era</div>
+    <h2 class="section-title">A silent yet powerful<br><em>shift is happening</em></h2>
+    <p class="section-body">Today, people don't just want to live — they want to feel, enjoy, and capture the moment. Welcome to the Era of Experiential Moments, where the currency of a life well-lived is measured in depth, not dollars.</p>
 
-<!-- BENEFITS -->
-<section class="section">
-    <h2>प्रकृति के बीच रहना — एक ज़रूरी निवेश</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>तनाव में कमी</h3>
+    <div class="shift-grid">
+      <div class="shift-quote reveal">"Life is not measured by the number of breaths you take, but by the moments that take your breath away."</div>
+      <div class="shift-stats">
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-num">78%</div>
+          <div class="stat-desc">
+            <strong>Prefer Experiences Over Things</strong>
+            <p>Millennials and Gen Z now allocate more of their spending toward memorable experiences than material possessions.</p>
+          </div>
         </div>
-        <div class="card">
-            <h3>फोकस बढ़ता है</h3>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-num">3×</div>
+          <div class="stat-desc">
+            <strong>Longer Lasting Happiness</strong>
+            <p>Research shows experiences provide happiness that lasts three times longer than material purchases of equivalent value.</p>
+          </div>
         </div>
-        <div class="card">
-            <h3>सकारात्मकता</h3>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-num">↑92%</div>
+          <div class="stat-desc">
+            <strong>Rise in Nature-Based Living</strong>
+            <p>Searches for eco-resorts, farm stays, and nature retreats have surged dramatically in recent years.</p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- WATER -->
-<section class="section">
-    <h2>जल स्रोतों के पास — भावनात्मक संतुलन</h2>
-    <div class="grid">
-        <div class="card">ध्वनि से शांति</div>
-        <div class="card">भावनात्मक स्थिरता</div>
-        <div class="card">प्राकृतिक प्रवाह</div>
+<!-- POSSESSIONS VS EXPERIENCES -->
+<section class="compare-section" id="compare">
+  <div class="container">
+    <div class="section-label">The Great Transition</div>
+    <h2 class="section-title" style="color:var(--warm-white)">From Possessions<br><em style="color:var(--sage)">to Experiences</em></h2>
+
+    <div class="compare-grid">
+      <div class="compare-col old reveal">
+        <div class="compare-heading">Then — Success meant owning</div>
+        <div class="compare-item"><span class="compare-item-icon">🏠</span> Bigger homes & real estate</div>
+        <div class="compare-item"><span class="compare-item-icon">🚗</span> Expensive cars & luxury goods</div>
+        <div class="compare-item"><span class="compare-item-icon">💼</span> Material wealth & status symbols</div>
+        <div class="compare-item"><span class="compare-item-icon">📊</span> Titles, ranks, and net worth</div>
+        <div class="compare-item"><span class="compare-item-icon">🏆</span> Awards and accumulations</div>
+      </div>
+      <div class="compare-divider"></div>
+      <div class="compare-col new reveal reveal-delay-2">
+        <div class="compare-heading">Now — Success means feeling</div>
+        <div class="compare-item"><span class="compare-item-icon">🌅</span> A sunrise captured on your phone</div>
+        <div class="compare-item"><span class="compare-item-icon">🌿</span> A peaceful evening in nature</div>
+        <div class="compare-item"><span class="compare-item-icon">🏕️</span> A weekend that feels like a retreat</div>
+        <div class="compare-item"><span class="compare-item-icon">👨‍👩‍👧</span> Deep time with people you love</div>
+        <div class="compare-item"><span class="compare-item-icon">✨</span> Moments that become memories forever</div>
+      </div>
     </div>
+    <p class="shift-arrow reveal">"People are moving from <strong>What do I have?</strong> &rarr; to <strong>What did I feel?</strong>"</p>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section dark">
-    <h2>Experiential Living — घर नहीं, एक अनुभव</h2>
-    <p style="text-align:center;">
-        आज का खरीदार सिर्फ घर नहीं, Quality of Life चाहता है।
-    </p>
-</section>
+<!-- WHY EXPERIENTIAL LIVING IS GROWING -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-label">Why Now</div>
+    <h2 class="section-title">Why Experiential<br><em>Living is Growing</em></h2>
+    <p class="section-body">Four converging forces are reshaping how people define a meaningful life in the modern age.</p>
 
-<!-- PROJECT -->
-<section class="section">
-    <h2>30 प्रीमियम कॉटेज — 50,000 वर्ग मीटर</h2>
-    <div class="stats">
-        <div class="stat">
-            <h3>30</h3>
-            <p>प्रीमियम कॉटेज</p>
-        </div>
-        <div class="stat">
-            <h3>50K</h3>
-            <p>वर्ग मीटर</p>
-        </div>
-        <div class="stat">
-            <h3>1</h3>
-            <p>नदी किनारे</p>
-        </div>
+    <div class="why-cards">
+      <div class="why-card reveal">
+        <span class="why-card-number">01</span>
+        <span class="why-card-icon">⚡</span>
+        <div class="why-card-title">Life Feels Too Fast</div>
+        <p class="why-card-body">Modern life is rushed, over-scheduled, and saturated with noise. People are craving genuine pauses — moments of stillness they can truly inhabit and savour. The antidote to speed isn't more productivity; it's depth of presence.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <span class="why-card-number">02</span>
+        <span class="why-card-icon">💚</span>
+        <div class="why-card-title">Emotional Fulfillment Matters</div>
+        <p class="why-card-body">Material success no longer guarantees happiness. Study after study confirms that experiences — not objects — create sustained emotional wellbeing. Joy, laughter, and connection are the new prosperity metrics that truly matter.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <span class="why-card-number">03</span>
+        <span class="why-card-icon">🌿</span>
+        <div class="why-card-title">Nature is the New Luxury</div>
+        <p class="why-card-body">Clean air, open land, birdsong, and genuine silence have become rare — and therefore precious. In a world of urbanisation and digital saturation, access to nature is the ultimate privilege and the most restorative experience available.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <span class="why-card-number">04</span>
+        <span class="why-card-icon">💎</span>
+        <div class="why-card-title">Moments Are the New Currency</div>
+        <p class="why-card-body">Memory and emotional value have become the most durable investment. A breathtaking view doesn't depreciate. A shared meal never loses value. People invest in experiences precisely because, unlike possessions, they live in you forever.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- LIFESTYLE -->
-<section class="section dark">
-    <h2>हर दिन एक सुकून भरा अनुभव</h2>
-    <div class="grid">
-        <div class="card">खुला गार्डन और मिट्टी</div>
-        <div class="card">नदी किनारा जीवन</div>
-        <div class="card">परिवार के लिए स्वस्थ जीवन</div>
+<!-- WHAT EXPERIENTIAL MOMENTS LOOK LIKE -->
+<section class="moments-section" id="moments">
+  <div class="container">
+    <div class="section-label">The Everyday Magic</div>
+    <h2 class="section-title">What Experiential<br><em>Moments Look Like</em></h2>
+    <p class="section-body">Imagine living a life where every day offers something worth capturing — not as a holiday, but as a way of being.</p>
+
+    <div class="moments-masonry">
+      <div class="moment-card reveal">
+        <span class="moment-card-emoji">🌄</span>
+        <div class="moment-card-title">Morning Walks Through a Lush Orchard</div>
+        <p class="moment-card-body">Beginning each day with dew on the grass, birdsong in the trees, and the scent of blossoms. Not a walk to reach a destination — a walk to feel alive in every step. This is how days should begin.</p>
+      </div>
+      <div class="moment-card reveal reveal-delay-1">
+        <span class="moment-card-emoji">🧒</span>
+        <div class="moment-card-title">Kids Playing Freely</div>
+        <p class="moment-card-body">Children discovering the world in open, natural space — the purest form of experiential living. No screens, just wonder.</p>
+      </div>
+      <div class="moment-card reveal reveal-delay-2">
+        <span class="moment-card-emoji">🔥</span>
+        <div class="moment-card-title">Bonfire Nights with Friends</div>
+        <p class="moment-card-body">Laughter under open stars, warmth against the night chill, stories that last a lifetime. Memories forged in firelight.</p>
+      </div>
+      <div class="moment-card reveal reveal-delay-1">
+        <span class="moment-card-emoji">🌇</span>
+        <div class="moment-card-title">Sunsets Without City Noise</div>
+        <p class="moment-card-body">The sky painting itself in gold and rose, undisturbed. Moments of pure visual poetry that replenish the soul.</p>
+      </div>
+      <div class="moment-card reveal reveal-delay-2">
+        <span class="moment-card-emoji">☕</span>
+        <div class="moment-card-title">Sitting in Solace — Sipping, Feeling, Being</div>
+        <p class="moment-card-body">A cup of coffee held with both hands, the aroma rising, the mind settling. The art of being fully present in a single sensory moment. This is meditation in its most accessible form — just you, the warmth, and the now.</p>
+      </div>
+      <div class="moment-card reveal reveal-delay-3">
+        <span class="moment-card-emoji">🎉</span>
+        <div class="moment-card-title">Simple Moments Made Extraordinary</div>
+        <p class="moment-card-body">Celebrating a Tuesday. A shared meal. A spontaneous dance. The ordinary, elevated by attention and intention.</p>
+      </div>
     </div>
+
+    <p style="text-align:center; margin-top:3rem; font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:var(--forest);" class="reveal">These are not vacations — <strong>This is a lifestyle.</strong></p>
+  </div>
 </section>
 
-<!-- WELLNESS -->
-<section class="section">
-    <h2>वेलनेस और नेचुरोपैथी सेंटर</h2>
-    <div class="grid">
-        <div class="card">योग और ध्यान</div>
-        <div class="card">प्राकृतिक चिकित्सा</div>
-        <div class="card">डिटॉक्स और रिलैक्सेशन</div>
+<!-- SPACES THAT CREATE EXPERIENCES -->
+<section class="spaces-section">
+  <div class="container">
+    <div class="section-label">The Environment Matters</div>
+    <h2 class="section-title">Spaces That<br><em>Create Experiences</em></h2>
+    <p class="section-body">The spaces we inhabit shape the experiences we have. People are no longer choosing homes merely for shelter — they're choosing them as experience hubs.</p>
+
+    <div class="spaces-grid">
+      <div class="space-item reveal">
+        <div class="space-icon">🌿</div>
+        <div class="space-title">Connection with Nature</div>
+        <p class="space-body">Spaces that bring the outside in — with gardens, orchards, open skies, and living greenery. Where every window is a painting and every morning is an invitation to step outside.</p>
+      </div>
+      <div class="space-item reveal reveal-delay-1">
+        <div class="space-icon">🤝</div>
+        <div class="space-title">Encouraging Togetherness</div>
+        <p class="space-body">Designed for gathering — communal kitchens, fire pits, open lawns where families meet, children play, and friendships deepen over shared meals and conversations.</p>
+      </div>
+      <div class="space-item reveal reveal-delay-2">
+        <div class="space-icon">⭐</div>
+        <div class="space-title">Daily Memorable Moments</div>
+        <p class="space-body">Places where something worth remembering happens naturally — not engineered for Instagram, but grown organically from living in a beautiful, intentionally designed environment.</p>
+      </div>
     </div>
+
+    <div style="text-align:center; margin-top:3.5rem;" class="reveal">
+      <div style="display:inline-block; background:var(--forest); color:var(--warm-white); padding:1.2rem 3rem; border-radius:100px; font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic;">
+        Homes are no longer just structures — People need <strong>experience hubs.</strong>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-    <h2>लक्ज़री की नई परिभाषा</h2>
-    <p>स्वास्थ्य, शांति और प्रकृति में निवेश करें</p>
-    <button class="btn btn-outline">अभी संपर्क करें</button>
+<!-- THE FUTURE -->
+<section class="future-section" id="future">
+  <div class="container">
+    <div class="section-label" style="color:var(--sage);">Looking Ahead</div>
+    <h2 class="section-title">The Future is About<br><em style="color:var(--sage)">Living Fully</em></h2>
+    <p style="color:rgba(250,246,239,0.65); max-width:560px; margin:0 auto 1rem; font-size:1.05rem; line-height:1.8;">Because at the end of the day — no one remembers emails, meetings, or deadlines. We remember the things that made us feel most alive.</p>
+
+    <div class="future-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-emoji">😂</div>
+        <div class="pillar-text">Laughter</div>
+        <div class="pillar-sub">The currency of connection between human beings</div>
+      </div>
+      <div class="pillar reveal reveal-delay-1">
+        <div class="pillar-emoji">🌳</div>
+        <div class="pillar-text">Nature</div>
+        <div class="pillar-sub">The only luxury that heals as it delights</div>
+      </div>
+      <div class="pillar reveal reveal-delay-2">
+        <div class="pillar-emoji">👥</div>
+        <div class="pillar-text">People</div>
+        <div class="pillar-sub">Relationships remain the heart of a full life</div>
+      </div>
+      <div class="pillar reveal reveal-delay-3">
+        <div class="pillar-emoji">📸</div>
+        <div class="pillar-text">Moments</div>
+        <div class="pillar-sub">The only things we carry with us forever</div>
+      </div>
+    </div>
+
+    <div class="future-vs reveal">
+      <div class="vs-col less">
+        <div class="vs-col-title">Leaving Behind</div>
+        <div class="vs-item">💨 Constant Stress</div>
+        <div class="vs-item">📱 Hollow Distractions</div>
+        <div class="vs-item">🏃 The Race to Accumulate</div>
+        <div class="vs-item">😶 Numbness & Routine</div>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-col more">
+        <div class="vs-col-title">Embracing</div>
+        <div class="vs-item">🌱 Deep Meaning</div>
+        <div class="vs-item">✨ Richer Experiences</div>
+        <div class="vs-item">🧘 Stillness & Presence</div>
+        <div class="vs-item">💛 Emotional Wealth</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="container">
+    <p class="cta-quote reveal">"Life is not a race to accumulate things. It is a journey to collect moments."</p>
+    <p class="cta-sub reveal reveal-delay-1">The real wealth of the future will not be what you own. It will be the life you experienced — and the moments you had the presence of mind to truly capture.</p>
+    <div class="cta-badge reveal reveal-delay-2">🌿 Begin Living the Moment</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    © Experiential Living | All Rights Reserved
+  <p>Living the Moment &nbsp;·&nbsp; The New Age of Experiential Living &nbsp;·&nbsp; <em>Feel More. Own Less. Live Fully.</em></p>
 </footer>
 
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
