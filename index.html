@@ -777,6 +777,289 @@
   .pill-teal  { background: rgba(0,137,123,0.2); color: #4dd6c8; border: 1px solid rgba(0,137,123,0.3); }
   .pill-blue  { background: rgba(13,110,138,0.2); color: #64d2f0; border: 1px solid rgba(13,110,138,0.3); }
   .pill-gold  { background: rgba(201,162,39,0.2); color: #e8c84a; border: 1px solid rgba(201,162,39,0.3); }
+
+  /* ===== FOREST HEALS SECTION ===== */
+  .forest-heals-section {
+    background: linear-gradient(160deg, #071810 0%, #0e2d1a 40%, #091e12 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .forest-heals-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 10% 80%, rgba(45,122,79,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 90% 20%, rgba(0,137,123,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .forest-heals-intro {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .forest-heals-intro .section-lead {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .forest-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.8rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .forest-pillar {
+    background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(76,175,128,0.07) 100%);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 22px;
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .forest-pillar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--leaf), var(--teal), var(--mint));
+    opacity: 0.7;
+  }
+
+  .forest-pillar:hover {
+    background: linear-gradient(145deg, rgba(76,175,128,0.1) 0%, rgba(0,137,123,0.12) 100%);
+    border-color: rgba(76,175,128,0.45);
+    transform: translateY(-7px);
+    box-shadow: 0 24px 52px rgba(0,0,0,0.45);
+  }
+
+  .fp-icon-wrap {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(135deg, rgba(45,122,79,0.35), rgba(0,137,123,0.25));
+    border: 1px solid rgba(76,175,128,0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+
+  .fp-body {}
+
+  .fp-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mint);
+    opacity: 0.75;
+    margin-bottom: 0.2rem;
+  }
+
+  .fp-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .fp-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+  }
+
+  .fp-benefit {
+    margin-top: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: rgba(76,175,128,0.09);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.5;
+    border: 1px solid rgba(76,175,128,0.14);
+  }
+
+  .fp-benefit::before {
+    content: '✦';
+    color: var(--mint);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .forest-closing {
+    margin-top: 3.5rem;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(76,175,128,0.07);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .forest-closing p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  .forest-closing strong {
+    color: var(--mint);
+    font-style: normal;
+  }
+
+  /* ===== PROJECT SECTION (BEFORE CTA) ===== */
+  .project-final-section {
+    background: linear-gradient(160deg, #0d2a1a 0%, #081510 50%, #0d2535 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-final-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,162,39,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(45,122,79,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .project-final-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .project-final-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 640px) { .project-final-stats { grid-template-columns: 1fr; } }
+
+  .pf-stat {
+    background: linear-gradient(145deg, rgba(201,162,39,0.08) 0%, rgba(76,175,128,0.08) 100%);
+    border: 1px solid rgba(201,162,39,0.22);
+    border-radius: 22px;
+    padding: 2.5rem 1.8rem;
+    text-align: center;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pf-stat::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--mint));
+  }
+
+  .pf-stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.5);
+    border-color: rgba(201,162,39,0.4);
+  }
+
+  .pf-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 0 40px rgba(201,162,39,0.3);
+  }
+
+  .pf-label {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .pf-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  .project-final-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pf-feature {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(76,175,128,0.15);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s;
+  }
+
+  .pf-feature:hover {
+    background: rgba(76,175,128,0.06);
+    border-color: rgba(76,175,128,0.3);
+    transform: translateX(4px);
+  }
+
+  .pf-feature-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(76,175,128,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pf-feature-text h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 0.3rem;
+  }
+
+  .pf-feature-text p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
 </style>
 </head>
 <body>
@@ -787,8 +1070,9 @@
   <div class="nav-links">
     <a href="#problem">जीवनशैली</a>
     <a href="#nature">प्रकृति</a>
-    <a href="#project">प्रोजेक्ट</a>
+    <a href="#forest-heals">वन-चिकित्सा</a>
     <a href="#wellness">वेलनेस</a>
+    <a href="#project-final">प्रोजेक्ट</a>
     <a href="#cta">संपर्क</a>
   </div>
 </nav>
@@ -949,6 +1233,96 @@
 
 <div class="wave-divider"></div>
 
+<!-- FOREST HEALS YOU -->
+<section class="forest-heals-section" id="forest-heals">
+  <div class="container">
+    <div class="forest-heals-intro reveal">
+      <span class="pill pill-green">🌲 वन-चिकित्सा</span>
+      <h2 class="section-title">वन आपको कैसे<br><span class="accent">चंगा करता है?</span></h2>
+      <p class="section-lead">
+        Experiential Living का मूल आधार है — प्रकृति के साथ जुड़ाव। विज्ञान यह सिद्ध कर चुका है कि वन-वातावरण हमारे शरीर, मन और आत्मा को एक साथ पुनर्जीवित करता है। यहाँ जानें कि प्रकृति के पाँच तत्व किस तरह आपके अनुभव को रोज़ बदलते हैं।
+      </p>
+    </div>
+
+    <div class="forest-pillars reveal">
+
+      <!-- 1. Tree Scent -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🌿</div>
+        <div class="fp-body">
+          <div class="fp-label">वृक्ष-सुगंध</div>
+          <div class="fp-title">पेड़ों की खुशबू — प्रकृति की दवा</div>
+          <div class="fp-desc">
+            पेड़ों से निकलने वाले Phytoncides (प्राकृतिक रासायनिक यौगिक) हवा में घुले रहते हैं। इन्हें सांस के ज़रिए लेने पर शरीर में Natural Killer Cells सक्रिय होती हैं — जो प्रतिरोधक क्षमता को मज़बूत करती हैं।
+          </div>
+          <div class="fp-benefit">Experiential Living में: हर सुबह का आपका पहला सांस ही एक उपचार है। वन-सुगंध आपके दिन की शुरुआत को शांत और ऊर्जावान बनाती है।</div>
+        </div>
+      </div>
+
+      <!-- 2. Color Green -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">💚</div>
+        <div class="fp-body">
+          <div class="fp-label">हरा रंग</div>
+          <div class="fp-title">हरियाली — आँखों का आराम, दिल की शांति</div>
+          <div class="fp-desc">
+            हरा रंग मानव नेत्रों के लिए सबसे सहज है। यह हृदय की गति को धीमा करता है, रक्तचाप कम करता है और दिमाग को Relaxed Mode में ले जाता है। यही कारण है कि हरे वातावरण में तनाव अनायास कम हो जाता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: खिड़की से दिखती हरियाली, बाहर का हरा-भरा परिसर — यह सब आपकी रोज़ की मानसिक चिकित्सा है।</div>
+        </div>
+      </div>
+
+      <!-- 3. Fractal Patterns -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🍃</div>
+        <div class="fp-body">
+          <div class="fp-label">फ्रैक्टल पैटर्न</div>
+          <div class="fp-title">पत्तियों की बनावट — मस्तिष्क का विश्राम</div>
+          <div class="fp-desc">
+            प्रकृति में पत्तियाँ, शाखाएँ और नदियाँ Fractal Patterns में होती हैं — दोहराती हुई, सुंदर और अनंत। वैज्ञानिक शोध दिखाते हैं कि इन पैटर्न को देखने से मस्तिष्क की थकान कम होती है और Alpha Waves बढ़ती हैं।
+          </div>
+          <div class="fp-benefit">Experiential Living में: यहाँ की हर सैर में — पेड़ों की पत्तियाँ, नदी का प्रवाह — आपके मन को बिना किसी प्रयास के शांत करते हैं।</div>
+        </div>
+      </div>
+
+      <!-- 4. Bird Songs -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🐦</div>
+        <div class="fp-body">
+          <div class="fp-label">पक्षी-संगीत</div>
+          <div class="fp-title">चिड़ियों की आवाज़ — मन का पुनर्जागरण</div>
+          <div class="fp-desc">
+            पक्षियों का गान Amygdala (भय-केंद्र) की सक्रियता कम करता है। यह वही हिस्सा है जो तनाव, चिंता और सतर्कता को नियंत्रित करता है। पक्षियों की आवाज़ें सुनने से मन का फोकस बढ़ता है और मूड बेहतर होता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: सुबह अलार्म की जगह पक्षियों की आवाज़ से जागना — यही है असली Experiential Start of the Day।</div>
+        </div>
+      </div>
+
+      <!-- 5. Fresh Air -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🌬️</div>
+        <div class="fp-body">
+          <div class="fp-label">शुद्ध वायु</div>
+          <div class="fp-title">ताज़ी हवा — फेफड़ों और जीवन का पोषण</div>
+          <div class="fp-desc">
+            पेड़ वायु प्रदूषकों को फिल्टर करते हैं और ऑक्सीजन-समृद्ध, स्वच्छ हवा प्रदान करते हैं। शहरी प्रदूषित हवा में सांस लेना बनाम वन-वायु में सांस लेना — दोनों का असर कोशिकाओं की ऊर्जा, नींद की गहराई और सोचने की क्षमता पर पड़ता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: नदी किनारे का यह परिसर शहरी प्रदूषण से दूर — आपके परिवार को रोज़ शुद्ध, ऑक्सीजन-भरी हवा देता है।</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="forest-closing reveal">
+      <p>
+        Experiential Living का सार यही है — <strong>यहाँ प्रकृति आपकी दिनचर्या में घुली है</strong>, न कि किसी विशेष अवसर पर। पेड़ों की सुगंध, हरियाली, पक्षियों के गीत और शुद्ध वायु — ये सब मिलकर एक ऐसा जीवन-अनुभव रचते हैं जो शरीर को ऊर्जावान, मन को शांत और आत्मा को तृप्त रखता है।
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
 <!-- EXPERIENTIAL LIVING CONCEPT -->
 <section class="exp-section" id="concept">
   <div class="container">
@@ -999,35 +1373,6 @@
 </section>
 
 <div class="wave-divider"></div>
-
-<!-- PROJECT -->
-<section class="project-section" id="project">
-  <div class="container">
-    <span class="pill pill-gold">द प्रोजेक्ट</span>
-    <h2 class="section-title reveal">30 प्रीमियम कॉटेज<br><span class="accent">50,000 वर्ग मीटर में एक अनूठा संसार</span></h2>
-    <p class="section-lead reveal">
-      नदी किनारे स्थित इस एक्सक्लूसिव प्रोजेक्ट में केवल <strong style="color:var(--gold)">30 प्रीमियम कॉटेज</strong> हैं - एक विशाल <strong style="color:var(--gold)">50,000 वर्ग मीटर</strong> के प्राकृतिक परिसर में। यहाँ हर कॉटेज को इस तरह डिज़ाइन किया गया है कि निवास सिर्फ रहने का अनुभव न होकर एक शांत, स्वास्थ्यप्रद और यादगार जीवनशैली बन जाए।
-    </p>
-
-    <div class="stats-row reveal">
-      <div class="big-stat">
-        <div class="big-num">30</div>
-        <div class="big-label">प्रीमियम कॉटेज</div>
-        <div class="big-desc">सीमित और एक्सक्लूसिव, ताकि हर निवासी को अधिक प्राइवेसी, सुकून और व्यक्तिगत स्पेस मिल सके।</div>
-      </div>
-      <div class="big-stat">
-        <div class="big-num">50K</div>
-        <div class="big-label">वर्ग मीटर</div>
-        <div class="big-desc">विशाल प्राकृतिक परिसर, जिसमें खुलापन, हरियाली और शांत वातावरण का संतुलन बना रहता है।</div>
-      </div>
-      <div class="big-stat">
-        <div class="big-num">1</div>
-        <div class="big-label">नदी किनारे</div>
-        <div class="big-desc">अनूठी लोकेशन, जहाँ पानी, हवा और प्राकृतिक दृश्य मिलकर एक विशेष जीवन-अनुभव रचते हैं।</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="wave-divider"></div>
 
@@ -1125,6 +1470,84 @@
     </div>
   </div>
 </section>
+
+<!-- PREMIUM COTTAGE PROJECT — FINAL BEFORE CONTACT -->
+<section class="project-final-section" id="project-final">
+  <div class="container">
+    <div class="project-final-header reveal">
+      <span class="pill pill-gold">द प्रोजेक्ट</span>
+      <h2 class="section-title">30 प्रीमियम कॉटेज<br><span class="accent">50,000 वर्ग मीटर में एक अनूठा संसार</span></h2>
+      <p class="section-lead" style="margin:0 auto; text-align:center;">
+        नदी किनारे स्थित इस एक्सक्लूसिव प्रोजेक्ट में केवल <strong style="color:var(--gold)">30 प्रीमियम कॉटेज</strong> हैं - एक विशाल <strong style="color:var(--gold)">50,000 वर्ग मीटर</strong> के प्राकृतिक परिसर में। यहाँ हर कॉटेज को इस तरह डिज़ाइन किया गया है कि निवास सिर्फ रहने का अनुभव न होकर एक शांत, स्वास्थ्यप्रद और यादगार जीवनशैली बन जाए।
+      </p>
+    </div>
+
+    <div class="project-final-stats reveal">
+      <div class="pf-stat">
+        <div class="pf-num">30</div>
+        <div class="pf-label">प्रीमियम कॉटेज</div>
+        <div class="pf-desc">सीमित और एक्सक्लूसिव, ताकि हर निवासी को अधिक प्राइवेसी, सुकून और व्यक्तिगत स्पेस मिल सके।</div>
+      </div>
+      <div class="pf-stat">
+        <div class="pf-num">50K</div>
+        <div class="pf-label">वर्ग मीटर</div>
+        <div class="pf-desc">विशाल प्राकृतिक परिसर, जिसमें खुलापन, हरियाली और शांत वातावरण का संतुलन बना रहता है।</div>
+      </div>
+      <div class="pf-stat">
+        <div class="pf-num">1</div>
+        <div class="pf-label">नदी किनारे</div>
+        <div class="pf-desc">अनूठी लोकेशन, जहाँ पानी, हवा और प्राकृतिक दृश्य मिलकर एक विशेष जीवन-अनुभव रचते हैं।</div>
+      </div>
+    </div>
+
+    <div class="project-final-features reveal">
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌿</div>
+        <div class="pf-feature-text">
+          <h4>प्रकृति-एकीकृत डिज़ाइन</h4>
+          <p>हर कॉटेज प्राकृतिक सामग्री, वन-दृश्य और खुले आकाश के साथ डिज़ाइन किया गया है।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌊</div>
+        <div class="pf-feature-text">
+          <h4>नदी-दृश्य बालकनी</h4>
+          <p>हर सुबह बालकनी से नदी का दृश्य — यही है Experiential Living का असली अनुभव।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🧘</div>
+        <div class="pf-feature-text">
+          <h4>ऑन-साइट वेलनेस सेंटर</h4>
+          <p>योग, ध्यान और नेचुरोपैथी — परिसर में ही उपलब्ध, रोज़ाना के जीवन का हिस्सा।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌱</div>
+        <div class="pf-feature-text">
+          <h4>व्यक्तिगत गार्डन स्पेस</h4>
+          <p>नंगे पाँव मिट्टी पर चलें, अपना बगीचा उगाएं — ग्राउंडिंग का रोज़ का अनुभव।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🔒</div>
+        <div class="pf-feature-text">
+          <h4>गोपनीयता और सुकून</h4>
+          <p>केवल 30 परिवारों का एक्सक्लूसिव समुदाय — भीड़ से दूर, अपनेपन के करीब।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">⭐</div>
+        <div class="pf-feature-text">
+          <h4>दीर्घकालिक मूल्य</h4>
+          <p>प्रकृति, वेलनेस और कम्युनिटी का संयोजन — यही असली प्रीमियम निवेश है।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
 
 <!-- CTA -->
 <section class="cta-section" id="cta">
