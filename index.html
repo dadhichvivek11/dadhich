@@ -1,467 +1,3084 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riverside Serenity | Investor Presentation • May 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --forest: #0f2c1f;
-            --leaf: #2d7a4f;
-            --mint: #4caf80;
-            --sage: #a8d5b5;
-            --teal: #00897b;
-            --gold: #c9a227;
-            --dark: #0a1a14;
-            --light: #f8f9f7;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiential Living — प्रकृति के साथ जीना</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a4a2e;
+    --leaf: #2d7a4f;
+    --mint: #4caf80;
+    --sage: #a8d5b5;
+    --mist: #e8f5ed;
+    --teal: #00897b;
+    --water: #0d6e8a;
+    --sand: #f5f0e8;
+    --dark: #0f2419;
+    --gold: #c9a227;
+    --white: #ffffff;
+  }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: #e0e7e0;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 26, 20, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(76, 175, 128, 0.2);
-        }
+  html { scroll-behavior: smooth; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--mint);
-            letter-spacing: -1px;
-        }
+  body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
 
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(10, 26, 20, 0.75), rgba(10, 26, 20, 0.85)), 
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a2016 0%, #1a4a2e 40%, #0d4a3a 70%, #0a2a35 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
 
-        .hero-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 5%;
-            text-align: center;
-        }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 80%, rgba(45,122,79,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(0,137,123,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 10%, rgba(13,110,138,0.15) 0%, transparent 60%);
+  }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(76, 175, 128, 0.2);
-            color: var(--mint);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
+  /* animated leaves */
+  .leaves {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .leaf {
+    position: absolute;
+    width: 8px; height: 20px;
+    background: rgba(76,175,128,0.3);
+    border-radius: 50% 0 50% 0;
+    animation: float linear infinite;
+    opacity: 0;
+  }
+  @keyframes float {
+    0%   { transform: translateY(-20px) rotate(0deg);  opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
+  .hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 900px; }
 
-        .hero .subtitle {
-            font-size: 1.4rem;
-            color: var(--sage);
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-        }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(76,175,128,0.2);
+    border: 1px solid rgba(76,175,128,0.4);
+    color: var(--mint);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+  .hero h1 {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--white);
+    text-shadow: 0 0 60px rgba(76,175,128,0.4);
+    margin-bottom: 0.5rem;
+  }
 
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
+  .hero h1 span { color: var(--mint); }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--leaf), var(--mint));
-            color: white;
-            box-shadow: 0 10px 30px rgba(45, 122, 79, 0.4);
-        }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--sage);
+    margin: 1.5rem auto;
+    max-width: 600px;
+    line-height: 1.7;
+  }
 
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(45, 122, 79, 0.5);
-        }
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
 
-        .btn-outline {
-            border: 2px solid var(--mint);
-            color: var(--mint);
-        }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--mint);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--sage);
+    margin-top: 0.3rem;
+    letter-spacing: 1px;
+  }
 
-        section {
-            padding: 6rem 5%;
-        }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.5rem;
+    color: var(--sage);
+    font-size: 0.75rem;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+  }
+  .scroll-hint::after {
+    content: '↓';
+    font-size: 1.2rem;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  /* ===== SECTIONS ===== */
+  section { padding: 5rem 1.5rem; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+  .container { max-width: 1100px; margin: 0 auto; }
 
-        .section-header span {
-            color: var(--mint);
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            font-weight: 600;
-        }
+  .section-tag {
+    display: inline-block;
+    background: rgba(76,175,128,0.15);
+    border: 1px solid rgba(76,175,128,0.3);
+    color: var(--mint);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            margin: 1rem 0;
-            color: white;
-        }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+  .section-title .accent { color: var(--mint); }
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(76,175,128,0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s;
-        }
+  .section-lead {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
 
-        .card:hover {
-            transform: translateY(-12px);
-            border-color: var(--mint);
-            background: rgba(76,175,128,0.08);
-        }
+  /* ===== PROBLEM SECTION ===== */
+  .problem-section {
+    background: linear-gradient(180deg, var(--dark) 0%, #0e1f15 100%);
+  }
 
-        .highlight {
-            background: linear-gradient(135deg, rgba(45,122,79,0.15), rgba(0,137,123,0.1));
-            border-left: 5px solid var(--teal);
-        }
+  .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
 
-        .stat {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
+  .problem-card {
+    background: linear-gradient(135deg, rgba(180,30,30,0.12) 0%, rgba(120,20,20,0.08) 100%);
+    border: 1px solid rgba(200,60,60,0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--mint);
-            line-height: 1;
-        }
+  .problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
 
-        .financial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
+  .problem-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
 
-        .financial-card {
-            background: rgba(201,162,39,0.08);
-            border: 1px solid rgba(201,162,39,0.3);
-            padding: 2rem;
-            border-radius: 16px;
-        }
+  .problem-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff9090;
+    margin-bottom: 0.8rem;
+  }
 
-        footer {
-            background: #06100c;
-            padding: 4rem 5% 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(76,175,128,0.2);
-        }
+  .problem-card p {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
 
-        .pill {
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            background: rgba(76,175,128,0.15);
-            color: var(--mint);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-        }
-    </style>
+  /* ===== GROUNDING SECTION ===== */
+  .grounding-section {
+    background: linear-gradient(135deg, #0a2a1e 0%, #0d3d2a 50%, #0a2a35 100%);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(0,137,123,0.2) 0%, rgba(45,122,79,0.15) 100%);
+    border: 1px solid rgba(76,175,128,0.3);
+    border-left: 4px solid var(--teal);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight-box h3 {
+    color: var(--teal);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box p {
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .benefits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  .benefits-list li::before {
+    content: '✦';
+    color: var(--mint);
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== NATURE BENEFITS ===== */
+  .nature-section {
+    background: #0b1f14;
+  }
+
+  .triple-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 860px) { .triple-grid { grid-template-columns: 1fr; } }
+
+  .nature-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--leaf), var(--teal));
+  }
+
+  .nature-card:hover {
+    background: rgba(76,175,128,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  }
+
+  .nature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .nature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 1rem;
+  }
+
+  .nature-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* ===== WATER SECTION ===== */
+  .water-section {
+    background: linear-gradient(135deg, #091a28 0%, #0a2535 50%, #0d3020 100%);
+  }
+
+  .water-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 860px) { .water-grid { grid-template-columns: 1fr; } }
+
+  .water-card {
+    background: rgba(13,110,138,0.12);
+    border: 1px solid rgba(13,110,138,0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+
+  .water-card:hover {
+    background: rgba(13,110,138,0.2);
+    transform: translateY(-4px);
+  }
+
+  .water-card h3 {
+    color: #64d2f0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .water-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* ===== EXPERIENTIAL SECTION ===== */
+  .exp-section {
+    background: linear-gradient(135deg, #0a3020 0%, #0d4030 100%);
+  }
+
+  .comparison-table {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 2.5rem;
+  }
+
+  .comp-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background: rgba(76,175,128,0.15);
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--mint);
+    letter-spacing: 1px;
+  }
+
+  .comp-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 1rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+    align-items: center;
+  }
+
+  .comp-row:hover { background: rgba(76,175,128,0.05); }
+
+  .comp-row .label {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .comp-row .old {
+    color: rgba(255,100,100,0.7);
+    font-size: 0.85rem;
+  }
+
+  .comp-row .new {
+    color: var(--mint);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .comp-header, .comp-row { grid-template-columns: 1.5fr 1fr 1fr; padding: 0.8rem 1rem; }
+  }
+
+  /* ===== PROJECT SECTION ===== */
+  .project-section {
+    background: linear-gradient(180deg, #081510 0%, #0b2018 100%);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr; } }
+
+  .big-stat {
+    background: linear-gradient(135deg, rgba(76,175,128,0.1) 0%, rgba(0,137,123,0.08) 100%);
+    border: 1px solid rgba(76,175,128,0.25);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--mint);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .big-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .big-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ===== LIFESTYLE SECTION ===== */
+  .lifestyle-section {
+    background: #0a1a12;
+  }
+
+  .lifestyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 860px) { .lifestyle-grid { grid-template-columns: 1fr; } }
+
+  .lifestyle-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(76,175,128,0.15);
+    transition: all 0.35s;
+  }
+
+  .lifestyle-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    border-color: rgba(76,175,128,0.4);
+  }
+
+  .lifestyle-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lifestyle-img.garden { background: linear-gradient(135deg, #1a4a20, #2d7a3f); }
+  .lifestyle-img.river  { background: linear-gradient(135deg, #0d3a5a, #1a6a80); }
+  .lifestyle-img.family { background: linear-gradient(135deg, #1a3a2a, #2d5a40); }
+
+  .lifestyle-body {
+    padding: 1.8rem;
+  }
+
+  .lifestyle-body h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .lifestyle-body p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ===== WELLNESS SECTION ===== */
+  .wellness-section {
+    background: linear-gradient(135deg, #081520 0%, #0b2515 100%);
+  }
+
+  .wellness-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 860px) { .wellness-cards { grid-template-columns: 1fr; } }
+
+  .wellness-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+
+  .wellness-card:hover {
+    background: rgba(76,175,128,0.08);
+    transform: translateY(-4px);
+  }
+
+  .wellness-card-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--leaf), var(--teal));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .wellness-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 0.8rem;
+  }
+
+  .wellness-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* ===== FUTURE / LUXURY SECTION ===== */
+  .luxury-section {
+    background: linear-gradient(135deg, #0d3020 0%, #0a2a35 100%);
+  }
+
+  .luxury-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) { .luxury-inner { grid-template-columns: 1fr; } }
+
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    padding: 0.8rem 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(76,175,128,0.12);
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .checklist li:hover {
+    background: rgba(76,175,128,0.08);
+    border-color: rgba(76,175,128,0.25);
+  }
+
+  .checklist li::before {
+    content: '✓';
+    color: var(--mint);
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .future-text p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .future-text strong { color: var(--mint); }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: linear-gradient(135deg, #1a4a2e 0%, #0d4a3a 50%, #1a3a50 100%);
+    text-align: center;
+    padding: 6rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--leaf), var(--teal));
+    color: var(--white);
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(45,122,79,0.4);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(45,122,79,0.5);
+    filter: brightness(1.1);
+  }
+
+  /* ===== DIVIDER ===== */
+  .wave-divider {
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--leaf), var(--teal), var(--leaf), transparent);
+    opacity: 0.4;
+  }
+
+  /* ===== QUOTE BLOCK ===== */
+  .quote-block {
+    background: rgba(76,175,128,0.08);
+    border-left: 4px solid var(--mint);
+    padding: 2rem 2.5rem;
+    border-radius: 0 16px 16px 0;
+    margin: 2.5rem 0;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,26,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(76,175,128,0.1);
+  }
+
+  .nav-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--mint);
+    letter-spacing: 1px;
+  }
+
+  .nav-links { display: flex; gap: 1.5rem; }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--mint); }
+
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* ===== PILL TAG ===== */
+  .pill {
+    display: inline-block;
+    padding: 0.25rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .pill-green { background: rgba(76,175,128,0.2); color: var(--mint); border: 1px solid rgba(76,175,128,0.3); }
+  .pill-red   { background: rgba(200,60,60,0.15); color: #ff8080; border: 1px solid rgba(200,60,60,0.25); }
+  .pill-teal  { background: rgba(0,137,123,0.2); color: #4dd6c8; border: 1px solid rgba(0,137,123,0.3); }
+  .pill-blue  { background: rgba(13,110,138,0.2); color: #64d2f0; border: 1px solid rgba(13,110,138,0.3); }
+  .pill-gold  { background: rgba(201,162,39,0.2); color: #e8c84a; border: 1px solid rgba(201,162,39,0.3); }
+
+  /* ===== FOREST HEALS SECTION ===== */
+  .forest-heals-section {
+    background: linear-gradient(160deg, #071810 0%, #0e2d1a 40%, #091e12 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .forest-heals-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 10% 80%, rgba(45,122,79,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 90% 20%, rgba(0,137,123,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .forest-heals-intro {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .forest-heals-intro .section-lead {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .forest-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.8rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .forest-pillar {
+    background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(76,175,128,0.07) 100%);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 22px;
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .forest-pillar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--leaf), var(--teal), var(--mint));
+    opacity: 0.7;
+  }
+
+  .forest-pillar:hover {
+    background: linear-gradient(145deg, rgba(76,175,128,0.1) 0%, rgba(0,137,123,0.12) 100%);
+    border-color: rgba(76,175,128,0.45);
+    transform: translateY(-7px);
+    box-shadow: 0 24px 52px rgba(0,0,0,0.45);
+  }
+
+  .fp-icon-wrap {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(135deg, rgba(45,122,79,0.35), rgba(0,137,123,0.25));
+    border: 1px solid rgba(76,175,128,0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+
+  .fp-body {}
+
+  .fp-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mint);
+    opacity: 0.75;
+    margin-bottom: 0.2rem;
+  }
+
+  .fp-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .fp-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+  }
+
+  .fp-benefit {
+    margin-top: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: rgba(76,175,128,0.09);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.5;
+    border: 1px solid rgba(76,175,128,0.14);
+  }
+
+  .fp-benefit::before {
+    content: '✦';
+    color: var(--mint);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .forest-closing {
+    margin-top: 3.5rem;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(76,175,128,0.07);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .forest-closing p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  .forest-closing strong {
+    color: var(--mint);
+    font-style: normal;
+  }
+
+  /* ===== PROJECT SECTION (BEFORE CTA) ===== */
+  .project-final-section {
+    background: linear-gradient(160deg, #0d2a1a 0%, #081510 50%, #0d2535 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-final-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,162,39,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(45,122,79,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .project-final-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .project-final-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 640px) { .project-final-stats { grid-template-columns: 1fr; } }
+
+  .pf-stat {
+    background: linear-gradient(145deg, rgba(201,162,39,0.08) 0%, rgba(76,175,128,0.08) 100%);
+    border: 1px solid rgba(201,162,39,0.22);
+    border-radius: 22px;
+    padding: 2.5rem 1.8rem;
+    text-align: center;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pf-stat::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--mint));
+  }
+
+  .pf-stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.5);
+    border-color: rgba(201,162,39,0.4);
+  }
+
+  .pf-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    text-shadow: 0 0 40px rgba(201,162,39,0.3);
+  }
+
+  .pf-label {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .pf-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  .project-final-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pf-feature {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(76,175,128,0.15);
+    border-radius: 14px;
+    padding: 1.5rem 1.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s;
+  }
+
+  .pf-feature:hover {
+    background: rgba(76,175,128,0.06);
+    border-color: rgba(76,175,128,0.3);
+    transform: translateX(4px);
+  }
+
+  .pf-feature-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(76,175,128,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pf-feature-text h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 0.3rem;
+  }
+
+  .pf-feature-text p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* ===== INVESTMENT DESK BLOG SECTION ===== */
+  .investment-blog-section {
+    background: linear-gradient(160deg, #06100c 0%, #0a1f14 40%, #07141e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .investment-blog-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 15% 30%, rgba(201,162,39,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 85% 70%, rgba(45,122,79,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .blog-date {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .blog-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.5);
+  }
+
+  .blog-source {
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .blog-opening-couplet {
+    background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(45,122,79,0.08) 100%);
+    border: 1px solid rgba(201,162,39,0.2);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 16px 16px 0;
+    padding: 1.8rem 2.5rem;
+    margin: 0 auto 3rem;
+    max-width: 780px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .blog-opening-couplet p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  .blog-opening-couplet p span {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .blog-body {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .blog-segment {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(76,175,128,0.15);
+    border-radius: 20px;
+    padding: 2.2rem 2.4rem;
+    transition: all 0.35s;
+  }
+
+  .blog-segment:hover {
+    background: rgba(76,175,128,0.05);
+    border-color: rgba(76,175,128,0.28);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+  }
+
+  .blog-segment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .blog-segment-icon {
+    width: 48px; height: 48px;
+    border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .icon-red    { background: rgba(200,60,60,0.15); border: 1px solid rgba(200,60,60,0.25); }
+  .icon-green  { background: rgba(76,175,128,0.15); border: 1px solid rgba(76,175,128,0.25); }
+  .icon-gold   { background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.25); }
+  .icon-blue   { background: rgba(13,110,138,0.15); border: 1px solid rgba(13,110,138,0.25); }
+  .icon-teal   { background: rgba(0,137,123,0.15); border: 1px solid rgba(0,137,123,0.25); }
+
+  .blog-segment-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+  }
+
+  .blog-segment p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.85;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-segment p:last-child { margin-bottom: 0; }
+
+  .blog-highlight-line {
+    background: rgba(76,175,128,0.1);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 10px;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.93rem;
+    color: var(--mint);
+    font-weight: 600;
+    line-height: 1.6;
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .blog-highlight-line::before {
+    content: '✦';
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    opacity: 0.8;
+  }
+
+  .blog-highlight-gold {
+    background: rgba(201,162,39,0.08);
+    border: 1px solid rgba(201,162,39,0.2);
+    border-radius: 10px;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.93rem;
+    color: #e8c84a;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .blog-highlight-gold::before {
+    content: '◆';
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    opacity: 0.8;
+  }
+
+  .blog-conclusion {
+    background: linear-gradient(135deg, rgba(45,122,79,0.12) 0%, rgba(201,162,39,0.08) 100%);
+    border: 1px solid rgba(76,175,128,0.25);
+    border-top: 3px solid var(--mint);
+    border-radius: 20px;
+    padding: 2.5rem 2.4rem;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 2rem auto 0;
+  }
+
+  .blog-conclusion h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--mint);
+    margin-bottom: 1.2rem;
+  }
+
+  .blog-conclusion p {
+    font-size: 0.96rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.9;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-conclusion p:last-child { margin-bottom: 0; }
+
+  .blog-conclusion strong { color: var(--mint); }
+</style>
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav class="nav">
-        <div class="logo">🌿 Riverside Serenity</div>
-        <div style="display: flex; gap: 2rem; align-items: center;">
-            <a href="#overview" style="color: #ccc; text-decoration: none; font-weight: 500;">Overview</a>
-            <a href="#opportunity" style="color: #ccc; text-decoration: none; font-weight: 500;">Opportunity</a>
-            <a href="#financials" style="color: #ccc; text-decoration: none; font-weight: 500;">Financials</a>
-            <a href="#investment" style="color: #ccc; text-decoration: none; font-weight: 500;">Invest</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🌿 Experiential Living</div>
+  <div class="nav-links">
+    <a href="#problem">जीवनशैली</a>
+    <a href="#nature">प्रकृति</a>
+    <a href="#forest-heals">वन-चिकित्सा</a>
+    <a href="#wellness">वेलनेस</a>
+    <a href="#project-final">प्रोजेक्ट</a>
+    <a href="#investment-blog">निवेश विश्लेषण</a>
+    <a href="#cta">संपर्क</a>
+    <a href="#investor-pitch" class="nav-pitch-btn">📊 Investor Pitch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="leaves" id="leavesContainer"></div>
+  <div class="hero-content">
+    <span class="hero-tag">✦ नई सोच ✦</span>
+    <h1>प्रकृति के साथ जीना<br><span> यही है असली लक़्ज़री</span></h1>
+    <p class="hero-sub">
+      असली समृद्धि बड़ी इमारतों में नहीं - उस संतुलन में है जहाँ शरीर, मन और वातावरण एक-दूसरे के साथ तालमेल में हों।
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">30</div>
+        <div class="stat-label">प्रीमियम कॉटेज</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50K</div>
+        <div class="stat-label">वर्ग मीटर</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">एक</div>
+        <div class="stat-label">नदी का किनारा</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">नीचे स्क्रॉल करें</div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section" id="problem">
+  <div class="container">
+    <div class="reveal">
+      <span class="pill pill-red">समस्या</span>
+      <h2 class="section-title">कंक्रीट के जंगल में<br> <span class="accent">हम क्या खो रहे हैं?</span></h2>
+      <p class="section-lead">
+        शहरी जीवन ने सुविधाएँ बढ़ाईं, लेकिन प्रकृति से जुड़ाव छीन लिया - और इसका असर केवल मूड पर नहीं, बल्कि नींद, ऊर्जा, ध्यान और आंतरिक शांति पर भी पड़ता है।
+      </p>
+    </div>
+    <div class="problem-cards reveal">
+      <div class="problem-card">
+        <span class="problem-icon">⚡</span>
+        <h3>शारीरिक थकान</h3>
+        <p>लगातार स्क्रीन, AC, कम चलना और कंक्रीट के बीच रहने से शरीर की प्राकृतिक ऊर्जा घटती है। धूप, ताज़ी हवा और मिट्टी के संपर्क की कमी से नींद, पाचन और प्रतिरोधक क्षमता प्रभावित होती है।</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🌀</span>
+        <h3>मानसिक तनाव</h3>
+        <p>शोर, भीड़, हॉर्न, समय की दौड़ और लगातार सूचनाओं के दबाव से मन सतर्क रहता है। यह स्थिति चिंता, चिड़चिड़ापन, एकाग्रता की कमी और मानसिक थकावट बढ़ाती है।</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💔</span>
+        <h3>भावनात्मक दूरी</h3>
+        <p>प्रकृति से विछुड़ने पर अंदर की बेचैनी और खालीपन बढ़ता है। पेड़ों, खुली जगहों और प्राकृतिक लय से दूर रहने पर हम अपने भीतर की शांति, संवेदनशीलता और सहज आनंद से भी दूर हो जाते हैं।</p>
+      </div>
+    </div>
+
+    <div class="quote-block reveal">
+      "जब यह जुड़ाव टूटता है, तो असर केवल मूड पर नहीं पड़ता - बल्कि नींद, ऊर्जा, ध्यान, रिश्तों और आंतरिक शांति तक महसूस होता है।"
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- GROUNDING -->
+<section class="grounding-section" id="grounding">
+  <div class="container">
+    <span class="pill pill-green">प्राकृतिक उपचार</span>
+    <h2 class="section-title reveal">नंगे पांव मिट्टी पर<br><span class="accent">एक गहरा उपचार</span></h2>
+    <div class="two-col reveal">
+      <div>
+        <div class="highlight-box">
+          <h3>🌍 ग्राउंडिंग का विज्ञान</h3>
+          <p>मिट्टी के संपर्क में आने से शरीर "ग्राउंड" होता है - तनाव कम होता है, नींद बेहतर होती है और ऊर्जा का संतुलन बनता है। वैज्ञानिक दृष्टि से यह संपर्क शरीर की तनाव-प्रतिक्रिया को नरम करने, ध्यान को वर्तमान क्षण में लाने और आराम को बढ़ावा देने में सहायक माना जाता है।</p>
         </div>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <div class="pill">INVESTOR PRESENTATION • MAY 2026</div>
-            <h1>Riverside Serenity</h1>
-            <h2 style="color: var(--sage); font-size: 2.2rem; margin-bottom: 1rem;">Wellness &amp; Naturopathy Retreat</h2>
-            <p class="subtitle">
-                A landmark wellness destination where ancient Ayurvedic traditions meet contemporary luxury on a pristine 1,400 ft riverfront.
-            </p>
-            <div class="cta-buttons">
-                <a href="#investment" class="btn btn-primary">Request Full Prospectus →</a>
-                <a href="#" onclick="window.open('https://example.com/prospectus.pdf', '_blank')" class="btn btn-outline">Download Investor Deck</a>
-            </div>
-            <p style="margin-top: 3rem; font-size: 1.1rem; opacity: 0.8;">
-                30 Luxury Villas • 25 Mud Cottages • 1,400 ft River Frontage
-            </p>
-        </div>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section id="overview">
-        <div class="container">
-            <div class="section-header">
-                <span>PROJECT OVERVIEW</span>
-                <h2 class="section-title">A Sanctuary Built for the Modern Seeker</h2>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <h3 style="color: var(--mint); margin-bottom: 1rem;">🌊 1,400 ft River Frontage</h3>
-                    <p>Unobstructed natural views and therapeutic riverside ambiance on one of India's most pristine riverbanks.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--mint); margin-bottom: 1rem;">🏡 30 Luxury Villas</h3>
-                    <p>2,200 sq ft each, designed for privacy, serenity and deep rejuvenation.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--mint); margin-bottom: 1rem;">🌱 25 Mud Cottages</h3>
-                    <p>Eco-conscious accommodation rooted in natural living and sustainability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OPPORTUNITY -->
-    <section id="opportunity" style="background: linear-gradient(135deg, #0a2016, #0f2c1f);">
-        <div class="container">
-            <div class="section-header">
-                <span>THE OPPORTUNITY</span>
-                <h2 class="section-title">Wellness Tourism Is the Defining Megatrend</h2>
-            </div>
-
-            <div class="grid">
-                <div class="card highlight">
-                    <h3 style="margin-bottom: 1.5rem;">Why Now</h3>
-                    <p>Global wellness tourism is among the fastest-growing travel segments. India, with its rich Ayurvedic heritage, is uniquely positioned to capture premium demand from both domestic and international seekers.</p>
-                </div>
-                <div class="card">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--gold);">What Makes This Different</h3>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 1rem;">✓ Scarce riverfront asset</li>
-                        <li style="margin-bottom: 1rem;">✓ Mixed revenue model (villa sales + operations)</li>
-                        <li style="margin-bottom: 1rem;">✓ Immediate real estate upside + recurring cash flows</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DESIGN -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <span>DESIGN &amp; DEVELOPMENT</span>
-                <h2 class="section-title">Traditional Architecture Meets Contemporary Luxury</h2>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <strong style="color: var(--mint);">Accommodation</strong>
-                    <p>30 Luxury Villas (2,200 sq ft) + 25 Mud Cottages — private, serene, and designed for deep rest.</p>
-                </div>
-                <div class="card">
-                    <strong style="color: var(--mint);">Wellness Facilities</strong>
-                    <p>6,000 sq ft Yoga Room, Dhyanlingam Dome, Hydrotherapy Pool, Steam, Jacuzzi, Ice Bath &amp; multiple therapy rooms.</p>
-                </div>
-                <div class="card">
-                    <strong style="color: var(--mint);">Sustainability</strong>
-                    <p>Eco-friendly materials, organic farming, solar power, and natural water bodies throughout the campus.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section style="background: #0a1a14;">
-        <div class="container">
-            <div class="section-header">
-                <span>SERVICES &amp; OFFERINGS</span>
-                <h2 class="section-title">A Complete Spectrum of Healing Experiences</h2>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="card">
-                    <h3>Residential Packages</h3>
-                    <p>7–14 night immersive programs including Detox, Weight Management, Diabetes Management, Stress Recovery, and more.</p>
-                </div>
-                <div class="card">
-                    <h3>Signature Therapies</h3>
-                    <p>Abhyanga, Shirodhara, Panchakarma, Mud Therapy, Acupuncture, Sound Therapy, Yoga &amp; Nutrition Counseling.</p>
-                </div>
-                <div class="card">
-                    <h3>Additional Revenue</h3>
-                    <p>Sattvic Meals, Day Programs, Corporate Wellness, Herbal Retail.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINANCIALS -->
-    <section id="financials" style="background: linear-gradient(135deg, #0f2c1f, #06100c);">
-        <div class="container">
-            <div class="section-header">
-                <span>FINANCIAL SUMMARY</span>
-                <h2 class="section-title">Strong Returns, De-Risked Structure</h2>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <p style="font-size: 1.3rem; color: var(--sage);">Total Project Investment: <strong style="color: var(--gold);">₹42.98 Crore</strong></p>
-            </div>
-
-            <div class="financial-grid">
-                <div class="financial-card">
-                    <div class="stat-number">₹45.00 Cr</div>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Villa Sales Revenue<br><small>(30 villas @ ₹1.5 Cr each)</small></p>
-                </div>
-                <div class="financial-card">
-                    <div class="stat-number">₹2.02 Cr</div>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Immediate Profit on Development</p>
-                </div>
-                <div class="financial-card">
-                    <div class="stat-number">₹1.33 Lakh</div>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Net Operational Profit / Month<br><small>From Year 1</small></p>
-                </div>
-                <div class="financial-card">
-                    <div class="stat-number">₹26.10 Lakh</div>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">Projected Monthly Revenue</p>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 3rem; opacity: 0.8;">
-                Expenses of ₹24.77 Lakh/month leave healthy margins with strong upside as occupancy grows.
-            </p>
-        </div>
-    </section>
-
-    <!-- INVESTMENT ASK -->
-    <section id="investment" style="background: var(--forest);">
-        <div class="container">
-            <div class="section-header">
-                <span>INVESTMENT OPPORTUNITY</span>
-                <h2 class="section-title">Partner With Us</h2>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <h3 style="color: var(--gold);">Attractive Equity Stake</h3>
-                    <p>Meaningful ownership in a high-potential, asset-backed wellness destination.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--gold);">Real Estate Asset Backing</h3>
-                    <p>Investment secured by prime riverfront land and developed infrastructure.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--gold);">Recurring Income</h3>
-                    <p>Sustainable cash flows from therapies, packages, and retail starting Year 1.</p>
-                </div>
-                <div class="card">
-                    <h3 style="color: var(--gold);">Long-term Appreciation</h3>
-                    <p>Riverfront property values consistently outperform inland comparables.</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="#" onclick="alert('Thank you! Our team will contact you shortly.')" 
-                   class="btn btn-primary" style="font-size: 1.3rem; padding: 1.4rem 4rem;">
-                    Schedule a Confidential Consultation
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p style="margin-bottom: 1rem; font-size: 1.1rem;">Riverside Serenity • Experiential Living</p>
-        <p style="opacity: 0.6; font-size: 0.95rem;">
-            A premium Ayurvedic &amp; Naturopathy Wellness Retreat<br>
-            May 2026 • Confidential Investor Presentation
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;">
+          आधुनिक जीवन में हम अधिकांश समय बंद कमरों और डिजिटल तनाव के बीच रहते हैं - इसलिए यह सीधा संपर्क हमें भीतर से धीमा, स्थिर और अधिक जागरूक महसूस करा सकता है।
         </p>
-        <p style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.5;">
-            This document is for informational purposes only and does not constitute an offer to sell securities.
-        </p>
-    </footer>
+      </div>
+      <div>
+        <h3 style="color:var(--mint);font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;">✦ क्या होता है फायदा?</h3>
+        <ul class="benefits-list">
+          <li>नर्वस सिस्टम को शांति मिलती है और शरीर अधिक रिलैक्स महसूस करता है</li>
+          <li>मानसिक थकान, ओवरथिंकिंग और चिंता कम होने में मदद मिलती है</li>
+          <li>शरीर में प्राकृतिक ऊर्जा लौटती है और भारीपन घटता है</li>
+          <li>नींद की गुणवत्ता में सुधार होता है, अगला दिन अधिक ताज़गी भरा लगता है</li>
+          <li>मन में स्थिरता आती है और छोटी-छोटी बातों से विचलित होना कम होता है</li>
+          <li>प्रकृति के साथ जुड़ाव बढ़ता है, भावनात्मक संतुलन बेहतर महसूस होता है</li>
+          <li>दिनभर के तनाव के बाद शरीर को नरम, पुनस्थाँपित करने वाला अनुभव मिलता है</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+<div class="wave-divider"></div>
 
-        // Simple scroll effect for nav
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 26, 20, 0.98)';
-            }
-        });
-    </script>
+<!-- NATURE BENEFITS -->
+<section class="nature-section" id="nature">
+  <div class="container">
+    <span class="pill pill-green">हरियाली का प्रभाव</span>
+    <h2 class="section-title reveal">प्रकृति के बीच रहना<br><span class="accent">एक ज़रूरी स्वास्थ्य निवेश</span></h2>
+    <p class="section-lead reveal">
+      पेड़ों, खुले आसमान और ताज़ी हवा के साथ रहना मानसिक स्वास्थ्य के लिए अत्यंत महत्वपूर्ण है - यह सिर्फ "लाइफस्टाइल चॉइस" नहीं, बल्कि एक ज़रूरी स्वास्थ्य निवेश है।
+    </p>
+    <div class="triple-grid reveal">
+      <div class="nature-card">
+        <span class="nature-icon">🌿</span>
+        <h3>तनाव में कमी</h3>
+        <p>हरियाली के बीच रहने से Stress लेवल कम होता है और मन शांत रहता है। प्रकृति की उपस्थिति शरीर को "अलर्ट" मोड से बाहर निकालती है, जिससे दिल की धड़कन, सांस और विचारों की गति धीमी होकर अधिक संतुलित महसूस होती है।</p>
+      </div>
+      <div class="nature-card">
+        <span class="nature-icon">🧠</span>
+        <h3>फोकस बढ़ता है</h3>
+        <p>प्रकृति में समय बिताने से एकाग्रता और रचनात्मकता में सुधार होता है। जब दिमाग लगातार शहरी शोर से थक जाता है, तब प्राकृतिक माहौल उसे "रीसेट" जैसा अनुभव देता है। इसका असर पढ़ाई, काम और निर्णय लेने की क्षमता पर भी दिखता है।</p>
+      </div>
+      <div class="nature-card">
+        <span class="nature-icon">💚</span>
+        <h3>सकारात्मकता</h3>
+        <p>खुले आसमान और ताज़ी हवा से व्यक्ति अधिक खुश और सकारात्मक महसूस करता है। यह सकारात्मकता केवल मूड तक सीमित नहीं रहती — यह बातचीत, रिश्तों और दैनिक ऊर्जा पर भी असर डालती है।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- WATER -->
+<section class="water-section" id="water">
+  <div class="container">
+    <span class="pill pill-blue">जल का प्रभाव</span>
+    <h2 class="section-title reveal">जल स्रोतों के पास<br><span class="accent">भावनात्मक संतुलन</span></h2>
+    <p class="section-lead reveal">
+      झील, नदी या तालाब के पास रहने का प्रभाव और भी गहरा होता है। पानी की ध्वनि, उसकी स्थिरता और प्राकृतिक प्रवाह हमारे मन को शांत करता है। कई लोगों के लिए जल का दृश्य एक तरह का मानसिक विश्राम बन जाता है।
+    </p>
+    <div class="water-grid reveal">
+      <div class="water-card">
+        <h3>🎵 ध्वनि का प्रभाव</h3>
+        <p>पानी की आवाज़ मन को गहरी शांति देती है और अंदर की बेचैनी कम करती है। बारिश की बूंदें, लहरों की हल्की सरसराहट या बहते पानी की निरंतर ध्वनि तनावग्रस्त मन के लिए प्राकृतिक सहारा बन सकती है।</p>
+      </div>
+      <div class="water-card">
+        <h3>💧 भावनात्मक स्थिरता</h3>
+        <p>जल के पास रहने से भावनात्मक संतुलन बनता है और मन हल्का महसूस करता है। शांत जल-परिवेश में व्यक्ति अपनी भावनाओं को बेहतर ढंग से समझ पाता है, जिससे चिड़चिड़ापन, घबराहट और मानसिक थकान कम होती है।</p>
+      </div>
+      <div class="water-card">
+        <h3>🌊 प्राकृतिक प्रवाह</h3>
+        <p>नदी का बहना हमें जीवन के प्रवाह से जोड़ता है और भीतरी शांति देता है। जल की निरंतर गति परिवर्तन को स्वीकारने की याद दिलाती है - जैसे पानी रुकता नहीं, वैसे ही जीवन भी आगे बढ़ता रहता है।</p>
+      </div>
+    </div>
+    <div class="quote-block reveal">
+      "सुबह की सैर, किनारे बैठकर ध्यान, या बस पानी को देखते हुए कुछ शांत पल - ये छोटे-छोटे अभ्यास दिन भर की मानसिक ऊर्जा को पुनर्संतुलित कर सकते हैं।"
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- FOREST HEALS YOU -->
+<section class="forest-heals-section" id="forest-heals">
+  <div class="container">
+    <div class="forest-heals-intro reveal">
+      <span class="pill pill-green">🌲 वन-चिकित्सा</span>
+      <h2 class="section-title">Green Forest आपको कैसे<br><span class="accent">Heal करता है?</span></h2>
+      <p class="section-lead">
+        Experiential Living का मूल आधार है - प्रकृति के साथ जुड़ाव। विज्ञान यह सिद्ध कर चुका है कि वन-वातावरण हमारे शरीर, मन और आत्मा को एक साथ पुनर्जीवित करता है। यहाँ जानें कि प्रकृति के पाँच तत्व किस तरह आपके अनुभव को रोज़ बदलते हैं।
+      </p>
+    </div>
+
+    <div class="forest-pillars reveal">
+
+      <!-- 1. Tree Scent -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🌿</div>
+        <div class="fp-body">
+          <div class="fp-label">वृक्ष-सुगंध</div>
+          <div class="fp-title">पेड़ों की खुशबू - प्रकृति की दवा</div>
+          <div class="fp-desc">
+            पेड़ों से निकलने वाले Phytoncides (प्राकृतिक रासायनिक यौगिक) हवा में घुले रहते हैं। इन्हें सांस के ज़रिए लेने पर शरीर में Natural Killer Cells सक्रिय होती हैं - जो प्रतिरोधक क्षमता को मज़बूत करती हैं।
+          </div>
+          <div class="fp-benefit">Experiential Living में: हर सुबह का आपका पहला सांस ही एक उपचार है। वन-सुगंध आपके दिन की शुरुआत को शांत और ऊर्जावान बनाती है।</div>
+        </div>
+      </div>
+
+      <!-- 2. Color Green -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">💚</div>
+        <div class="fp-body">
+          <div class="fp-label">हरा रंग</div>
+          <div class="fp-title">हरियाली - आँखों का आराम, दिल की शांति</div>
+          <div class="fp-desc">
+            हरा रंग मानव नेत्रों के लिए सबसे सहज है। यह हृदय की गति को धीमा करता है, रक्तचाप कम करता है और दिमाग को Relaxed Mode में ले जाता है। यही कारण है कि हरे वातावरण में तनाव अनायास कम हो जाता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: खिड़की से दिखती हरियाली, बाहर का हरा-भरा परिसर - यह सब आपकी रोज़ की मानसिक चिकित्सा है।</div>
+        </div>
+      </div>
+
+      <!-- 3. Fractal Patterns -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🍃</div>
+        <div class="fp-body">
+          <div class="fp-label">Fractal Patterns</div>
+          <div class="fp-title">पत्तियों की बनावट — मस्तिष्क का विश्राम</div>
+          <div class="fp-desc">
+            प्रकृति में पत्तियाँ, शाखाएँ और नदियाँ Fractal Patterns में होती हैं - दोहराती हुई, सुंदर और अनंत। वैज्ञानिक शोध दिखाते हैं कि इन पैटर्न को देखने से मस्तिष्क की थकान कम होती है और Alpha Waves बढ़ती हैं।
+          </div>
+          <div class="fp-benefit">Experiential Living में: यहाँ की हर सैर में - पेड़ों की पत्तियाँ, नदी का प्रवाह - आपके मन को बिना किसी प्रयास के शांत करते हैं।</div>
+        </div>
+      </div>
+
+      <!-- 4. Bird Songs -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🐦</div>
+        <div class="fp-body">
+          <div class="fp-label">पक्षी-संगीत</div>
+          <div class="fp-title">चिड़ियों की आवाज़ - मन का पुनर्जागरण</div>
+          <div class="fp-desc">
+            पक्षियों का गान Amygdala (भय-केंद्र) की सक्रियता कम करता है। यह वही हिस्सा है जो तनाव, चिंता और सतर्कता को नियंत्रित करता है। पक्षियों की आवाज़ें सुनने से मन का फोकस बढ़ता है और Mood बेहतर होता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: सुबह अलार्म की जगह पक्षियों की आवाज़ से जागना - यही है असली Experiential Start of the Day।</div>
+        </div>
+      </div>
+
+      <!-- 5. Fresh Air -->
+      <div class="forest-pillar">
+        <div class="fp-icon-wrap">🌬️</div>
+        <div class="fp-body">
+          <div class="fp-label">शुद्ध वायु</div>
+          <div class="fp-title">ताज़ी हवा - फेफड़ों और जीवन का पोषण</div>
+          <div class="fp-desc">
+            पेड़ वायु प्रदूषकों को फिल्टर करते हैं और ऑक्सीजन-समृद्ध, स्वच्छ हवा प्रदान करते हैं। शहरी प्रदूषित हवा में सांस लेना बनाम वन-वायु में सांस लेना - दोनों का असर कोशिकाओं की ऊर्जा, नींद की गहराई और सोचने की क्षमता पर पड़ता है।
+          </div>
+          <div class="fp-benefit">Experiential Living में: नदी किनारे का यह परिसर शहरी प्रदूषण से दूर - आपके परिवार को रोज़ शुद्ध, ऑक्सीजन-भरी हवा देता है।</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="forest-closing reveal">
+      <p>
+        Experiential Living का सार यही है — <strong>यहाँ प्रकृति आपकी दिनचर्या में घुली है</strong>, न कि किसी विशेष अवसर पर। पेड़ों की सुगंध, हरियाली, पक्षियों के गीत और शुद्ध वायु - ये सब मिलकर एक ऐसा जीवन-अनुभव रचते हैं जो शरीर को ऊर्जावान, मन को शांत और आत्मा को तृप्त रखता है।
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- EXPERIENTIAL LIVING CONCEPT -->
+<section class="exp-section" id="concept">
+  <div class="container">
+    <span class="pill pill-teal">नई सोच</span>
+    <h2 class="section-title reveal">Experiential Living<br><span class="accent">घर नहीं, एक अनुभव</span></h2>
+    <p class="section-lead reveal">
+      एक नई सोच उभर रही है - <strong style="color:var(--mint)">Experiential Living</strong>, जहाँ घर सिर्फ रहने की जगह नहीं, बल्कि एक ऐसा अनुभव बन जाता है जो रोज़मर्रा की ज़िंदगी को बेहतर, अधिक संतुलित और अधिक अर्थपूर्ण बनाता है।
+    </p>
+
+    <div class="comparison-table reveal">
+      <div class="comp-header">
+        <span>पहलू</span>
+        <span>पारंपरिक</span>
+        <span>Experiential</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">स्क्वेयर फीट</span>
+        <span class="old">जीवन की विलासिता</span>
+        <span class="new">जीवन की गुणवत्ता ✦</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">सुविधा</span>
+        <span class="old">भौतिक आराम</span>
+        <span class="new">स्वास्थ्य, शांति, संतुलन</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">निवेश</span>
+        <span class="old">संपत्ति में निवेश</span>
+        <span class="new">जीवनशैली में निवेश</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">इमारत</span>
+        <span class="old">बड़ी, शानदार</span>
+        <span class="new">प्राकृतिक अनुभव, सुकून</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">लोकेशन</span>
+        <span class="old">शहरी</span>
+        <span class="new">जीवन की सहजता</span>
+      </div>
+      <div class="comp-row">
+        <span class="label">डिज़ाइन</span>
+        <span class="old">केवल सुंदरता</span>
+        <span class="new">उपयोगिता + भावनात्मक जुड़ाव</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<div class="wave-divider"></div>
+
+<!-- LIFESTYLE -->
+<section class="lifestyle-section" id="lifestyle">
+  <div class="container">
+    <span class="pill pill-green">जीवनशैली</span>
+    <h2 class="section-title reveal">हर दिन एक<br><span class="accent">सुकून भरा अनुभव</span></h2>
+    <p class="section-lead reveal">
+      यहाँ जीवन केवल रहने का नाम नहीं, बल्कि हर सुबह को धीमे, शांत और प्राकृतिक तरीके से जीने का अवसर है।
+    </p>
+    <div class="lifestyle-grid reveal">
+      <div class="lifestyle-card">
+        <div class="lifestyle-img garden">🌱</div>
+        <div class="lifestyle-body">
+          <h3>खुला गार्डन और मिट्टी</h3>
+          <p>हर कॉटेज के पास खुला गार्डन है जहाँ आप नंगे पांव मिट्टी पर चल सकते हैं — रोज़ाना का प्राकृतिक उपचार। बच्चे यहाँ खुले मन से खेल सकते हैं, बड़ों को बैठकर पढ़ने या चाय पीने का सुकून मिलता है।</p>
+        </div>
+      </div>
+      <div class="lifestyle-card">
+        <div class="lifestyle-img river">🌊</div>
+        <div class="lifestyle-body">
+          <h3>नदी का किनारा</h3>
+          <p>हर सुबह नदी की आवाज़ और ठंडी हवा के साथ जागना - यह कोई सपना नहीं, आपकी रोज़मर्रा की ज़िंदगी है। बालकनी से दिखने वाला नदी का दृश्य दिन की शुरुआत को धीमा, सुंदर और ध्यानपूर्ण बनाता है।</p>
+        </div>
+      </div>
+      <div class="lifestyle-card">
+        <div class="lifestyle-img family">👨‍👩‍👧‍👦</div>
+        <div class="lifestyle-body">
+          <h3>परिवार के लिए स्वस्थ जीवन</h3>
+          <p>बच्चे प्रकृति से जुड़ें, परिवार स्वस्थ और खुश रहे — यहाँ जीवन में सुकून और खुशियाँ स्वाभाविक हैं। बच्चे मोबाइल स्क्रीन की बजाय मिट्टी, पेड़, हवा और खुली जगह से सीखते हैं।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- WELLNESS -->
+<section class="wellness-section" id="wellness">
+  <div class="container">
+    <span class="pill pill-teal">वेलनेस</span>
+    <h2 class="section-title reveal">वेलनेस और नेचुरोपैथी सेंटर<br><span class="accent">शरीर और मन का पुनर्जीवन</span></h2>
+    <p class="section-lead reveal">
+      परिसर में विकसित वेलनेस सेंटर इस अनुभव को और भी समृद्ध बनाता है। यहाँ योग, प्राकृतिक चिकित्सा, डिटॉक्स और रिलैक्सेशन के माध्यम से व्यक्ति अपने शरीर और मन को पुनर्जीवित कर सकता है।
+    </p>
+    <div class="wellness-cards reveal">
+      <div class="wellness-card">
+        <div class="wellness-card-icon">🧘</div>
+        <h3>योग और ध्यान</h3>
+        <p>दैनिक योग सत्र और ध्यान के माध्यम से आंतरिक शांति। शरीर को लचीला रखने, श्वास को संतुलित करने और मन को एकाग्र करने के लिए यह सबसे प्राकृतिक अभ्यासों में से एक है। शुरुआती और अनुभवी दोनों के लिए उपयोगी।</p>
+      </div>
+      <div class="wellness-card">
+        <div class="wellness-card-icon">🌿</div>
+        <h3>प्राकृतिक चिकित्सा</h3>
+        <p>नेचुरोपैथी उपचार से शरीर की प्राकृतिक क्षमता को जागृत करना। हर्बल सपोर्ट, संतुलित आहार, जल-चिकित्सा और जीवनशैली परामर्श के माध्यम से शरीर को भीतर से पुनर्स्थापित करने पर जोर दिया जाता है।</p>
+      </div>
+      <div class="wellness-card">
+        <div class="wellness-card-icon">💦</div>
+        <h3>डिटॉक्स और रिलैक्सेशन</h3>
+        <p>शरीर और मन की गहरी सफाई और विश्राम के लिए विशेष कार्यक्रम। आरामदायक थेरेपी, हल्का पोषण, पर्याप्त जल सेवन और तनाव-नियंत्रण तकनीकें मिलकर थकान कम करती हैं और नई ताज़गी का अनुभव कराती हैं।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- FUTURE / LUXURY -->
+<section class="luxury-section" id="future">
+  <div class="container">
+    <span class="pill pill-gold">भविष्य</span>
+    <h2 class="section-title reveal">लक़्ज़री की नई परिभाषा<br><span class="accent">स्वास्थ्य, शांति और प्रकृति</span></h2>
+    <div class="luxury-inner reveal">
+      <div class="future-text">
+        <p>अब लक़्ज़री केवल बड़ी इमारतों, महंगे फिनिश या शानदार इंटीरियर तक सीमित नहीं रही। आज की दुनिया में प्रीमियम जीवन का अर्थ है ऐसा वातावरण जो शरीर को ऊर्जा दे, मन को स्थिर करे, और रोज़मर्रा की भागदौड़ के बीच भी प्रकृति से जुड़ाव बनाए रखे।</p>
+        <p>यही कारण है कि आने वाला समय <strong>नेचर इंटीग्रेटेड, एक्सपीरिएंशियल लिविंग</strong> का है - जहाँ घर सिर्फ रहने की जगह नहीं, बल्कि जीवन को बेहतर बनाने का माध्यम बन जाता है।</p>
+        <p>जो प्रोजेक्ट्स प्रकृति, वेलनेस और कम्युनिटी को एक साथ जोड़ते हैं, वे सबसे अधिक मूल्यवान बनेंगे - यही लंबी अवधि में वास्तविक प्रीमियम बनती है।</p>
+      </div>
+      <div>
+        <h3 style="color:rgba(255,255,255,0.8);font-size:1rem;font-weight:600;margin-bottom:1.2rem;">यह प्रोजेक्ट आपके लिए है यदि...</h3>
+        <ul class="checklist">
+          <li>आप प्रकृति के साथ जीवन चाहते हैं, जहाँ हर दिन हरियाली, खुली हवा और सुकून महसूस हो</li>
+          <li>आपका परिवार स्वस्थ और खुश रहे, और जीवनशैली में संतुलन बना रहे</li>
+          <li>आप मानसिक शांति में निवेश करना चाहें, न कि केवल भौतिक सुविधाओं में</li>
+          <li>आप भावनात्मक संतुलन खोज रहे हैं, जहाँ घर तनाव घटाने में मदद करे</li>
+          <li>आप बेहतर जीवन गुणवत्ता चाहते हैं, जिसमें सुविधा, सुंदरता और अर्थ तीनों हों</li>
+          <li>आप भीड़भाड़ और शोर से दूर, लेकिन आधुनिक सुविधाओं से जुड़े रहना चाहते हैं</li>
+          <li>आपके लिए वेलनेस, प्राकृतिक वातावरण और निजीपन बराबर महत्वपूर्ण हैं</li>
+          <li>आप दीर्घकालिक मूल्य और स्थायी जीवनशैली दोनों को प्राथमिकता देते हैं</li>
+          <li>आप अपने घर को एक रिट्रीट जैसा अनुभव देना चाहते हैं, जहाँ हर दिन पुनर्संतुलन मिले</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIUM COTTAGE PROJECT — FINAL BEFORE CONTACT -->
+<section class="project-final-section" id="project-final">
+  <div class="container">
+    <div class="project-final-header reveal">
+      <span class="pill pill-gold">द प्रोजेक्ट</span>
+      <h2 class="section-title">30 प्रीमियम कॉटेज<br><span class="accent">50,000 वर्ग मीटर में एक अनूठा संसार</span></h2>
+      <p class="section-lead" style="margin:0 auto; text-align:center;">
+        नदी किनारे स्थित इस एक्सक्लूसिव प्रोजेक्ट में केवल <strong style="color:var(--gold)">30 प्रीमियम कॉटेज</strong> हैं - एक विशाल <strong style="color:var(--gold)">50,000 वर्ग मीटर</strong> के प्राकृतिक परिसर में। यहाँ हर कॉटेज को इस तरह डिज़ाइन किया गया है कि निवास सिर्फ रहने का अनुभव न होकर एक शांत, स्वास्थ्यप्रद और यादगार जीवनशैली बन जाए।
+      </p>
+    </div>
+
+    <div class="project-final-stats reveal">
+      <div class="pf-stat">
+        <div class="pf-num">30</div>
+        <div class="pf-label">प्रीमियम कॉटेज</div>
+        <div class="pf-desc">सीमित और एक्सक्लूसिव, ताकि हर निवासी को अधिक प्राइवेसी, सुकून और व्यक्तिगत स्पेस मिल सके।</div>
+      </div>
+      <div class="pf-stat">
+        <div class="pf-num">50K</div>
+        <div class="pf-label">वर्ग मीटर</div>
+        <div class="pf-desc">विशाल प्राकृतिक परिसर, जिसमें खुलापन, हरियाली और शांत वातावरण का संतुलन बना रहता है।</div>
+      </div>
+      <div class="pf-stat">
+        <div class="pf-num">1</div>
+        <div class="pf-label">नदी किनारे</div>
+        <div class="pf-desc">अनूठी लोकेशन, जहाँ पानी, हवा और प्राकृतिक दृश्य मिलकर एक विशेष जीवन-अनुभव रचते हैं।</div>
+      </div>
+    </div>
+
+    <div class="project-final-features reveal">
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌿</div>
+        <div class="pf-feature-text">
+          <h4>प्रकृति-एकीकृत डिज़ाइन</h4>
+          <p>हर कॉटेज प्राकृतिक सामग्री, वन-दृश्य और खुले आकाश के साथ डिज़ाइन किया गया है।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌊</div>
+        <div class="pf-feature-text">
+          <h4>नदी-दृश्य बालकनी</h4>
+          <p>हर सुबह बालकनी से नदी का दृश्य — यही है Experiential Living का असली अनुभव।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🧘</div>
+        <div class="pf-feature-text">
+          <h4>ऑन-साइट वेलनेस सेंटर</h4>
+          <p>योग, ध्यान और नेचुरोपैथी — परिसर में ही उपलब्ध, रोज़ाना के जीवन का हिस्सा।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🌱</div>
+        <div class="pf-feature-text">
+          <h4>व्यक्तिगत गार्डन स्पेस</h4>
+          <p>नंगे पाँव मिट्टी पर चलें, अपना बगीचा उगाएं — ग्राउंडिंग का रोज़ का अनुभव।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">🔒</div>
+        <div class="pf-feature-text">
+          <h4>गोपनीयता और सुकून</h4>
+          <p>केवल 30 परिवारों का एक्सक्लूसिव समुदाय — भीड़ से दूर, अपनेपन के करीब।</p>
+        </div>
+      </div>
+      <div class="pf-feature">
+        <div class="pf-feature-icon">⭐</div>
+        <div class="pf-feature-text">
+          <h4>दीर्घकालिक मूल्य</h4>
+          <p>प्रकृति, वेलनेस और कम्युनिटी का संयोजन — यही असली प्रीमियम निवेश है।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- INVESTMENT DESK BLOG SECTION -->
+<section class="investment-blog-section" id="investment-blog">
+  <div class="container">
+
+    <div class="blog-header reveal">
+      <span class="pill pill-gold">📊 निवेश डेस्क विश्लेषण</span>
+      <div class="blog-meta">
+        <span class="blog-date">1 मई 2026</span>
+        <div class="blog-dot"></div>
+        <span class="blog-source">Investment Desk Analysis</span>
+      </div>
+      <h2 class="section-title">भारत का रियल एस्टेट :<br><span class="accent">मिडिल क्लास की धीमी चाल</span></h2>
+    </div>
+
+    <div class="blog-opening-couplet reveal">
+      <p>
+        अब मिडिल क्लास धीरे-धीरे रुकने सा लगा है,<br>
+        <span>अब भारत में एक नई शुरुआत होगी, धीरे-धीरे।।</span>
+      </p>
+    </div>
+
+    <div class="blog-body">
+
+      <!-- Segment 1: Intro -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-green">🌐</div>
+          <div class="blog-segment-title">एक शांत लेकिन गहरा बदलाव</div>
+        </div>
+        <p>भारत के रियल एस्टेट में एक शांत लेकिन गहरा बदलाव हो रहा है। यह अभी ज़्यादा दिख नहीं रहा, लेकिन इसकी दिशा साफ है - और यह धीरे-धीरे पूरे बाज़ार को बदल रहा है।</p>
+      </div>
+
+      <!-- Segment 2: Middle Class Pressure -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-red">⚖️</div>
+          <div class="blog-segment-title">मिडिल क्लास पर बढ़ता दबाव</div>
+        </div>
+        <p>मिडिल क्लास, जो पहले घर खरीदने की सबसे बड़ी ताकत था, अब दबाव में है। बिना बिके पड़े फ्लैट बढ़ रहे हैं। Corona के बाद से लगातार लोगों की कमाई में कमी, और ऊपर से, टेक और स्टार्टअप में काम करने वाले लोगों को अब नौकरी की सुरक्षा भी पहले जैसी नहीं लगती।</p>
+        <p>मेट्रो शहरों का अपर मिडिल क्लास, जो कभी Life-Style और दिखावे पर खर्च करता था, अब दबाव महसूस कर रहा है - और वास्तविकता का सामना कर रहा है। लगातार आय में अस्थिरता, बार-बार होने वाली छंटनी (layoffs), नौकरी की अनिश्चितता ने लोगों के आत्मविश्वास को प्रभावित किया है।</p>
+        <div class="blog-highlight-line">अब सबसे बड़ी प्राथमिकता बन गई है - पूरी ज़िंदगी के लिए पैसे को सही तरीके से संभालना।</div>
+        <p style="margin-top:1rem;">इसी कारण 20-30 साल की EMI का निर्णय अब भावनात्मक नहीं, बल्कि पूरी तरह सोच-समझकर लिया जा रहा फैसला है।</p>
+      </div>
+
+      <!-- Segment 3: Mindset Shift -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-teal">🧠</div>
+          <div class="blog-segment-title">सोच में बदलाव, सिर्फ बाज़ार नहीं</div>
+        </div>
+        <p>यह सिर्फ बाज़ार की धीमी रफ्तार नहीं है - यह लोगों की सोच में बड़ा बदलाव है।</p>
+        <p>अब लोग "back to basics" की ओर लौट रहे हैं - जहाँ बेहतर स्वास्थ्य, शांत वातावरण, अच्छा माहौल, और एक खुशहाल कम्युनिटी में जीवन जीने का मौका देख रहे हैं।</p>
+        <div class="blog-highlight-line">जब कमाई को लेकर भरोसा कम होता है, तो मिडिल क्लास जल्दी फैसला नहीं करता - वह इंतज़ार करता है।</div>
+      </div>
+
+      <!-- Segment 4: Developer Challenge -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-red">🏗️</div>
+          <div class="blog-segment-title">डेवलपर्स के सामने चुनौती</div>
+        </div>
+        <p>दूसरी ओर, डेवलपर्स के सामने स्थिति आसान नहीं है। जमीन, मटेरियल और नियमों की लागत लगातार बढ़ रही है, जिससे उनका मुनाफा कम हो रहा है। वे कीमत कम नहीं कर सकते, और ज़्यादा कीमत पर ग्राहक नहीं मिल रहे।</p>
+        <p>इससे समस्या बढ़ रही है - घर बिक नहीं रहे, पैसे का चक्र धीमा हो रहा है, और दबाव बढ़ता जा रहा है।</p>
+      </div>
+
+      <!-- Segment 5: New Rising Market -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-green">📈</div>
+          <div class="blog-segment-title">तेज़ी से बढ़ता नया बाज़ार</div>
+        </div>
+        <p>इसी बीच, एक अलग ट्रेंड तेज़ी से उभर रहा है। जमीन पर बने घर की माँग तेज़ी से बढ़ रही है। लोग इन्हें सिर्फ रहने के लिए नहीं, बल्कि ज़मीन से जुड़े निवेश के लिए भी खरीद रहे हैं।</p>
+        <p>यह बदलाव संयोग नहीं है। भारत में आबादी बढ़ रही है, और लोगों की सोच भी बदल रही है। अब उन्हें ज़्यादा जगह, प्राइवेसी और अलग पहचान चाहिए। घर अब सिर्फ रहने की जगह नहीं, बल्कि <strong style="color:var(--mint)">अनुभव का प्रतीक</strong> बन गया है।</p>
+      </div>
+
+      <!-- Segment 6: New Face of RE -->
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-gold">🏡</div>
+          <div class="blog-segment-title">रियल एस्टेट का नया रूप</div>
+        </div>
+        <p>भारत का रियल एस्टेट गिर नहीं रहा - वह बदल रहा है। अब फोकस ज़्यादा घर बेचने से हटकर, बेहतर और खास घर बनाने पर आ रहा है।</p>
+        <div class="blog-highlight-gold">वेतन पर निर्भरता से हटकर, Savings की ताकत बढ़ रही है।</div>
+        <p style="margin-top:1rem;">जब समय अनिश्चित होता है, तो लोग सुरक्षा ढूँढते हैं - और यह सुरक्षा अब लोग जमीन और स्वतंत्र घरों में देख रहे हैं।</p>
+      </div>
+
+    </div><!-- end .blog-body -->
+
+    <!-- Conclusion -->
+    <div class="blog-conclusion reveal">
+      <h3>निष्कर्ष : बदलाव की असली कहानी</h3>
+      <p>शहरों में निर्माण धीमा हो सकता है। लेकिन भारत के अलग-अलग हिस्सों में - विला का एक नया ट्रेंड चुपचाप बढ़ रहा है।</p>
+      <p>पूरे भारत के दिल में, शहर से दूर - प्रकृति के करीब, अपने गाँव में, अपने लोगों के बीच — एक नई, जमीन से जुड़ी <strong>विला संस्कृति</strong> चुपचाप उभर रही है।</p>
+      <p>यही वह दिशा है जिसे Experiential Living आज पकड़ रहा है - जहाँ घर सिर्फ एक छत नहीं, बल्कि एक जीवंत, अर्थपूर्ण और भविष्य-सुरक्षित निवेश है।</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <span class="pill pill-green" style="margin-bottom:1.5rem;display:inline-block;">अभी जुड़ें</span>
+    <h2>अपना अनुभव शुरू करें</h2>
+    <p>
+      अगर प्रकृति के साथ जीवन चाहते हैं, जहाँ हर सुबह हरियाली, खुली हवा और सुकून महसूस हो - यह प्रोजेक्ट आपके लिए बना है।
+    </p>
+    <a href="#" class="cta-btn">अभी संपर्क करें →</a>
+  </div>
+</section>
+
+<style>
+/* ===== NAV PITCH BUTTON ===== */
+.nav-pitch-btn {
+  background: var(--gold) !important;
+  color: var(--dark) !important;
+  padding: 0.35rem 1rem !important;
+  border-radius: 50px !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.25s !important;
+  border: none !important;
+}
+.nav-pitch-btn:hover {
+  background: #e8c84a !important;
+  color: var(--dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+}
+
+/* ===== INVESTOR PITCH LANDING PAGE ===== */
+#investor-pitch {
+  background: #050d09;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- pitch hero ---- */
+.pitch-hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #03080a 0%, #071a0f 40%, #0a1c14 70%, #060f0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem 5rem;
+}
+.pitch-hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(45,122,79,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(201,162,39,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 85% 10%, rgba(13,110,138,0.08) 0%, transparent 55%);
+}
+.pitch-hero-grid {
+  position:absolute; inset:0;
+  background-image: linear-gradient(rgba(76,175,128,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(76,175,128,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.pitch-hero-orb {
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.12;
+}
+.pitch-hero-orb.orb1 { width:500px; height:500px; background:#2d7a4f; top:-100px; right:-100px; }
+.pitch-hero-orb.orb2 { width:400px; height:400px; background:#c9a227; bottom:-80px; left:-80px; }
+.pitch-hero-orb.orb3 { width:300px; height:300px; background:#0d6e8a; top:30%; left:5%; }
+
+.pitch-hero-content { position:relative; z-index:2; max-width:780px; margin:0 auto; }
+.pitch-eyebrow {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.3);
+  color: #e8c84a;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+.pitch-hero-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--mint);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.pitch-hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.pitch-hero-h1 em { color: var(--mint); font-style: normal; }
+.pitch-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.pitch-hero-ctas {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.pitch-btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  border: none; cursor: pointer;
+}
+.pitch-btn-primary:hover { background: #e8c84a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,162,39,0.35); }
+.pitch-btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.pitch-btn-outline:hover { border-color: var(--mint); color: var(--mint); }
+
+/* Scroll indicator */
+.pitch-scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  color: rgba(255,255,255,0.25); font-size: 0.7rem; letter-spacing: 2px;
+  text-transform: uppercase; animation: bounce 2s infinite;
+}
+.pitch-scroll-hint::after {
+  content:''; width:1px; height:30px; background: rgba(76,175,128,0.3);
+}
+@keyframes bounce { 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(6px); } }
+
+/* ---- hero stat bar ---- */
+.pitch-stats-bar {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; max-width: 860px; margin: 3rem auto 0;
+  border: 1px solid rgba(76,175,128,0.2);
+  border-radius: 16px; overflow: hidden;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.pitch-stat {
+  padding: 1.4rem 1rem; text-align: center;
+  border-right: 1px solid rgba(76,175,128,0.15);
+  background: rgba(255,255,255,0.02);
+}
+.pitch-stat:last-child { border-right: none; }
+.pitch-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--mint); line-height: 1;
+}
+.pitch-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 0.3rem; letter-spacing: 0.5px; }
+
+/* ---- pitch sections common ---- */
+.pitch-section {
+  padding: 6rem 2rem;
+  max-width: 1100px; margin: 0 auto;
+}
+.pitch-section-full { padding: 6rem 2rem; }
+.pitch-section-full .pitch-section { padding-top: 0; padding-bottom: 0; }
+
+.pitch-label {
+  display: inline-block;
+  background: rgba(76,175,128,0.12);
+  border: 1px solid rgba(76,175,128,0.25);
+  color: var(--mint); font-size: 0.7rem;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 0.3rem 0.9rem; border-radius: 4px;
+  margin-bottom: 1.2rem; font-weight: 600;
+}
+.pitch-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 900; color: #fff;
+  line-height: 1.15; margin-bottom: 1rem;
+}
+.pitch-h2 span { color: var(--mint); }
+.pitch-lead {
+  font-size: 1.05rem; color: rgba(255,255,255,0.55);
+  line-height: 1.75; max-width: 620px;
+}
+
+/* ---- project overview ---- */
+.pitch-overview-bg {
+  background: linear-gradient(180deg, #050d09 0%, #071810 50%, #050d09 100%);
+  border-top: 1px solid rgba(76,175,128,0.08);
+  border-bottom: 1px solid rgba(76,175,128,0.08);
+}
+.pitch-overview-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.pitch-overview-cards { display: flex; flex-direction: column; gap: 1rem; }
+.pitch-overview-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(76,175,128,0.12);
+  border-radius: 12px; padding: 1.4rem 1.6rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  transition: all 0.3s;
+}
+.pitch-overview-card:hover {
+  border-color: rgba(76,175,128,0.3);
+  background: rgba(76,175,128,0.05);
+  transform: translateX(4px);
+}
+.pitch-oc-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(76,175,128,0.1); border: 1px solid rgba(76,175,128,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.pitch-oc-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+.pitch-oc-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+/* ---- financials ---- */
+.pitch-fin-bg {
+  background: #030a07;
+}
+.pitch-kpi-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
+  background: rgba(76,175,128,0.1);
+  border: 1px solid rgba(76,175,128,0.1);
+  border-radius: 16px; overflow: hidden;
+  margin-bottom: 3rem;
+}
+.pitch-kpi {
+  background: #050d09; padding: 2rem 1.5rem;
+  text-align: center; position: relative;
+}
+.pitch-kpi::after {
+  content:'';
+  position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+  width:40%; height:2px; background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  opacity:0;
+  transition: opacity 0.3s;
+}
+.pitch-kpi:hover::after { opacity:1; }
+.pitch-kpi-val {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 900; color: var(--gold); line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.pitch-kpi-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; line-height: 1.4; }
+
+/* ---- investment breakdown table ---- */
+.pitch-table-wrap {
+  border: 1px solid rgba(76,175,128,0.12);
+  border-radius: 16px; overflow: hidden;
+  margin: 2rem 0;
+}
+.pitch-table { width: 100%; border-collapse: collapse; }
+.pitch-table thead tr {
+  background: linear-gradient(90deg, #1a4a2e, #2d7a4f);
+}
+.pitch-table thead th {
+  padding: 1rem 1.2rem; text-align: left;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.pitch-table thead th:not(:first-child) { text-align: right; }
+.pitch-table tbody tr {
+  border-bottom: 1px solid rgba(76,175,128,0.07);
+  transition: background 0.2s;
+}
+.pitch-table tbody tr:hover { background: rgba(76,175,128,0.05); }
+.pitch-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+.pitch-table tbody tr:nth-child(even):hover { background: rgba(76,175,128,0.06); }
+.pitch-table td {
+  padding: 0.85rem 1.2rem; font-size: 0.87rem;
+  color: rgba(255,255,255,0.7);
+}
+.pitch-table td:not(:first-child) { text-align: right; }
+.pitch-table td strong { color: #fff; }
+.pitch-table .total-row { background: rgba(201,162,39,0.08) !important; }
+.pitch-table .total-row td { color: #e8c84a; font-weight: 700; font-size: 0.95rem; }
+.pitch-table .total-row td:first-child { color: #fff; }
+.pitch-pct-badge {
+  display: inline-block;
+  background: rgba(76,175,128,0.12);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--mint);
+  font-weight: 700;
+}
+
+/* ---- investment alloc bars ---- */
+.pitch-alloc-bars { display: flex; flex-direction: column; gap: 0.9rem; }
+.pitch-alloc-row { display: flex; align-items: center; gap: 1rem; }
+.pitch-alloc-name { font-size: 0.82rem; color: rgba(255,255,255,0.6); width: 160px; flex-shrink: 0; }
+.pitch-alloc-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 50px; overflow: hidden; }
+.pitch-alloc-bar { height: 100%; border-radius: 50px; transition: width 1.2s ease; }
+.pitch-alloc-pct { font-size: 0.78rem; font-weight: 700; width: 44px; text-align: right; }
+
+/* ---- services grid ---- */
+.pitch-services-bg {
+  background: linear-gradient(180deg, #050d09 0%, #061510 40%, #050d09 100%);
+}
+.pitch-services-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+  margin-top: 2.5rem;
+}
+.pitch-svc-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(76,175,128,0.1);
+  border-radius: 14px; padding: 1.6rem 1.4rem;
+  transition: all 0.3s;
+}
+.pitch-svc-card:hover {
+  border-color: rgba(76,175,128,0.3);
+  background: rgba(76,175,128,0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.pitch-svc-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+.pitch-svc-title { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.pitch-svc-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.55; margin-bottom: 0.8rem; }
+.pitch-svc-price {
+  font-size: 0.82rem; font-weight: 700; color: var(--gold);
+  border-top: 1px solid rgba(76,175,128,0.1); padding-top: 0.7rem; margin-top: 0.4rem;
+}
+
+/* ---- p&l section ---- */
+.pitch-pl-bg {
+  background: #030a07;
+}
+.pitch-pl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+.pitch-pl-col-title {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.pitch-pl-col-title .dot { width: 8px; height: 8px; border-radius: 50%; }
+.pitch-pl-item {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.85rem;
+}
+.pitch-pl-item-name { color: rgba(255,255,255,0.55); line-height: 1.4; }
+.pitch-pl-item-val { font-weight: 700; white-space: nowrap; margin-left: 1rem; }
+.pitch-pl-total {
+  margin-top: 1rem; padding: 1rem 1.2rem; border-radius: 10px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 700; font-size: 0.95rem;
+}
+.pitch-pl-total.rev { background: rgba(76,175,128,0.1); border: 1px solid rgba(76,175,128,0.2); color: var(--mint); }
+.pitch-pl-total.exp { background: rgba(200,60,60,0.08); border: 1px solid rgba(200,60,60,0.15); color: #ff8080; }
+.pitch-pl-net {
+  margin-top: 1.5rem; padding: 1.5rem; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(201,162,39,0.12), rgba(201,162,39,0.06));
+  border: 1px solid rgba(201,162,39,0.25); text-align: center;
+}
+.pitch-pl-net-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1;
+}
+.pitch-pl-net-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.4rem; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ---- 5-year projection ---- */
+.pitch-proj-bg {
+  background: linear-gradient(180deg, #050d09 0%, #071810 50%, #050d09 100%);
+}
+.pitch-proj-chart { display: flex; align-items: flex-end; gap: 1rem; margin-top: 2.5rem; height: 220px; }
+.pitch-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.pitch-bar-wrap { flex: 1; width: 100%; display: flex; align-items: flex-end; }
+.pitch-bar {
+  width: 100%; border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--mint), #1a4a2e);
+  transition: height 1.5s ease; position: relative;
+  min-height: 20px;
+}
+.pitch-bar::before {
+  content: attr(data-val);
+  position: absolute; top: -2rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.75rem; font-weight: 700; color: var(--mint); white-space: nowrap;
+}
+.pitch-bar-yr { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+/* ---- manpower ---- */
+.pitch-mp-bg {
+  background: #030a07;
+}
+.pitch-mp-dept-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 2rem;
+}
+.pitch-mp-dept {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(76,175,128,0.1);
+  border-radius: 12px; padding: 1.2rem 1.4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.25s;
+}
+.pitch-mp-dept:hover { border-color: rgba(76,175,128,0.25); background: rgba(76,175,128,0.04); }
+.pitch-mp-dept-name { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+.pitch-mp-dept-detail { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.2rem; }
+.pitch-mp-dept-count {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--mint); line-height: 1;
+}
+.pitch-mp-total-banner {
+  margin-top: 1.5rem; padding: 1.5rem 2rem;
+  background: linear-gradient(90deg, rgba(26,74,46,0.4), rgba(45,122,79,0.2));
+  border: 1px solid rgba(76,175,128,0.2);
+  border-radius: 14px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.pitch-mp-total-left { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+.pitch-mp-total-left strong { display: block; font-size: 1.1rem; color: #fff; margin-bottom: 0.2rem; }
+.pitch-mp-total-right { text-align: right; }
+.pitch-mp-total-right .big { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight:900; color:var(--gold); }
+.pitch-mp-total-right .sm { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.2rem; }
+
+/* ---- development roadmap ---- */
+.pitch-roadmap-bg {
+  background: linear-gradient(180deg, #050d09 0%, #061510 50%, #050d09 100%);
+}
+.pitch-roadmap { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; margin-top: 2.5rem; }
+.pitch-roadmap::before {
+  content:''; position:absolute; top:32px; left:calc(12.5%); right:calc(12.5%);
+  height:2px; background: linear-gradient(90deg, var(--mint), var(--gold), var(--mint));
+  opacity:0.3;
+}
+.pitch-phase { text-align: center; padding: 0 1rem; }
+.pitch-phase-dot {
+  width:64px; height:64px; border-radius:50%; margin:0 auto 1.2rem;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; font-weight:900; position:relative; z-index:2;
+  border:2px solid;
+}
+.ph1 { background:rgba(26,74,46,0.3); border-color:#2d7a4f; color:var(--mint); }
+.ph2 { background:rgba(45,122,79,0.2); border-color:#4caf80; color:#4caf80; }
+.ph3 { background:rgba(201,162,39,0.15); border-color:#c9a227; color:var(--gold); }
+.ph4 { background:rgba(13,110,138,0.2); border-color:#0d6e8a; color:#64d2f0; }
+.pitch-phase-period { font-size:0.7rem; color:rgba(255,255,255,0.35); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem; }
+.pitch-phase-title { font-size:0.9rem; font-weight:700; color:#fff; margin-bottom:0.6rem; }
+.pitch-phase-items { font-size:0.75rem; color:rgba(255,255,255,0.4); line-height:1.7; }
+
+/* ---- why invest ---- */
+.pitch-why-bg { background: #030a07; }
+.pitch-why-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:2rem; }
+.pitch-why-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(76,175,128,0.1);
+  border-radius:14px; padding:1.8rem;
+  transition:all 0.3s;
+}
+.pitch-why-card:hover {
+  border-color:rgba(76,175,128,0.28);
+  background:rgba(76,175,128,0.04);
+  transform:translateY(-2px);
+}
+.pitch-why-num {
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem; font-weight:900;
+  color:rgba(76,175,128,0.15); line-height:1;
+  margin-bottom:0.5rem;
+}
+.pitch-why-title { font-size:1rem; font-weight:700; color:#fff; margin-bottom:0.5rem; }
+.pitch-why-desc { font-size:0.83rem; color:rgba(255,255,255,0.45); line-height:1.65; }
+
+/* ---- pitch CTA ---- */
+.pitch-cta-bg {
+  background: linear-gradient(135deg, #071a0f 0%, #0a2a18 50%, #071a0f 100%);
+  border-top: 1px solid rgba(76,175,128,0.1);
+  text-align: center; padding: 7rem 2rem;
+  position: relative; overflow: hidden;
+}
+.pitch-cta-bg::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(45,122,79,0.15) 0%, transparent 65%);
+}
+.pitch-cta-content { position:relative; z-index:2; max-width:640px; margin:0 auto; }
+.pitch-cta-tag {
+  display:inline-block; background:rgba(201,162,39,0.12);
+  border:1px solid rgba(201,162,39,0.3); color:#e8c84a;
+  padding:0.35rem 1rem; border-radius:50px; font-size:0.72rem;
+  letter-spacing:2px; text-transform:uppercase; font-weight:600; margin-bottom:1.5rem;
+}
+.pitch-cta-h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4vw,3.5rem); font-weight:900;
+  color:#fff; line-height:1.1; margin-bottom:1rem;
+}
+.pitch-cta-p { font-size:1rem; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:2.5rem; }
+.pitch-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.pitch-contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:3rem; }
+.pitch-contact-card {
+  background:rgba(255,255,255,0.03); border:1px solid rgba(76,175,128,0.12);
+  border-radius:12px; padding:1.2rem 1rem; text-align:center;
+}
+.pitch-contact-label { font-size:0.7rem; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:0.4rem; }
+.pitch-contact-val { font-size:0.88rem; color:var(--mint); font-weight:600; }
+
+/* ---- divider ---- */
+.pitch-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(76,175,128,0.2) 30%, rgba(201,162,39,0.2) 70%, transparent);
+  margin: 0;
+}
+
+/* ---- animations ---- */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.pitch-reveal {
+  opacity:0; transform:translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.pitch-reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ---- responsive ---- */
+@media(max-width:768px) {
+  .pitch-stats-bar { grid-template-columns:repeat(2,1fr); }
+  .pitch-overview-grid { grid-template-columns:1fr; }
+  .pitch-kpi-grid { grid-template-columns:repeat(2,1fr); }
+  .pitch-services-grid { grid-template-columns:1fr 1fr; }
+  .pitch-pl-grid { grid-template-columns:1fr; }
+  .pitch-roadmap { grid-template-columns:1fr 1fr; }
+  .pitch-roadmap::before { display:none; }
+  .pitch-why-grid { grid-template-columns:1fr; }
+  .pitch-contact-grid { grid-template-columns:1fr; }
+  .pitch-mp-dept-grid { grid-template-columns:1fr; }
+}
+@media(max-width:500px) {
+  .pitch-services-grid { grid-template-columns:1fr; }
+  .pitch-stats-bar { grid-template-columns:1fr 1fr; }
+}
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════════
+  INVESTOR PITCH LANDING PAGE
+═══════════════════════════════════════════════════════════════ -->
+<div id="investor-pitch">
+
+  <!-- ── PITCH HERO ────────────────────────────────────────────────── -->
+  <div class="pitch-hero">
+    <div class="pitch-hero-grid"></div>
+    <div class="pitch-hero-orb orb1"></div>
+    <div class="pitch-hero-orb orb2"></div>
+    <div class="pitch-hero-orb orb3"></div>
+    <div class="pitch-hero-content">
+      <div class="pitch-eyebrow">📊 Investor Presentation · May 2026</div>
+      <div class="pitch-hero-logo">Riverside Serenity</div>
+      <h1 class="pitch-hero-h1">Wellness &amp;<br><em>Naturopathy Retreat</em></h1>
+      <p class="pitch-hero-sub">A landmark healing sanctuary where ancient Ayurvedic traditions meet contemporary luxury — set on 21 vigha of pristine riverfront land in India.</p>
+      <div class="pitch-hero-ctas">
+        <a href="#pitch-financials" class="pitch-btn-primary">View Financial Summary</a>
+        <a href="#pitch-cta" class="pitch-btn-outline">Schedule a Consultation →</a>
+      </div>
+      <div class="pitch-stats-bar">
+        <div class="pitch-stat">
+          <div class="pitch-stat-num">₹42.98 Cr</div>
+          <div class="pitch-stat-label">Total Investment</div>
+        </div>
+        <div class="pitch-stat">
+          <div class="pitch-stat-num">₹45 Cr</div>
+          <div class="pitch-stat-label">Villa Sales Revenue</div>
+        </div>
+        <div class="pitch-stat">
+          <div class="pitch-stat-num">₹26.1 L</div>
+          <div class="pitch-stat-label">Monthly Revenue</div>
+        </div>
+        <div class="pitch-stat">
+          <div class="pitch-stat-num">71</div>
+          <div class="pitch-stat-label">Expert Staff</div>
+        </div>
+      </div>
+    </div>
+    <div class="pitch-scroll-hint">Scroll to explore</div>
+  </div>
+
+  <!-- ── PROJECT OVERVIEW ─────────────────────────────────────────── -->
+  <div class="pitch-overview-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-overview-grid">
+        <div>
+          <div class="pitch-label">Project Overview</div>
+          <h2 class="pitch-h2">A Sanctuary Built for<br><span>the Modern Seeker</span></h2>
+          <p class="pitch-lead">Riverside Serenity is a premium Ayurvedic &amp; Naturopathy Wellness Center on 21 vigha (~14 acres) of pristine land — one of the most sought-after natural settings in India. Our vision fuses traditional wellness with world-class luxury hospitality.</p>
+        </div>
+        <div class="pitch-overview-cards">
+          <div class="pitch-overview-card">
+            <div class="pitch-oc-icon">🏡</div>
+            <div>
+              <div class="pitch-oc-title">30 Luxury Villas</div>
+              <div class="pitch-oc-desc">2,200 sq ft each — designed for complete privacy, serenity, and premium living. Available for sale at ₹1.5 Cr each.</div>
+            </div>
+          </div>
+          <div class="pitch-overview-card">
+            <div class="pitch-oc-icon">🛖</div>
+            <div>
+              <div class="pitch-oc-title">25 Mud Cottages</div>
+              <div class="pitch-oc-desc">Eco-conscious therapeutic stay cottages rooted in natural living. Generates recurring occupancy revenue.</div>
+            </div>
+          </div>
+          <div class="pitch-overview-card">
+            <div class="pitch-oc-icon">🧘</div>
+            <div>
+              <div class="pitch-oc-title">6,000 sq ft Yoga &amp; Meditation Dome</div>
+              <div class="pitch-oc-desc">Dedicated Dhyanlingam Dome + Yoga Room — the spiritual heart of the retreat campus.</div>
+            </div>
+          </div>
+          <div class="pitch-overview-card">
+            <div class="pitch-oc-icon">🌿</div>
+            <div>
+              <div class="pitch-oc-title">Full Wellness Campus</div>
+              <div class="pitch-oc-desc">Therapy rooms, hydrotherapy pool, sauna, jacuzzi, ice bath, dining, kitchen, solar power &amp; organic landscaping across 21 vigha.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pitch-divider"></div>
+
+  <!-- ── FINANCIAL KPIs ────────────────────────────────────────────── -->
+  <div class="pitch-fin-bg pitch-section-full" id="pitch-financials">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Financial Summary</div>
+      <h2 class="pitch-h2">Strong Returns,<br><span>De-Risked Structure</span></h2>
+      <p class="pitch-lead" style="margin-bottom:2.5rem;">A self-liquidating model where villa sales recover full capital investment — leaving the wellness operation as pure upside.</p>
+
+      <div class="pitch-kpi-grid">
+        <div class="pitch-kpi">
+          <div class="pitch-kpi-val">₹42.98 Cr</div>
+          <div class="pitch-kpi-lbl">Total Project<br>Investment</div>
+        </div>
+        <div class="pitch-kpi">
+          <div class="pitch-kpi-val">₹45 Cr</div>
+          <div class="pitch-kpi-lbl">Villa Sales Revenue<br>30 units @ ₹1.5 Cr</div>
+        </div>
+        <div class="pitch-kpi">
+          <div class="pitch-kpi-val">₹2.02 Cr</div>
+          <div class="pitch-kpi-lbl">Immediate Profit on<br>Development</div>
+        </div>
+        <div class="pitch-kpi">
+          <div class="pitch-kpi-val">₹1.33 L</div>
+          <div class="pitch-kpi-lbl">Net Monthly Profit<br>(Conservative Year 1)</div>
+        </div>
+      </div>
+
+      <!-- Investment Breakdown Table -->
+      <div class="pitch-label" style="margin-top:3rem;">Capital Allocation</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:1.5rem;">Investment Breakdown — ₹42.98 Crore</h3>
+      <div class="pitch-table-wrap">
+        <table class="pitch-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Details</th>
+              <th>Amount</th>
+              <th>% Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Land Acquisition</strong></td><td>21 Vigha @ ₹26.25 L/vigha</td><td>₹5.51 Cr</td><td><span class="pitch-pct-badge">12.8%</span></td></tr>
+            <tr><td><strong>Residential Villas</strong></td><td>30 × 2,200 sq ft × ₹3,000/sq ft</td><td>₹19.80 Cr</td><td><span class="pitch-pct-badge">46.1%</span></td></tr>
+            <tr><td><strong>Mud Cottages</strong></td><td>25 × 400 sq ft × ₹3,000/sq ft</td><td>₹3.00 Cr</td><td><span class="pitch-pct-badge">7.0%</span></td></tr>
+            <tr><td><strong>Wellness Block</strong></td><td>Reception, yoga, therapy, massage rooms</td><td>₹2.34 Cr</td><td><span class="pitch-pct-badge">5.4%</span></td></tr>
+            <tr><td><strong>Dhyanlingam Dome</strong></td><td>6,000 sq ft meditation space</td><td>₹1.08 Cr</td><td><span class="pitch-pct-badge">2.5%</span></td></tr>
+            <tr><td><strong>Waterbody &amp; Amenities</strong></td><td>Pool, jacuzzi, sauna, steam, ice bath</td><td>₹1.34 Cr</td><td><span class="pitch-pct-badge">3.1%</span></td></tr>
+            <tr><td><strong>Equipment &amp; Technology</strong></td><td>Therapy, solar, kitchen, electric carts</td><td>₹2.39 Cr</td><td><span class="pitch-pct-badge">5.6%</span></td></tr>
+            <tr><td><strong>Development &amp; Landscape</strong></td><td>Boundary, paths, landscaping, land fill, lights</td><td>₹5.61 Cr</td><td><span class="pitch-pct-badge">13.1%</span></td></tr>
+            <tr><td><strong>Staff Residence &amp; Security</strong></td><td>20 rooms + security cabin</td><td>₹0.37 Cr</td><td><span class="pitch-pct-badge">0.9%</span></td></tr>
+            <tr><td><strong>Furniture &amp; Miscellaneous</strong></td><td>Tables, chairs, buffers</td><td>₹1.54 Cr</td><td><span class="pitch-pct-badge">3.6%</span></td></tr>
+            <tr class="total-row"><td><strong>TOTAL INVESTMENT</strong></td><td></td><td><strong>₹42.98 Cr</strong></td><td><strong>100%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Allocation Bars -->
+      <div class="pitch-alloc-bars" style="margin-top:2rem;" id="pitchAllocBars">
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Residential Villas</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#2d7a4f,#4caf80);" data-w="46.1"></div></div>
+          <div class="pitch-alloc-pct" style="color:#4caf80;">46.1%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Development &amp; Landscape</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#1a4a2e,#2d7a4f);" data-w="13.1"></div></div>
+          <div class="pitch-alloc-pct" style="color:#2d7a4f;">13.1%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Land Acquisition</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#c9a227,#e8c84a);" data-w="12.8"></div></div>
+          <div class="pitch-alloc-pct" style="color:#e8c84a;">12.8%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Mud Cottages</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#0d4a3a,#1a7a5e);" data-w="7.0"></div></div>
+          <div class="pitch-alloc-pct" style="color:#1a7a5e;">7.0%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Equipment &amp; Tech</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#0d6e8a,#64d2f0);" data-w="5.6"></div></div>
+          <div class="pitch-alloc-pct" style="color:#64d2f0;">5.6%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Wellness Block</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#7d6b4f,#c4a87a);" data-w="5.4"></div></div>
+          <div class="pitch-alloc-pct" style="color:#c4a87a;">5.4%</div>
+        </div>
+        <div class="pitch-alloc-row">
+          <div class="pitch-alloc-name">Others</div>
+          <div class="pitch-alloc-bar-wrap"><div class="pitch-alloc-bar" style="width:0%;background:linear-gradient(90deg,#3a3a4a,#6a6a7a);" data-w="12.1"></div></div>
+          <div class="pitch-alloc-pct" style="color:#8a8a9a;">12.1%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pitch-divider"></div>
+
+  <!-- ── SERVICES ──────────────────────────────────────────────────── -->
+  <div class="pitch-services-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Revenue Streams</div>
+      <h2 class="pitch-h2">A Complete Spectrum of<br><span>Healing Experiences</span></h2>
+      <p class="pitch-lead">Five diversified revenue streams ensure resilient income and seasonal stability across the year.</p>
+      <div class="pitch-services-grid">
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🏡</div>
+          <div class="pitch-svc-title">Residential Packages</div>
+          <div class="pitch-svc-desc">7–14 night immersive stays covering detox, weight management, stress recovery, diabetes &amp; lifestyle, spine health, and premium luxury retreats.</div>
+          <div class="pitch-svc-price">₹28,000 – ₹1,00,000 per person</div>
+        </div>
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🌿</div>
+          <div class="pitch-svc-title">Signature Therapies</div>
+          <div class="pitch-svc-desc">Abhyanga, Shirodhara, Panchakarma, Kizhi, Colon Hydrotherapy, Mud Therapy, Acupuncture, Sound &amp; Chromotherapy — per session bookings.</div>
+          <div class="pitch-svc-price">₹800 – ₹5,000 per session</div>
+        </div>
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🥗</div>
+          <div class="pitch-svc-title">Food &amp; Beverage</div>
+          <div class="pitch-svc-desc">Sattvic therapeutic meal plans, cold-pressed juice bar with 25+ herbal tea varieties. Included in packages; à la carte for day visitors.</div>
+          <div class="pitch-svc-price">₹80 – ₹1,800 per item/day</div>
+        </div>
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🏢</div>
+          <div class="pitch-svc-title">Corporate Wellness</div>
+          <div class="pitch-svc-desc">Day wellness passes and full corporate wellness days for 25-person groups. High-ticket, volume-driven with strong repeat potential.</div>
+          <div class="pitch-svc-price">₹3,500 / ₹80,000 – ₹1,20,000 group</div>
+        </div>
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🛍️</div>
+          <div class="pitch-svc-title">Retail &amp; Ancillary</div>
+          <div class="pitch-svc-desc">Herbal products, supplements (AYUSH tie-ups), yoga accessories, and branded eco-merchandise — high-margin, low-overhead revenue.</div>
+          <div class="pitch-svc-price">₹200 – ₹2,500 per item</div>
+        </div>
+        <div class="pitch-svc-card">
+          <div class="pitch-svc-icon">🏠</div>
+          <div class="pitch-svc-title">Villa Sales (One-Time)</div>
+          <div class="pitch-svc-desc">30 premium 2,200 sq ft eco-villas at ₹1.5 Crore each. Total ₹45 Crore in capital inflow that fully liquidates the project investment.</div>
+          <div class="pitch-svc-price">₹1.5 Crore per villa · Total ₹45 Cr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pitch-divider"></div>
+
+  <!-- ── MONTHLY P&L ───────────────────────────────────────────────── -->
+  <div class="pitch-pl-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Monthly P&amp;L</div>
+      <h2 class="pitch-h2">Conservative Monthly<br><span>Operating Model</span></h2>
+      <p class="pitch-lead">Based on 30 daily therapy guests + 9 residential cottage guests at conservative occupancy. Actual performance expected to outperform as ramp-up completes.</p>
+      <div class="pitch-pl-grid">
+        <!-- Revenue -->
+        <div>
+          <div class="pitch-pl-col-title" style="color:#4caf80;"><span class="dot" style="background:#4caf80;"></span>Monthly Revenue</div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Day Therapy Visitors<br><small style="font-size:0.73rem;color:rgba(255,255,255,0.3);">1 batch × 30 days × ₹9,000</small></span>
+            <span class="pitch-pl-item-val" style="color:#4caf80;">₹8,10,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Residential Stay (Cottages)<br><small style="font-size:0.73rem;color:rgba(255,255,255,0.3);">0.3 × 9 guests × 30 nights × ₹8,000</small></span>
+            <span class="pitch-pl-item-val" style="color:#4caf80;">₹18,00,000</span>
+          </div>
+          <div class="pitch-pl-total rev">
+            <span>Total Monthly Revenue</span>
+            <span>₹26,10,000</span>
+          </div>
+        </div>
+        <!-- Expenses -->
+        <div>
+          <div class="pitch-pl-col-title" style="color:#ff8080;"><span class="dot" style="background:#ff8080;"></span>Monthly Expenses</div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Medical &amp; Wellness Team</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹5,30,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Hospitality Staff</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹4,44,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Staff Food (56 staff × 30 × ₹150)</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹2,52,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Guest Food &amp; Essentials</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹5,76,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Marketing</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹3,00,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Maintenance, Power, Other Ops</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹1,25,000</span>
+          </div>
+          <div class="pitch-pl-item">
+            <span class="pitch-pl-item-name">Yoga Guru, Dietician, Therapists</span>
+            <span class="pitch-pl-item-val" style="color:#ff8080;">₹1,50,000</span>
+          </div>
+          <div class="pitch-pl-total exp">
+            <span>Total Monthly Expenses</span>
+            <span>₹24,77,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="pitch-pl-net">
+        <div class="pitch-pl-net-val">₹1,33,000</div>
+        <div class="pitch-pl-net-lbl">Net Monthly Profit · Conservative Floor · Strong upside as occupancy ramps</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 5-YEAR PROJECTION ──────────────────────────────────────────── -->
+  <div class="pitch-proj-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Growth Projection</div>
+      <h2 class="pitch-h2">5-Year Revenue<br><span>Growth Model</span></h2>
+      <p class="pitch-lead">At 15% annual revenue growth as brand recognition and occupancy improve — with 8% staff cost increment factored in.</p>
+      <div style="overflow-x:auto;">
+        <div class="pitch-table-wrap" style="margin-top:2rem;">
+          <table class="pitch-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Monthly Revenue</th>
+                <th>Monthly Expenses*</th>
+                <th>Monthly Net</th>
+                <th>Annual Net</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Year 1</td><td>₹26,10,000</td><td>₹24,77,000</td><td style="color:#4caf80;font-weight:700;">₹1,33,000</td><td style="color:#4caf80;font-weight:700;">₹15,96,000</td></tr>
+              <tr><td>Year 2</td><td>₹30,02,000</td><td>₹26,75,160</td><td style="color:#4caf80;font-weight:700;">₹3,26,840</td><td style="color:#4caf80;font-weight:700;">₹39,22,080</td></tr>
+              <tr><td>Year 3</td><td>₹34,52,000</td><td>₹28,89,173</td><td style="color:#4caf80;font-weight:700;">₹5,62,827</td><td style="color:#4caf80;font-weight:700;">₹67,53,924</td></tr>
+              <tr><td>Year 4</td><td>₹39,70,000</td><td>₹31,20,307</td><td style="color:#4caf80;font-weight:700;">₹8,49,693</td><td style="color:#e8c84a;font-weight:700;">₹1,01,96,316</td></tr>
+              <tr><td>Year 5</td><td>₹45,66,000</td><td>₹33,69,932</td><td style="color:#4caf80;font-weight:700;">₹11,96,068</td><td style="color:#e8c84a;font-weight:700;">₹1,43,52,816</td></tr>
+              <tr class="total-row"><td><strong>5-Year Total</strong></td><td>—</td><td>—</td><td>—</td><td><strong>₹2,68,21,136</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:0.8rem;">*Includes 8% annual increment for all staff positions.</p>
+
+      <!-- Bar chart -->
+      <div class="pitch-proj-chart" id="pitchProjChart" style="margin-top:3rem;">
+        <div class="pitch-bar-col">
+          <div class="pitch-bar-wrap"><div class="pitch-bar" data-h="8" data-val="₹15.96 L" style="height:0"></div></div>
+          <div class="pitch-bar-yr">Year 1</div>
+        </div>
+        <div class="pitch-bar-col">
+          <div class="pitch-bar-wrap"><div class="pitch-bar" data-h="22" data-val="₹39.22 L" style="height:0"></div></div>
+          <div class="pitch-bar-yr">Year 2</div>
+        </div>
+        <div class="pitch-bar-col">
+          <div class="pitch-bar-wrap"><div class="pitch-bar" data-h="38" data-val="₹67.54 L" style="height:0"></div></div>
+          <div class="pitch-bar-yr">Year 3</div>
+        </div>
+        <div class="pitch-bar-col">
+          <div class="pitch-bar-wrap"><div class="pitch-bar" data-h="62" data-val="₹1.02 Cr" style="height:0;background:linear-gradient(180deg,#e8c84a,#c9a227)"></div></div>
+          <div class="pitch-bar-yr">Year 4</div>
+        </div>
+        <div class="pitch-bar-col">
+          <div class="pitch-bar-wrap"><div class="pitch-bar" data-h="90" data-val="₹1.44 Cr" style="height:0;background:linear-gradient(180deg,#e8c84a,#c9a227)"></div></div>
+          <div class="pitch-bar-yr">Year 5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pitch-divider"></div>
+
+  <!-- ── MANPOWER ──────────────────────────────────────────────────── -->
+  <div class="pitch-mp-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Manpower Plan</div>
+      <h2 class="pitch-h2">A Team of 71<br><span>Expert Professionals</span></h2>
+      <p class="pitch-lead">Staffed by seasoned practitioners across Ayurveda, Naturopathy, Yoga, Hospitality, and Administration — ensuring world-class delivery from day one.</p>
+      <div class="pitch-mp-dept-grid">
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Medical &amp; Wellness</div>
+            <div class="pitch-mp-dept-detail">Doctors, Naturopaths, Yoga Therapists, Dietitians</div>
+          </div>
+          <div class="pitch-mp-dept-count">14</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Therapy &amp; Spa Staff</div>
+            <div class="pitch-mp-dept-detail">Senior/Junior Therapists, Hydrotherapy, Mud Therapy</div>
+          </div>
+          <div class="pitch-mp-dept-count">14</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Hospitality &amp; Guest Services</div>
+            <div class="pitch-mp-dept-detail">GM, Front Office, Guest Relations, Receptionist</div>
+          </div>
+          <div class="pitch-mp-dept-count">6</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Food &amp; Beverage</div>
+            <div class="pitch-mp-dept-detail">Head Chef, Sous Chef, Kitchen Helpers, Juice Bar, Servers</div>
+          </div>
+          <div class="pitch-mp-dept-count">12</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Housekeeping &amp; Laundry</div>
+            <div class="pitch-mp-dept-detail">Supervisor, Attendants, Laundry Operators</div>
+          </div>
+          <div class="pitch-mp-dept-count">11</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Maintenance &amp; Utilities</div>
+            <div class="pitch-mp-dept-detail">Facilities Manager, Electrician, Gardeners</div>
+          </div>
+          <div class="pitch-mp-dept-count">6</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Security &amp; Transport</div>
+            <div class="pitch-mp-dept-detail">Guards (3 shifts), Drivers</div>
+          </div>
+          <div class="pitch-mp-dept-count">5</div>
+        </div>
+        <div class="pitch-mp-dept">
+          <div>
+            <div class="pitch-mp-dept-name">Management &amp; Admin</div>
+            <div class="pitch-mp-dept-detail">Finance, HR, Marketing, IT Support</div>
+          </div>
+          <div class="pitch-mp-dept-count">4</div>
+        </div>
+      </div>
+      <div class="pitch-mp-total-banner">
+        <div class="pitch-mp-total-left">
+          <strong>Total Annual Payroll (Year 1)</strong>
+          8% annual increment built into all positions. Year 2 payroll: ₹2.69 Cr.
+        </div>
+        <div class="pitch-mp-total-right">
+          <div class="big">₹2.50 Cr</div>
+          <div class="sm">71 Staff · Annual Payroll</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pitch-divider"></div>
+
+  <!-- ── DEVELOPMENT ROADMAP ────────────────────────────────────────── -->
+  <div class="pitch-roadmap-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Development Timeline</div>
+      <h2 class="pitch-h2">28-Month<br><span>Development Roadmap</span></h2>
+      <p class="pitch-lead">From land acquisition to grand opening — a disciplined four-phase development programme.</p>
+      <div class="pitch-roadmap">
+        <div class="pitch-phase">
+          <div class="pitch-phase-dot ph1">01</div>
+          <div class="pitch-phase-period">Months 1–6</div>
+          <div class="pitch-phase-title">Land &amp; Foundation</div>
+          <div class="pitch-phase-items">
+            Land &amp; legal clearances<br>
+            Boundary wall construction<br>
+            Site survey &amp; master plan<br>
+            Pre-sales villa launch<br>
+            Core management hiring
+          </div>
+        </div>
+        <div class="pitch-phase">
+          <div class="pitch-phase-dot ph2">02</div>
+          <div class="pitch-phase-period">Months 7–14</div>
+          <div class="pitch-phase-title">Core Construction</div>
+          <div class="pitch-phase-items">
+            Reception &amp; dining block<br>
+            25 mud cottages<br>
+            Wellness &amp; therapy block<br>
+            Dhyanlingam dome<br>
+            Pool &amp; spa fitout
+          </div>
+        </div>
+        <div class="pitch-phase">
+          <div class="pitch-phase-dot ph3">03</div>
+          <div class="pitch-phase-period">Months 15–22</div>
+          <div class="pitch-phase-title">Villa &amp; Landscape</div>
+          <div class="pitch-phase-items">
+            30 villas construction<br>
+            Premium interior fit-out<br>
+            Landscaping (1 lakh sq ft)<br>
+            Solar power installation<br>
+            Utility systems
+          </div>
+        </div>
+        <div class="pitch-phase">
+          <div class="pitch-phase-dot ph4">04</div>
+          <div class="pitch-phase-period">Months 23–28</div>
+          <div class="pitch-phase-title">Equip &amp; Launch</div>
+          <div class="pitch-phase-items">
+            Equipment installation<br>
+            Full staff recruitment<br>
+            Trial operations<br>
+            Digital marketing launch<br>
+            Grand opening event
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WHY INVEST ─────────────────────────────────────────────────── -->
+  <div class="pitch-why-bg pitch-section-full">
+    <div class="pitch-section pitch-reveal">
+      <div class="pitch-label">Investment Thesis</div>
+      <h2 class="pitch-h2">Why Riverside Serenity<br><span>Is a Compelling Opportunity</span></h2>
+      <div class="pitch-why-grid">
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">01</div>
+          <div class="pitch-why-title">Self-Liquidating Model</div>
+          <div class="pitch-why-desc">Villa sales of ₹45 Cr recover the entire ₹42.98 Cr investment. The wellness business is effectively acquired for free — pure recurring upside from Year 1.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">02</div>
+          <div class="pitch-why-title">Dual Revenue Engine</div>
+          <div class="pitch-why-desc">Asset sale (villas) + recurring operational revenue creates a rare combination of immediate capital return and long-term annuity income.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">03</div>
+          <div class="pitch-why-title">Prime Scarce Asset</div>
+          <div class="pitch-why-desc">Riverfront land of this scale with an integrated wellness campus is irreplaceable — a natural moat protecting long-term asset value and premium pricing.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">04</div>
+          <div class="pitch-why-title">AYUSH &amp; Govt Tailwinds</div>
+          <div class="pitch-why-desc">India's AYUSH mission actively promotes naturopathy and Ayurveda — a ₹1 Lakh Crore export target by 2030 creates a deeply supportive policy environment.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">05</div>
+          <div class="pitch-why-title">Post-COVID Demand Surge</div>
+          <div class="pitch-why-desc">The pandemic permanently shifted consumer preference toward preventive healthcare and retreat-based wellness. India's wellness tourism market is growing at 12–15% CAGR.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">06</div>
+          <div class="pitch-why-title">ESG &amp; Impact Aligned</div>
+          <div class="pitch-why-desc">Solar-powered, organic farming, therapeutic ecosystem — perfectly aligned with ESG investment mandates and impact-first portfolios seeking meaningful returns.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">07</div>
+          <div class="pitch-why-title">SIP Return on Profit</div>
+          <div class="pitch-why-desc">Investing the ₹2.02 Cr development profit at 12% p.a. SIP over 10 years compounds to ~₹6.67 Crore — a 3.3× multiplication of initial profit alone.</div>
+        </div>
+        <div class="pitch-why-card">
+          <div class="pitch-why-num">08</div>
+          <div class="pitch-why-title">First-Mover Advantage</div>
+          <div class="pitch-why-desc">Very few integrated naturopathy + luxury retreat destinations exist in Tier 2 &amp; 3 India. Entering now captures premium positioning before the market matures.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PITCH CTA ──────────────────────────────────────────────────── -->
+  <div class="pitch-cta-bg" id="pitch-cta">
+    <div class="pitch-cta-content">
+      <div class="pitch-cta-tag">✦ Investment Opportunity ✦</div>
+      <h2 class="pitch-cta-h2">Partner With Us</h2>
+      <p class="pitch-cta-p">We are seeking strategic equity or project funding partners to bring Riverside Serenity to life — a rare opportunity to own a piece of India's most compelling wellness destination. Detailed financial models, legal documentation, and site plans available on request.</p>
+      <div class="pitch-cta-btns">
+        <a href="mailto:invest@riversideserenity.in" class="pitch-btn-primary">📩 Request Full Prospectus</a>
+        <a href="tel:+919999999999" class="pitch-btn-outline">📞 Schedule a Consultation</a>
+      </div>
+      <div class="pitch-contact-grid">
+        <div class="pitch-contact-card">
+          <div class="pitch-contact-label">Email</div>
+          <div class="pitch-contact-val">invest@riversideserenity.in</div>
+        </div>
+        <div class="pitch-contact-card">
+          <div class="pitch-contact-label">Project Size</div>
+          <div class="pitch-contact-val">₹42.98 Crore</div>
+        </div>
+        <div class="pitch-contact-card">
+          <div class="pitch-contact-label">Timeline</div>
+          <div class="pitch-contact-val">28-Month Build</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #investor-pitch -->
+
+<script>
+  // Floating leaves
+  const container = document.getElementById('leavesContainer');
+  for (let i = 0; i < 18; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    leaf.style.left = Math.random() * 100 + '%';
+    leaf.style.animationDuration = (8 + Math.random() * 12) + 's';
+    leaf.style.animationDelay = (Math.random() * 15) + 's';
+    leaf.style.width = (5 + Math.random() * 8) + 'px';
+    leaf.style.height = (12 + Math.random() * 18) + 'px';
+    leaf.style.opacity = 0;
+    container.appendChild(leaf);
+  }
+
+  // ── Pitch reveal animations ──
+  const pitchRevealEls = document.querySelectorAll('.pitch-reveal');
+  const pitchIO = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+        pitchIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  pitchRevealEls.forEach(el => pitchIO.observe(el));
+
+  // ── Allocation bars animation ──
+  const allocSection = document.getElementById('pitchAllocBars');
+  if (allocSection) {
+    const allocObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.pitch-alloc-bar').forEach(bar => {
+            bar.style.width = bar.getAttribute('data-w') + '%';
+          });
+          allocObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    allocObs.observe(allocSection);
+  }
+
+  // ── Bar chart animation ──
+  const projChart = document.getElementById('pitchProjChart');
+  if (projChart) {
+    const chartObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.pitch-bar').forEach((bar, i) => {
+            setTimeout(() => {
+              bar.style.height = bar.getAttribute('data-h') + '%';
+            }, i * 120);
+          });
+          chartObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    chartObs.observe(projChart);
+  }
+
+  // ── Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+</script>
 </body>
 </html>
