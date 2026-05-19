@@ -1278,6 +1278,379 @@
   .blog-conclusion p:last-child { margin-bottom: 0; }
 
   .blog-conclusion strong { color: var(--mint); }
+
+  /* ===== COMMUNITY LIVING BLOG SECTION ===== */
+  .community-blog-section {
+    background: linear-gradient(160deg, #071a10 0%, #0a2a1e 45%, #091825 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 1.5rem;
+  }
+
+  .community-blog-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 65% 55% at 90% 15%, rgba(76,175,128,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 45% at 5% 85%, rgba(0,137,123,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201,162,39,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .comm-blog-header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-blog-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(76,175,128,0.12);
+    border: 1px solid rgba(76,175,128,0.28);
+    color: var(--mint);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+  }
+
+  .comm-blog-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .comm-blog-title .accent { color: var(--mint); }
+
+  .comm-blog-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.8;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  /* Philosophy Banner */
+  .comm-philosophy-banner {
+    background: linear-gradient(135deg, rgba(76,175,128,0.12) 0%, rgba(0,137,123,0.1) 50%, rgba(201,162,39,0.08) 100%);
+    border: 1px solid rgba(76,175,128,0.28);
+    border-left: 5px solid var(--mint);
+    border-radius: 0 20px 20px 0;
+    padding: 2.2rem 2.5rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-philosophy-banner .quote-main {
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.55;
+    margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+
+  .comm-philosophy-banner .quote-hindi {
+    font-size: 1.05rem;
+    color: var(--mint);
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .comm-philosophy-banner .quote-caption {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+  }
+
+  /* Urban Challenge Cards */
+  .comm-urban-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-urban-card {
+    background: linear-gradient(140deg, rgba(180,40,40,0.1) 0%, rgba(100,20,20,0.07) 100%);
+    border: 1px solid rgba(200,60,60,0.18);
+    border-radius: 18px;
+    padding: 1.8rem 1.6rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comm-urban-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #e05050, transparent);
+    opacity: 0.5;
+  }
+
+  .comm-urban-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200,60,60,0.3);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
+
+  .comm-urban-icon {
+    font-size: 2rem;
+    margin-bottom: 0.9rem;
+    display: block;
+  }
+
+  .comm-urban-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ff9090;
+    margin-bottom: 0.6rem;
+  }
+
+  .comm-urban-card p {
+    font-size: 0.87rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+  }
+
+  /* Benefits Grid */
+  .comm-benefits-intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-benefits-intro h3 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.7rem;
+  }
+
+  .comm-benefits-intro h3 span { color: var(--mint); }
+
+  .comm-benefits-intro p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .comm-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.6rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comm-benefit-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(76,175,128,0.08) 100%);
+    border: 1px solid rgba(76,175,128,0.2);
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comm-benefit-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--leaf), var(--teal));
+  }
+
+  .comm-benefit-card:hover {
+    background: linear-gradient(145deg, rgba(76,175,128,0.10) 0%, rgba(0,137,123,0.12) 100%);
+    border-color: rgba(76,175,128,0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.42);
+  }
+
+  .comm-benefit-icon-wrap {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, rgba(45,122,79,0.35), rgba(0,137,123,0.25));
+    border: 1px solid rgba(76,175,128,0.28);
+    border-radius: 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .comm-benefit-card h4 {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--mint);
+    margin-bottom: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .comm-benefit-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+  }
+
+  .comm-benefit-tag {
+    display: inline-block;
+    background: rgba(76,175,128,0.1);
+    border: 1px solid rgba(76,175,128,0.18);
+    color: var(--sage);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-top: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* Happiness Pillars */
+  .comm-happiness-section {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(76,175,128,0.15);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) { .comm-happiness-section { padding: 2rem 1.5rem; } }
+
+  .comm-happiness-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .comm-happiness-title span { color: var(--mint); }
+
+  .comm-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .comm-pillar-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(76,175,128,0.07);
+    border: 1px solid rgba(76,175,128,0.15);
+    border-radius: 16px;
+    transition: all 0.3s;
+  }
+
+  .comm-pillar-item:hover {
+    background: rgba(76,175,128,0.14);
+    border-color: rgba(76,175,128,0.3);
+    transform: translateY(-4px);
+  }
+
+  .comm-pillar-emoji {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 0.7rem;
+  }
+
+  .comm-pillar-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--mint);
+    line-height: 1.3;
+  }
+
+  /* Final Quote & CTA Banner */
+  .comm-finale {
+    background: linear-gradient(135deg, rgba(45,122,79,0.18) 0%, rgba(0,137,123,0.14) 50%, rgba(201,162,39,0.1) 100%);
+    border: 1px solid rgba(76,175,128,0.3);
+    border-radius: 24px;
+    padding: 3.5rem 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .comm-finale::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 10rem;
+    opacity: 0.04;
+    top: -1rem;
+    right: -1rem;
+    line-height: 1;
+  }
+
+  .comm-finale-quote {
+    font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  .comm-finale-quote span { color: var(--mint); }
+
+  .comm-finale-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+  }
+
+  .comm-meta-row {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(76,175,128,0.15);
+  }
+
+  .comm-meta-item {
+    text-align: center;
+  }
+
+  .comm-meta-val {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--mint);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .comm-meta-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
 </style>
 </head>
 <body>
@@ -1292,7 +1665,7 @@
     <a href="#wellness">वेलनेस</a>
     <a href="#project-final">प्रोजेक्ट</a>
     <a href="#investment-blog">निवेश विश्लेषण</a>
-    <a href="#community-blog">सामुदायिक जीवन</a>
+    <a href="#community-blog">कम्युनिटी लिविंग</a>
     <a href="#cta">संपर्क</a>
     <a href="#investor-pitch" class="nav-pitch-btn">📊 Investor Pitch</a>
   </div>
@@ -1871,162 +2244,166 @@
 
 <div class="wave-divider"></div>
 
-<!-- NEW BLOG: COMMUNITY LIVING IN SMALL TOWNS -->
-<section class="investment-blog-section" id="community-blog" style="background: linear-gradient(160deg, #071a12 0%, #0b2d1e 50%, #08191a 100%);">
+<!-- ===== COMMUNITY LIVING BLOG SECTION ===== -->
+<section class="community-blog-section" id="community-blog">
   <div class="container">
 
-    <div class="blog-header reveal">
-      <span class="pill pill-teal">🏡 जीवनशैली दर्शन</span>
-      <div class="blog-meta">
-        <span class="blog-date">मई 2026</span>
-        <div class="blog-dot"></div>
-        <span class="blog-source">Experiential Living — विचार मंच</span>
-      </div>
-      <h2 class="section-title">छोटे शहरों में <span class="accent">सामुदायिक जीवन</span><br>ही भविष्य है</h2>
-      <p class="section-lead" style="margin-top:1rem;">
-        दुनिया ने हमें सिखाया — बड़े शहर, बड़ी तनख्वाह, बड़ी महत्वाकांक्षाएँ। इस आधुनिक जीवनशैली का सूत्र बना — <em style="color:var(--mint);">"तेज़ जाओ — अकेले जाओ।"</em> लेकिन जीवन जैसे-जैसे आगे बढ़ता है, प्राथमिकताएँ बदलती हैं। और फिर एक और सूत्र अर्थपूर्ण बन जाता है — <em style="color:var(--gold);">"लंबे चलो — साथ चलो।"</em>
+    <!-- Header -->
+    <div class="comm-blog-header reveal">
+      <span class="comm-blog-eyebrow">✦ विचार-लेख ✦</span>
+      <h2 class="comm-blog-title">छोटे शहरों में <span class="accent">कम्युनिटी लिविंग</span><br>बेहतर भविष्य की ओर एक कदम</h2>
+      <p class="comm-blog-subtitle">
+        आज की दुनिया सफलता को बड़े शहरों, बड़ी कमाई और तेज़ जीवनशैली से जोड़ती है — लेकिन उम्र के साथ प्राथमिकताएँ बदलती हैं। स्वास्थ्य, मानसिक शांति, रिश्ते और भावनात्मक संतुलन अधिक महत्वपूर्ण हो जाते हैं।
       </p>
     </div>
 
-    <div class="blog-opening-couplet reveal">
-      <p>
-        जहाँ भीड़ में भी अकेलापन है, वहाँ शहर क्या काम का,<br>
-        <span>जहाँ सब साथ हों और सुकून हो, वही है असली घर का जाम।</span>
-      </p>
+    <!-- Philosophy Banner -->
+    <div class="comm-philosophy-banner reveal">
+      <div class="quote-main">"Go Fast – Go Alone &nbsp;→&nbsp; Go Long – Go Along"</div>
+      <div class="quote-hindi">तेज़ चलना हो तो अकेले चलिए, लेकिन लंबा चलना हो तो साथ चलिए।</div>
+      <div class="quote-caption">✦ कम्युनिटी लिविंग का मूल दर्शन</div>
     </div>
 
-    <div class="blog-body">
+    <!-- Urban Challenges -->
+    <div class="reveal">
+      <div style="margin-bottom:2rem;">
+        <span class="pill pill-red">शहरी जीवन की चुनौतियाँ</span>
+        <h3 class="section-title" style="margin-bottom:0.5rem;">भीड़ में रहकर भी <span class="accent">अकेलापन</span></h3>
+        <p class="section-lead" style="margin-bottom:1.5rem;">बड़े शहरों का जीवन आज कई समस्याओं से घिरा है — और यही हमें नई दिशा खोजने पर मजबूर करता है।</p>
+      </div>
+    </div>
+    <div class="comm-urban-grid reveal">
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">💸</span>
+        <h4>बढ़ते खर्च और आर्थिक दबाव</h4>
+        <p>महानगरों में रहने की लागत लगातार बढ़ रही है — किराया, खाना, परिवहन सब महंगा। आर्थिक तनाव मानसिक शांति को खा जाता है।</p>
+      </div>
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">🌫️</span>
+        <h4>प्रदूषण और अस्वस्थ वातावरण</h4>
+        <p>वायु, जल और ध्वनि प्रदूषण शरीर की प्रतिरोधक क्षमता कमज़ोर करते हैं। स्वास्थ्य समस्याएँ और खर्च दोनों बढ़ते जाते हैं।</p>
+      </div>
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">😔</span>
+        <h4>तनाव और अकेलापन</h4>
+        <p>न्यूक्लियर फैमिली संस्कृति में भावनात्मक दूरी बढ़ी है। भीड़ में रहते हुए भी लोग अंदर से अकेले होते जा रहे हैं।</p>
+      </div>
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">🍔</span>
+        <h4>मिलावटी और प्रोसेस्ड भोजन</h4>
+        <p>ताज़ा और शुद्ध भोजन शहरों में दुर्लभ होता जा रहा है। इससे इम्युनिटी कमज़ोर होती है और जीवनशैली रोग बढ़ते हैं।</p>
+      </div>
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">⏱️</span>
+        <h4>तेज़ रफ्तार से मानसिक थकान</h4>
+        <p>लगातार दौड़, डेडलाइन, और सूचनाओं का बोझ मन को थका देता है। शांत होने का वक्त ही नहीं मिलता।</p>
+      </div>
+      <div class="comm-urban-card">
+        <span class="comm-urban-icon">💔</span>
+        <h4>भावनात्मक दूरी</h4>
+        <p>छोटे परिवारों में भावनात्मक सहारा कम होता जा रहा है। सामुदायिक जीवन का वह अपनापन, जो जड़ों में था, खो गया है।</p>
+      </div>
+    </div>
 
-      <!-- Segment 1: Urban Challenge -->
-      <div class="blog-segment reveal">
-        <div class="blog-segment-header">
-          <div class="blog-segment-icon icon-red">🏙️</div>
-          <div class="blog-segment-title">जीवन के अंतिम पड़ाव में शहरी जीवन की चुनौतियाँ</div>
+    <!-- Benefits Section -->
+    <div class="comm-benefits-intro reveal">
+      <span class="pill pill-green" style="margin-bottom:1.2rem;display:inline-block;">कम्युनिटी लिविंग के फायदे</span>
+      <h3>छोटे शहरों में जीना <span>क्यों बेहतर है?</span></h3>
+      <p>यहाँ सिर्फ सुविधाएँ नहीं — एक सम्पूर्ण जीवन मिलता है, जहाँ शरीर, मन और रिश्ते सब संतुलित रहते हैं।</p>
+    </div>
+
+    <div class="comm-benefits-grid reveal">
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">💰</div>
+        <h4>आर्थिक स्थिरता</h4>
+        <p>छोटे शहरों में रहने का खर्च काफी कम होता है। यह आर्थिक और मानसिक दोनों तरह की शांति देता है — बचत बढ़ती है और जीवन की गुणवत्ता भी।</p>
+        <span class="comm-benefit-tag">✦ Financial Peace</span>
+      </div>
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">🤝</div>
+        <h4>मजबूत सामाजिक जुड़ाव</h4>
+        <p>कम्युनिटी लिविंग लोगों को एक-दूसरे से जोड़ती है। परिवार, पड़ोसी और समाज भावनात्मक सहारा बनते हैं — अकेलापन दूर होता है।</p>
+        <span class="comm-benefit-tag">✦ Emotional Support</span>
+      </div>
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">🌿</div>
+        <h4>स्वच्छ वातावरण और बेहतर स्वास्थ्य</h4>
+        <p>कम प्रदूषण, कम शोर और प्राकृतिक वातावरण शारीरिक और मानसिक स्वास्थ्य दोनों को बेहतर बनाते हैं। हर सुबह ताज़ी हवा में साँस लेना एक उपहार है।</p>
+        <span class="comm-benefit-tag">✦ Clean Living</span>
+      </div>
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">🥗</div>
+        <h4>शुद्ध और प्राकृतिक भोजन</h4>
+        <p>छोटे शहरों में ताज़ा और कम मिलावटी भोजन आसानी से उपलब्ध होता है। यह बेहतर इम्युनिटी और स्वस्थ जीवन की नींव बनाता है।</p>
+        <span class="comm-benefit-tag">✦ Natural Nutrition</span>
+      </div>
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">🧘</div>
+        <h4>भावनात्मक सुख ही असली संपत्ति</h4>
+        <p>एक उम्र के बाद सामाजिक प्रतिष्ठा से अधिक महत्वपूर्ण होता है — अपनापन, शांति और साथ। सामुदायिक जीवन यही एहसास देता है।</p>
+        <span class="comm-benefit-tag">✦ Inner Wealth</span>
+      </div>
+      <div class="comm-benefit-card">
+        <div class="comm-benefit-icon-wrap">🌅</div>
+        <h4>सरल और संतुलित जीवन</h4>
+        <p>कम्युनिटी लिविंग जीवन को नए तरीके से परिभाषित करती है — जहाँ स्वास्थ्य, खुशी, शांति और लंबे समय तक बेहतर जीवन सबसे बड़ी उपलब्धि है।</p>
+        <span class="comm-benefit-tag">✦ Balanced Life</span>
+      </div>
+    </div>
+
+    <!-- Happiness Pillars -->
+    <div class="comm-happiness-section reveal">
+      <div class="comm-happiness-title">सच्ची खुशियाँ मिलती हैं <span>इन पाँच चीज़ों में</span></div>
+      <div class="comm-pillars-grid">
+        <div class="comm-pillar-item">
+          <span class="comm-pillar-emoji">💞</span>
+          <div class="comm-pillar-label">अच्छे रिश्ते</div>
         </div>
-        <p>आज का शहरी जीवन बढ़ती महंगाई, बढ़ते तनाव और प्रदूषित वातावरण से भरा हुआ है। एकल परिवारों की संस्कृति ने भावनात्मक सहारे को कमज़ोर कर दिया है। प्रसंस्कृत और रासायनिक रूप से उपचारित भोजन, तेज़ रफ्तार जीवनशैली — ये सब मिलकर इंसान को अंदर से खोखला कर रहे हैं।</p>
-        <div class="blog-highlight-line">लोग भरी-भरी बस्तियों में रहते हैं, फिर भी अकेले हैं। पड़ोसी अजनबी हैं। बच्चे जड़ों से कट रहे हैं।</div>
-        <p style="margin-top:1rem;">जो माता-पिता अपने बच्चों के लिए सब कुछ छोड़ शहर आए, वे अब उनके करियर के लिए अकेले रह जाते हैं। यह जीवनशैली धीरे-धीरे भावनात्मक संतुलन और दीर्घकालिक कल्याण को छीन लेती है।</p>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:1rem; margin-top:1.5rem;">
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">💸</span>बढ़ती जीवन लागत</div>
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">😰</span>बढ़ता तनाव स्तर</div>
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">🏭</span>प्रदूषण और दूषित वातावरण</div>
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">💔</span>एकाकीपन और भावनात्मक अलगाव</div>
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">🥡</span>प्रसंस्कृत और रासायनिक भोजन</div>
-          <div style="background:rgba(200,60,60,0.1);border:1px solid rgba(200,60,60,0.2);border-radius:12px;padding:1rem;font-size:0.88rem;color:rgba(255,255,255,0.75);"><span style="display:block;font-size:1.5rem;margin-bottom:0.5rem;">🔥</span>भागदौड़ और थकान</div>
+        <div class="comm-pillar-item">
+          <span class="comm-pillar-emoji">🌱</span>
+          <div class="comm-pillar-label">स्वस्थ वातावरण</div>
+        </div>
+        <div class="comm-pillar-item">
+          <span class="comm-pillar-emoji">☮️</span>
+          <div class="comm-pillar-label">सरल जीवन</div>
+        </div>
+        <div class="comm-pillar-item">
+          <span class="comm-pillar-emoji">🫂</span>
+          <div class="comm-pillar-label">भावनात्मक सहयोग</div>
+        </div>
+        <div class="comm-pillar-item">
+          <span class="comm-pillar-emoji">🏘️</span>
+          <div class="comm-pillar-label">सामुदायिक जुड़ाव</div>
         </div>
       </div>
+    </div>
 
-      <!-- Segment 2: Community Living Makes Sense -->
-      <div class="blog-segment reveal">
-        <div class="blog-segment-header">
-          <div class="blog-segment-icon icon-green">🌿</div>
-          <div class="blog-segment-title">छोटे शहरों में सामुदायिक जीवन क्यों समझदारी है?</div>
+    <!-- Finale Quote -->
+    <div class="comm-finale reveal">
+      <div class="comm-finale-quote">
+        भविष्य <span>संतुलित और सामुदायिक जीवन</span> का है
+      </div>
+      <p class="comm-finale-sub">
+        आने वाले वर्षों में लोग केवल सुविधा नहीं, बल्कि एक ऐसा जीवन चुनेंगे जहाँ अपनापन, स्वास्थ्य और मानसिक संतुलन हो। Experiential Living इसी दिशा में एक ठोस कदम है।
+      </p>
+      <div class="comm-meta-row">
+        <div class="comm-meta-item">
+          <div class="comm-meta-val">Go Long</div>
+          <div class="comm-meta-label">दर्शन</div>
         </div>
-        <p>जब जीवन की प्राथमिकताएँ स्वास्थ्य, शांति, रिश्ते और भावनात्मक स्थिरता की ओर मुड़ती हैं — तब छोटे शहरों में सामुदायिक जीवन एक शक्तिशाली और स्वस्थ विकल्प बनकर उभरता है। आइए देखें कैसे:</p>
-
-        <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem;">
-
-          <div style="background:rgba(76,175,128,0.08);border:1px solid rgba(76,175,128,0.2);border-radius:14px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:2rem;flex-shrink:0;">💰</span>
-            <div>
-              <h4 style="color:var(--mint);font-size:1rem;font-weight:700;margin-bottom:0.4rem;">बेहतर वित्तीय स्थिरता</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;">छोटे शहरों में जीवन सस्ता है। मौजूदा संसाधनों से बेहतर जीवन जीया जा सकता है। <strong style="color:var(--sage);">आर्थिक शांति सीधे मानसिक शांति में बदलती है।</strong></p>
-            </div>
-          </div>
-
-          <div style="background:rgba(0,137,123,0.08);border:1px solid rgba(0,137,123,0.2);border-radius:14px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:2rem;flex-shrink:0;">🤝</span>
-            <div>
-              <h4 style="color:#4dd6c8;font-size:1rem;font-weight:700;margin-bottom:0.4rem;">एकल परिवारों के युग में मज़बूत समुदाय</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;">सामुदायिक जीवन सामाजिक संबंध बनाता है। भावनात्मक कल्याण अपने आप सुधरता है जब आपके आसपास अपने लोग हों।</p>
-            </div>
-          </div>
-
-          <div style="background:rgba(13,110,138,0.08);border:1px solid rgba(13,110,138,0.2);border-radius:14px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:2rem;flex-shrink:0;">🌳</span>
-            <div>
-              <h4 style="color:#64d2f0;font-size:1rem;font-weight:700;margin-bottom:0.4rem;">स्वच्छ वातावरण — बेहतर स्वास्थ्य</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;">प्रकृति एक चिकित्सा है। कम प्रदूषण, कम शोर, कम भीड़ — ये तीनों मिलकर शारीरिक और भावनात्मक स्वास्थ्य को बेहतर बनाते हैं।</p>
-            </div>
-          </div>
-
-          <div style="background:rgba(76,175,128,0.08);border:1px solid rgba(76,175,128,0.2);border-radius:14px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-size:2rem;flex-shrink:0;">🥗</span>
-            <div>
-              <h4 style="color:var(--mint);font-size:1rem;font-weight:700;margin-bottom:0.4rem;">कम भोजन-मिलावट, अधिक प्राकृतिक जीवन</h4>
-              <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;">छोटे शहरों की पारिस्थितिकी ताज़े और जैविक उत्पाद प्रदान करती है जो प्रतिरोधक क्षमता, पाचन और दीर्घकालिक स्वास्थ्य को काफी बेहतर बनाते हैं।</p>
-            </div>
-          </div>
-
+        <div class="comm-meta-item">
+          <div class="comm-meta-val">Go Along</div>
+          <div class="comm-meta-label">जीवनशैली</div>
+        </div>
+        <div class="comm-meta-item">
+          <div class="comm-meta-val">Community</div>
+          <div class="comm-meta-label">भविष्य</div>
+        </div>
+        <div class="comm-meta-item">
+          <div class="comm-meta-val">Wellness</div>
+          <div class="comm-meta-label">लक्ष्य</div>
         </div>
       </div>
-
-      <!-- Segment 3: Emotional Wellness -->
-      <div class="blog-segment reveal">
-        <div class="blog-segment-header">
-          <div class="blog-segment-icon icon-gold">💛</div>
-          <div class="blog-segment-title">भावनात्मक कल्याण ही असली संपत्ति है</div>
-        </div>
-        <p>जीवन के एक निश्चित पड़ाव पर, भावनात्मक सुरक्षा सामाजिक प्रतिष्ठा से अधिक मूल्यवान हो जाती है। सामुदायिक जीवन "अपनेपन" का एहसास देता है।</p>
-        <div class="blog-highlight-gold">सरल बातचीत, शाम की सैर, मेल-मिलाप, साझा उत्सव और आपसी देखभाल — यही भावनात्मक पोषण है।</div>
-        <p style="margin-top:1rem;">एक शांत मन, एक सहायक समुदाय, और एक स्वस्थ जीवनशैली — यही असली संपत्ति है। यही वह धन है जो बैंक बैलेंस से नहीं खरीदा जा सकता।</p>
-      </div>
-
-      <!-- Segment 4: Conscious Communities -->
-      <div class="blog-segment reveal">
-        <div class="blog-segment-header">
-          <div class="blog-segment-icon icon-teal">🔮</div>
-          <div class="blog-segment-title">भविष्य जागरूक समुदायों का है</div>
-        </div>
-        <p>भविष्य संतुलन का है। टिकाऊ खुशी इन्हीं में निहित है:</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1.2rem;">
-          <div style="background:rgba(76,175,128,0.1);border:1px solid rgba(76,175,128,0.25);border-radius:12px;padding:1.2rem;text-align:center;">
-            <div style="font-size:1.8rem;margin-bottom:0.5rem;">❤️</div>
-            <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);font-weight:600;">अर्थपूर्ण रिश्ते</div>
-          </div>
-          <div style="background:rgba(0,137,123,0.1);border:1px solid rgba(0,137,123,0.25);border-radius:12px;padding:1.2rem;text-align:center;">
-            <div style="font-size:1.8rem;margin-bottom:0.5rem;">🌱</div>
-            <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);font-weight:600;">स्वस्थ वातावरण</div>
-          </div>
-          <div style="background:rgba(201,162,39,0.1);border:1px solid rgba(201,162,39,0.25);border-radius:12px;padding:1.2rem;text-align:center;">
-            <div style="font-size:1.8rem;margin-bottom:0.5rem;">🪙</div>
-            <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);font-weight:600;">वित्तीय सरलता</div>
-          </div>
-          <div style="background:rgba(76,175,128,0.1);border:1px solid rgba(76,175,128,0.25);border-radius:12px;padding:1.2rem;text-align:center;">
-            <div style="font-size:1.8rem;margin-bottom:0.5rem;">🤲</div>
-            <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);font-weight:600;">भावनात्मक सहारा</div>
-          </div>
-          <div style="background:rgba(13,110,138,0.1);border:1px solid rgba(13,110,138,0.25);border-radius:12px;padding:1.2rem;text-align:center;">
-            <div style="font-size:1.8rem;margin-bottom:0.5rem;">🏘️</div>
-            <div style="font-size:0.88rem;color:rgba(255,255,255,0.8);font-weight:600;">सामुदायिक जीवनशैली</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Segment 5: Redefining Lifestyle -->
-      <div class="blog-segment reveal">
-        <div class="blog-segment-header">
-          <div class="blog-segment-icon icon-green">🏡</div>
-          <div class="blog-segment-title">छोटे शहर का समुदाय — जीवनशैली की नई परिभाषा</div>
-        </div>
-        <p>सामुदायिक जीवन का अर्थ है जीवनशैली को नए सिरे से परिभाषित करना — बेहतर स्वास्थ्य, अधिक खुशी, गहरी शांति, मानवीय जुड़ाव और दीर्घायु के साथ।</p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:1.2rem;">
-          <span style="background:rgba(76,175,128,0.15);border:1px solid rgba(76,175,128,0.3);color:var(--mint);padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;">✦ स्वास्थ्य</span>
-          <span style="background:rgba(76,175,128,0.15);border:1px solid rgba(76,175,128,0.3);color:var(--mint);padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;">✦ खुशी</span>
-          <span style="background:rgba(0,137,123,0.15);border:1px solid rgba(0,137,123,0.3);color:#4dd6c8;padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;">✦ मानसिक शांति</span>
-          <span style="background:rgba(0,137,123,0.15);border:1px solid rgba(0,137,123,0.3);color:#4dd6c8;padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;">✦ मानवीय जुड़ाव</span>
-          <span style="background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);color:#e8c84a;padding:0.4rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;">✦ दीर्घायु</span>
-        </div>
-      </div>
-
-    </div><!-- end .blog-body -->
-
-    <!-- Conclusion -->
-    <div class="blog-conclusion reveal">
-      <h3>अंतिम विचार : एक अर्थपूर्ण भविष्य की ओर</h3>
-      <p>आने वाले वर्षों में लोग सामुदायिक जीवन की ओर बढ़ेंगे — एक स्वस्थ, अधिक अर्थपूर्ण और भावनात्मक रूप से संतुष्ट जीवन जीने के लिए, उन लोगों के साथ जो वास्तव में परवाह करते हैं।</p>
-      <p>Experiential Living की यही नींव है — जहाँ घर केवल एक छत नहीं, बल्कि एक जीवंत समुदाय है, जो आपको हर दिन बेहतर महसूस कराता है।</p>
-      <p style="margin-top:1rem;"><strong style="color:var(--mint);">"तेज़ जाओ — अकेले जाओ।"</strong> यह युग बीत रहा है। आने वाला समय है — <strong style="color:var(--gold);">"लंबे चलो — साथ चलो।"</strong></p>
     </div>
 
   </div>
