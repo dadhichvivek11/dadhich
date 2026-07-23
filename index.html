@@ -824,6 +824,77 @@
 
   @media (max-width: 600px) { .nav-links { display: none; } }
 
+  /* ===== NAV BLOG DROPDOWN ===== */
+  .nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .nav-dropdown-chevron {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-chevron { transform: rotate(180deg); }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: #0e2419;
+    border: 1px solid rgba(76,175,128,0.25);
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav-dropdown-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .nav-dropdown-item:hover { background: rgba(76,175,128,0.15); }
+
+  .nav-dropdown-item-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .nav-dropdown-item-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
   /* ===== PILL TAG ===== */
   .pill {
     display: inline-block;
@@ -2099,7 +2170,23 @@
     <a href="#nature">Nature</a>
     <a href="#forest-heals">Forest-Heals</a>
     <a href="#wellness">Wellness</a>
-    <a href="#community-blog">Community Living</a>
+    <div class="nav-dropdown">
+      <a href="#blog-hub" class="nav-dropdown-toggle">Blog <span class="nav-dropdown-chevron">⌄</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="#investment-blog" class="nav-dropdown-item" data-target="panel-investment-blog">
+          <span class="nav-dropdown-item-title">भारत का रियल एस्टेट : मिडिल क्लास की धीमी चाल</span>
+          <span class="nav-dropdown-item-sub">निवेश डेस्क का विश्लेषण</span>
+        </a>
+        <a href="#community-blog" class="nav-dropdown-item" data-target="panel-community-blog">
+          <span class="nav-dropdown-item-title">Community Living — बेहतर भविष्य की ओर एक कदम</span>
+          <span class="nav-dropdown-item-sub">शहरी अकेलेपन से सामुदायिक अपनेपन तक का सफ़र</span>
+        </a>
+        <a href="#retiree-blog" class="nav-dropdown-item" data-target="panel-retiree-blog">
+          <span class="nav-dropdown-item-title">भारत के सबसे अमीर रिटायर्ड लोग अब प्रकृति चुन रहे हैं</span>
+          <span class="nav-dropdown-item-sub">शहर की गगनचुंबी इमारतों से जंगल और नदी किनारे की ओर</span>
+        </a>
+      </div>
+    </div>
     <a href="#plan-finance">Scenerio</a>
     <a href="#project-final">Project</a>
     <a href="#cta">Contact</a>
@@ -4515,27 +4602,35 @@
     chartObs.observe(projChart);
   }
 
-  // ── Blog hub accordion ──
-  const blogHubItems = document.querySelectorAll('.blog-hub-item');
-  blogHubItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const targetId = item.getAttribute('data-target');
-      const targetPanel = document.getElementById(targetId);
-      const isActive = item.classList.contains('active');
+  // ── Blog hub accordion (shared by hub items and nav dropdown) ──
+  function openBlogPanel(targetId) {
+    const targetPanel = document.getElementById(targetId);
+    const hubItem = document.querySelector('.blog-hub-item[data-target="' + targetId + '"]');
+    const isActive = hubItem && hubItem.classList.contains('active');
 
-      blogHubItems.forEach(i => i.classList.remove('active'));
-      document.querySelectorAll('.blog-panel').forEach(p => p.classList.remove('open'));
+    document.querySelectorAll('.blog-hub-item').forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.blog-panel').forEach(p => p.classList.remove('open'));
 
-      if (!isActive) {
-        item.classList.add('active');
-        if (targetPanel) {
-          targetPanel.classList.add('open');
-          targetPanel.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-          setTimeout(() => {
-            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 120);
-        }
+    if (!isActive) {
+      if (hubItem) hubItem.classList.add('active');
+      if (targetPanel) {
+        targetPanel.classList.add('open');
+        targetPanel.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        setTimeout(() => {
+          targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
       }
+    }
+  }
+
+  document.querySelectorAll('.blog-hub-item').forEach(item => {
+    item.addEventListener('click', () => openBlogPanel(item.getAttribute('data-target')));
+  });
+
+  document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      openBlogPanel(item.getAttribute('data-target'));
     });
   });
 
