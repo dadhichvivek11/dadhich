@@ -1717,6 +1717,109 @@
   }
 
   /* ═══════════════════════════════════════════════
+     BLOG HUB — HEADER + ACCORDION + COLLAPSIBLE PANELS
+     ═══════════════════════════════════════════════ */
+  .blog-hub-section {
+    background: linear-gradient(180deg, #0e1f15 0%, var(--dark) 100%);
+  }
+
+  .blog-hub-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+  }
+  .blog-hub-header .section-lead { margin-left: auto; margin-right: auto; }
+
+  .blog-hub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .blog-hub-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    background: rgba(76,175,128,0.07);
+    border: 1px solid rgba(76,175,128,0.22);
+    border-radius: 16px;
+    padding: 1.1rem 1.3rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .blog-hub-item:hover {
+    background: rgba(76,175,128,0.13);
+    border-color: rgba(76,175,128,0.4);
+  }
+  .blog-hub-item.active {
+    background: rgba(76,175,128,0.18);
+    border-color: var(--mint);
+  }
+
+  .blog-hub-item-icon {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(76,175,128,0.15);
+    border-radius: 12px;
+    font-size: 1.4rem;
+  }
+
+  .blog-hub-item-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+  }
+
+  .blog-hub-item-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .blog-hub-item-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  .blog-hub-item-arrow {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    color: var(--mint);
+    transition: transform 0.3s ease;
+  }
+  .blog-hub-item.active .blog-hub-item-arrow {
+    transform: rotate(180deg);
+  }
+
+  .blog-panel {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+  }
+  .blog-panel.open {
+    max-height: 20000px;
+    opacity: 1;
+  }
+
+  @media (max-width: 600px) {
+    .blog-hub-item { padding: 0.9rem 1rem; gap: 0.7rem; }
+    .blog-hub-item-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+    .blog-hub-item-title { font-size: 0.92rem; }
+    .blog-hub-item-sub { font-size: 0.78rem; }
+  }
+
+  /* ═══════════════════════════════════════════════
      MITTI KOTHI — NATURAL COTTAGES WELLNESS PAGE
      ═══════════════════════════════════════════════ */
   .mitti-section {
@@ -2764,6 +2867,49 @@
 <div class="wave-divider"></div>
 
 <!-- INVESTMENT DESK BLOG SECTION -->
+<!-- ===== BLOG HUB HEADER ===== -->
+<section class="blog-hub-section" id="blog-hub">
+  <div class="container">
+    <div class="blog-hub-header reveal">
+      <span class="pill pill-green">✦ हमारी नज़र से ✦</span>
+      <h2 class="section-title">विचार और <span class="accent">विश्लेषण</span></h2>
+      <p class="section-lead" style="margin-bottom:0;">ज़मीन से जुड़े जीवन, बदलते बाज़ार और बदलती सोच पर हमारे तीन लेख — पढ़ने के लिए टैप करें।</p>
+    </div>
+
+    <div class="blog-hub-list reveal">
+      <button class="blog-hub-item" data-target="panel-investment-blog" type="button">
+        <span class="blog-hub-item-icon">📊</span>
+        <span class="blog-hub-item-text">
+          <span class="blog-hub-item-title">भारत का रियल एस्टेट : मिडिल क्लास की धीमी चाल</span>
+          <span class="blog-hub-item-sub">मिडिल क्लास के फैसलों में आ रहे बदलाव पर निवेश डेस्क का विश्लेषण</span>
+        </span>
+        <span class="blog-hub-item-arrow">⌄</span>
+      </button>
+
+      <button class="blog-hub-item" data-target="panel-community-blog" type="button">
+        <span class="blog-hub-item-icon">🤝</span>
+        <span class="blog-hub-item-text">
+          <span class="blog-hub-item-title">Community Living — बेहतर भविष्य की ओर एक कदम</span>
+          <span class="blog-hub-item-sub">शहरी अकेलेपन से सामुदायिक अपनेपन तक का सफ़र</span>
+        </span>
+        <span class="blog-hub-item-arrow">⌄</span>
+      </button>
+
+      <button class="blog-hub-item" data-target="panel-retiree-blog" type="button">
+        <span class="blog-hub-item-icon">🌿</span>
+        <span class="blog-hub-item-text">
+          <span class="blog-hub-item-title">भारत के सबसे अमीर रिटायर्ड लोग अब प्रकृति चुन रहे हैं</span>
+          <span class="blog-hub-item-sub">शहर की गगनचुंबी इमारतों से जंगल और नदी किनारे की ओर</span>
+        </span>
+        <span class="blog-hub-item-arrow">⌄</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider"></div>
+
+<div class="blog-panel" id="panel-investment-blog">
 <section class="investment-blog-section" id="investment-blog">
   <div class="container">
 
@@ -2861,9 +3007,11 @@
 
   </div>
 </section>
+</div><!-- end panel-investment-blog -->
 
 <div class="wave-divider"></div>
 
+<div class="blog-panel" id="panel-community-blog">
 <!-- ===== COMMUNITY LIVING BLOG SECTION ===== -->
 <section class="community-blog-section" id="community-blog">
   <div class="container">
@@ -3032,6 +3180,123 @@
 
   </div>
 </section>
+</div><!-- end panel-community-blog -->
+
+<div class="wave-divider"></div>
+
+<div class="blog-panel" id="panel-retiree-blog">
+<!-- ===== RETIREES ECO-LIVING BLOG SECTION ===== -->
+<section class="investment-blog-section" id="retiree-blog">
+  <div class="container">
+
+    <div class="blog-header reveal">
+      <span class="pill pill-gold">🌿 ट्रेंड रिपोर्ट</span>
+      <div class="blog-meta">
+        <span class="blog-date">जुलाई 2026</span>
+        <div class="blog-dot"></div>
+        <span class="blog-source">Experiential Living India Desk</span>
+      </div>
+      <h2 class="section-title">भारत के सबसे अमीर रिटायर्ड लोग अब<br><span class="accent">शहर की ऊँची इमारतें नहीं, प्रकृति चुन रहे हैं</span></h2>
+    </div>
+
+    <div class="blog-opening-couplet reveal">
+      <p>
+        फ्लाईओवर, टावर और मॉल की चमक अब पीछे छूट रही है,<br>
+        <span>नदी किनारे, जंगल और पहाड़ों की गोद अब सबसे बड़ी दौलत बन रही है।।</span>
+      </p>
+    </div>
+
+    <div class="blog-body">
+
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-green">🏙️</div>
+          <div class="blog-segment-title">दशकों बाद पहली बार, एक अलग चुनाव</div>
+        </div>
+        <p>पहली बार, समृद्ध भारतीय शहरों से दूर जाकर प्रकृति के करीब जीवन बिताने का फैसला कर रहे हैं। एक पूरी पीढ़ी ने अपना करियर ट्रैफिक की ओर खुलती खिड़कियों, पाँचवीं मंज़िल की सीढ़ियों, कंक्रीट की बालकनियों और देर शाम घर लौटने के हिसाब से नापी गई ज़िंदगी में बिताया है।</p>
+        <div class="blog-highlight-line">अब वही पीढ़ी एक अलग रास्ता चुन रही है।</div>
+      </div>
+
+      <div class="img-frame reveal" style="height:320px; margin:2rem 0;">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80&auto=format&fit=crop" alt="हरी-भरी पहाड़ी ज़मीन">
+      </div>
+
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-teal">🌾</div>
+          <div class="blog-segment-title">बड़े नाम, बड़ी ज़मीनें</div>
+        </div>
+        <p>कई जाने-माने चेहरे और सफल उद्यमी अब बड़े फार्महाउस और खेत खरीदकर वही जीवनशैली गढ़ रहे हैं जिसकी उन्हें असल में तलाश है। Zoho के संस्थापक से लेकर दिवंगत अभिनेता धर्मेंद्र, जिन्होंने अपनी ज़िंदगी का बड़ा हिस्सा अपने 100 एकड़ के फार्महाउस पर बिताया, और रणबीर कपूर, जिन्होंने मुल्शी की शांत वादियों में करीब 25 एकड़ ज़मीन में निवेश किया बताया जाता है - रुझान साफ है।</p>
+        <div class="blog-highlight-line">हरियाली, पहाड़ों की लहरें, ताज़ी हवा और शांत माहौल अब लग्ज़री की नई पहचान बन रहे हैं।</div>
+        <p style="margin-top:1rem;">जहाँ इंसान आखिरकार कह सके - "मैं अब खुद को सुन पा रहा हूँ।"</p>
+      </div>
+
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-green">🏘️</div>
+          <div class="blog-segment-title">भारत भर में उभरते नए मॉडल</div>
+        </div>
+        <p>पूरे भारत में एक्सपीरिएंशियल और सस्टेनेबल लिविंग के नए मॉडल सामने आ रहे हैं - मुक्तेश्वर और देहरादून के पास कारी गाँव की स्लो-लिविंग कम्युनिटीज़ से लेकर, इंदौर में साझा रसोई वाले छह-परिवार समुदाय, और मचान जैसी लाइफस्टाइल अवधारणाएँ।</p>
+        <p>ये सभी एक ही सोच पर टिके हैं - एक खुशहाल, स्वस्थ, ऑर्गेनिक, प्रदूषण-मुक्त और तनाव-मुक्त जीवन, जहाँ बेहतर वातावरण दवाइयों पर निर्भरता खुद-ब-खुद कम कर देता है।</p>
+      </div>
+
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-gold">📊</div>
+          <div class="blog-segment-title">आँकड़े बड़े हैं, पर असली बदलाव भावनात्मक है</div>
+        </div>
+        <p>भारत का सीनियर लिविंग बाज़ार 2030 तक करीब 10 बिलियन डॉलर तक पहुँचने का अनुमान है। लेकिन इससे बड़ा बदलाव आर्थिक नहीं है - वह भावनात्मक है।</p>
+        <div class="blog-highlight-gold">जिन लोगों ने चालीस साल बिज़नेस खड़ा करने में लगाए, वे अब एक अलग सवाल पूछ रहे हैं।</div>
+        <p style="margin-top:1rem;">"मुझे सच में कहाँ रहना है?" - ना कि "मुझे कहाँ रहना चाहिए?"</p>
+      </div>
+
+      <div class="blog-segment reveal">
+        <div class="blog-segment-header">
+          <div class="blog-segment-icon icon-red">⚖️</div>
+          <div class="blog-segment-title">पुरानी सोच बनाम नई सोच</div>
+        </div>
+        <p>दशकों तक, रिटायरमेंट का मतलब था अस्पतालों, परिवार और उस शहर के करीब रहना जिसने आपके सबसे अच्छे साल ले लिए - सिर्फ इसलिए कि ज़रूरत पड़ने पर मदद पास हो।</p>
+        <p>आज यही सोच बदल रही है। ज़्यादा से ज़्यादा भारतीय अब एक सीधे-से लेकिन ताकतवर विचार पर बने इको-कम्युनिटीज़ चुन रहे हैं -</p>
+        <div class="blog-highlight-line">क्या हो अगर आपका माहौल आपको तेज़ी से नहीं, बल्कि बेहतर तरीके से उम्र बढ़ाने में मदद करे?</div>
+      </div>
+
+    </div><!-- end .blog-body -->
+
+    <div class="img-frame reveal" style="height:340px; margin:2rem 0 3rem;">
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1600&q=80&auto=format&fit=crop" alt="जंगल में सुबह की सैर">
+    </div>
+
+    <div class="blog-segment reveal" style="margin-bottom:2rem;">
+      <div class="blog-segment-header">
+        <div class="blog-segment-icon icon-teal">🌄</div>
+        <div class="blog-segment-title">Experiential Living India की सोच यहीं से जन्मी</div>
+      </div>
+      <p>यही बुनियादी विचार Experiential Living India के पीछे की सोच बना। ज़रा सोचिए - अपनी सुबह जंगलों, पहाड़ों, नदी किनारों और खुले परिदृश्यों में टहलते हुए शुरू करना - ना कि इमारतों, दीवारों और सड़क के शोर के बीच फँसे किसी पार्क में।</p>
+      <p>प्राकृतिक वेलनेस, प्रिवेंटिव हेल्थकेयर, कम्युनिटी फार्मिंग, सार्थक सामाजिक जुड़ाव और भलाई पर केंद्रित जीवनशैली - सब एक साथ, एक ही जगह पर।</p>
+      <div class="blog-highlight-gold">यह शहर से भागना नहीं है। यह जीने के एक बेहतर तरीके की ओर बढ़ना है।</div>
+    </div>
+
+    <div class="blog-segment reveal" style="margin-bottom:2rem;">
+      <div class="blog-segment-header">
+        <div class="blog-segment-icon icon-green">🌳</div>
+        <div class="blog-segment-title">तेज़ी से नहीं, समझदारी से बूढ़ा होना</div>
+      </div>
+      <p>Experiential Living India में, हम पेड़ों से घिरे रीजनरेटिव इको-कम्युनिटीज़ बना रहे हैं - सोच-समझकर डिज़ाइन की गई इको-विला, सस्टेनेबल इंफ्रास्ट्रक्चर, ऑर्गेनिक फार्मिंग और वेलनेस-केंद्रित वातावरण, जो लोगों को तेज़ी से नहीं, बल्कि गरिमा के साथ उम्र बढ़ाने में मदद करते हैं।</p>
+      <p>रिटायरमेंट शायद ज़िंदगी का वह पहला दौर है जहाँ सुविधा और जीवन की गुणवत्ता के बीच का समझौता वैकल्पिक हो जाता है। और लोग अब लगातार जीवन की गुणवत्ता को चुन रहे हैं।</p>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="blog-conclusion reveal">
+      <h3>निष्कर्ष : रिटायरमेंट का नया अर्थ</h3>
+      <p>Experiential Living India सिर्फ घर नहीं बना रहा। हम ऐसे माहौल गढ़ रहे हैं जहाँ धीमापन एक सोची-समझी चुनाव है, स्वस्थ रहना स्वाभाविक है, और कम्युनिटी सच में मायने रखती है।</p>
+      <p>जो शांति, जगह, ताज़ी हवा और भावनात्मक सुकून आपको मिलता है, वह शहर तक पहुँचने में लगने वाले उन चंद अतिरिक्त मिनटों से कहीं ज़्यादा भारी है।</p>
+      <p>क्योंकि रिटायरमेंट का भविष्य अब सिर्फ लंबा जीने के बारे में नहीं है। यह <strong>बेहतर जीने</strong> के बारे में है।</p>
+      <p style="margin-top:1rem;">Experiential Living India किसी रिटायरमेंट होम का विचार नहीं है। यह वह जगह है जो आपको फिर से प्रकृति से जोड़ती है, आपके तंत्रिका तंत्र को सुकून देती है, और आपके मन में शांति लौटाती है। हम आपका वह सपना डिज़ाइन करने के लिए तैयार हैं।</p>
+    </div>
+
+  </div>
+</section>
+</div><!-- end panel-retiree-blog -->
 
 <div class="wave-divider"></div>
 
@@ -4249,6 +4514,30 @@
     }, { threshold: 0.2 });
     chartObs.observe(projChart);
   }
+
+  // ── Blog hub accordion ──
+  const blogHubItems = document.querySelectorAll('.blog-hub-item');
+  blogHubItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const targetId = item.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      const isActive = item.classList.contains('active');
+
+      blogHubItems.forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.blog-panel').forEach(p => p.classList.remove('open'));
+
+      if (!isActive) {
+        item.classList.add('active');
+        if (targetPanel) {
+          targetPanel.classList.add('open');
+          targetPanel.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+          setTimeout(() => {
+            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 120);
+        }
+      }
+    });
+  });
 
   // ── Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
